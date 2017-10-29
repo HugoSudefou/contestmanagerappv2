@@ -1,0 +1,43 @@
+<div class="cardMission">
+  <div class="card">
+    <div class="titleMission">
+      <p class="first">Mission 2</p>
+      <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+  <div class="card">
+  </div>
+  <div class="card">
+    <div id="secondGroupeM1" class="relative" >
+
+      <ion-list range-group (ionChange)="upRange($event)">
+        <ion-list-header class="titleLabel">
+          Nombre de personnage :
+        </ion-list-header>
+        <ion-item class="ion-item first">
+          <ion-label class="titleRange"><b>-</b>debout dans sa vitrine. <span [textContent]="range.first.value" class="nbPersonage"></span></ion-label>
+          <ion-range name="rangeM2" class="range" min="0" [max]="range.first.max" [disabled]="range.first.max < 1" [(ngModel)]="range.first.value" color="secondary" pin="true" (ionChange)="upRange($event)"></ion-range>
+        </ion-item>
+        <ion-item class="ion-item">
+          <ion-label class="titleRange"><b>-</b> dans sa vitrine mais pas debout. <span [textContent]="range.second.value" class="nbPersonage"></span></ion-label>
+          <ion-range name="rangeM2" class="range" min="0" [max]="range.second.max" [disabled]="range.second.max < 1" [(ngModel)]="range.second.value" color="secondary" pin="true" (ionChange)="upRange($event)"></ion-range>
+        </ion-item>
+        <ion-item class="ion-item">
+          <ion-label class="titleRange"><b>-</b> dans la galerie des <br/> personnages historiques. <span [textContent]="range.third.value" class="nbPersonage"></span></ion-label>
+          <ion-range name="rangeM2" class="range" min="0" [max]="range.third.max" [disabled]="range.third.max < 1" [(ngModel)]="range.third.value" color="secondary" pin="true" (ionChange)="upRange($event)"></ion-range>
+        </ion-item>
+        <ion-item class="ion-item">
+          <ion-label class="titleRange"><b>-</b> dans l'atelier ou la loge. <span [textContent]="range.fourth.value" class="nbPersonage"></span></ion-label>
+          <ion-range name="rangeM2" class="range" min="0" [max]="range.fourth.max" [disabled]="range.fourth.max < 1" [(ngModel)]="range.fourth.value" color="secondary" pin="true" (ionChange)="upRange($event)"></ion-range>
+        </ion-item>
+        <ion-item class="ion-item">
+          <ion-label class="titleRange"><b>-</b> en dehoors des couloirs du temps <span [textContent]="range.five.value" class="nbPersonage"></span></ion-label>
+          <ion-range name="rangeM2" class="range" min="0" [max]="range.five.max" [disabled]="range.five.max < 1" [(ngModel)]="range.five.value" color="secondary" pin="true" (ionChange)="upRange($event)"></ion-range>
+        </ion-item>
+      </ion-list>
+
+    </div>
+  </div>
+
+</div>
+

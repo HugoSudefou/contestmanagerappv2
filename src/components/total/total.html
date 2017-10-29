@@ -1,0 +1,6 @@
+<div *ngIf="scores.penalities>0">
+  On a {{scores.penalities}} pénalités
+</div>
+<div>
+  Total : <span [textContent]="scores.mission1 + scores.mission2 + scores.mission3 + scores.mission4 + scores.mission5 + scores.mission6 + scores.bonus"></span>
+</div>
