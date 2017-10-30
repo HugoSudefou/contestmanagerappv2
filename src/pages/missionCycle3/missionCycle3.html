@@ -8,11 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <penalties (notifynbPena)="nbrPenalties($event)"></penalties>
-  <mission1-c3 (notifyScorM1)="scoreM1($event)"></mission1-c3>
+  <penalties (notifynbPena)="score($event, 'penalities')"></penalties>
+  <mission1-c3 (notifyScorM1)="score($event, 'mission1')"></mission1-c3>
   <hr>
-  <mission2-c3 (notifyScorM2)="scoreM2($event)"></mission2-c3>
+  <mission2-c3 (notifyScorM2)="score($event, 'mission2')"></mission2-c3>
   <hr>
-  <mission3-c3 (notifyScorM3)="scoreM3($event)"></mission3-c3>
+  <mission3-c3 (notifyScorM3)="score($event, 'mission3')" [penalities]="scores.penalities"></mission3-c3>
+  <hr>
+  <mission4-c3 (notifyScorM3)="score($event, 'mission4')" ></mission4-c3>
   <button ion-button full margin-bottom="10px" (click)="goToHome()">Back Home</button>
 </ion-content>

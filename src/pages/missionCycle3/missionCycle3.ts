@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 
@@ -7,7 +7,7 @@ import { HomePage } from '../home/home';
   selector: 'FMCycle3',
   templateUrl: 'missionCycle3.html'
 })
-export class missionCycle3 implements OnChanges {
+export class missionCycle3 {
   scores: {
     penalities: number,
     mission1: number,
@@ -33,29 +33,16 @@ export class missionCycle3 implements OnChanges {
     };
   }
 
-  ngOnChanges(){
-    console.log('test : ');
-    console.log(this.scores);
-  }
-
   goToHome(){
     this.navCtrl.push(HomePage)
   }
 
-  nbrPenalties(penalities): void {
-    this.scores.penalities = penalities;
+  score(scores: number, mission: string): void {
+    let arrayScore = this.scores;
+    for (let i in arrayScore) {
+      if (i == mission){
+        arrayScore[i] = scores;
+      }
+    }
   }
-
-  scoreM1(scores: number): void {
-    this.scores.mission1 = scores;
-  }
-
-  scoreM2(scores: number): void {
-    this.scores.mission2 = scores;
-  }
-
-  scoreM3(scores: number): void {
-    this.scores.mission2 = scores;
-  }
-
 }
