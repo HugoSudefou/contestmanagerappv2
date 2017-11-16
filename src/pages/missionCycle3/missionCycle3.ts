@@ -38,11 +38,6 @@ export class missionCycle3 {
   }
 
   score(scores: number, mission: string): void {
-    let arrayScore = this.scores;
-    for (let i in arrayScore) {
-      if (i == mission){
-        arrayScore[i] = scores;
-      }
-    }
+    this.scores[mission] = scores;
   }
 }

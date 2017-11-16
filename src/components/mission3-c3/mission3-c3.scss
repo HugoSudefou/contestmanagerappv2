@@ -4,6 +4,11 @@ mission3-c3 {
     }
 
     .card{
+
+      ion-label {
+        white-space: normal !important;
+      }
+
       border-bottom: 1px solid grey;
 
       .bool{
@@ -89,6 +94,7 @@ mission3-c3 {
       width: 80%;
       margin-left: -16%;
       text-align: left;
+      white-space: normal !important;
     }
     .range-md.range-has-pin {
       padding-top: 0;

@@ -1,3 +1,82 @@
 mission6-c3 {
+  .cardMission{
 
+    width: 100%;
+    margin: auto;
+    border: 1px solid grey;
+
+    .card{
+
+      ion-label {
+        white-space: normal !important;
+      }
+
+      border-bottom: 1px solid grey;
+
+      #firstGroupeM1{
+        padding: 10px;
+      }
+
+      .track {
+        z-index: -1;
+        position: absolute;
+        top:5px;
+        right:2px;
+        background-color: #E91E63;
+        width: 15% !important;
+        padding: 5px;
+        display: inline-block;
+        border-radius: 50px;
+      }
+
+      .repBool {
+        text-align: center;
+        font-size: 100% !important;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .oui {
+        background-color: green;
+      }
+
+      .non {
+        background-color: red;
+      }
+
+      .list-header-md {
+        padding-left: 16px;
+        margin-bottom: 0;
+        min-height: 4.5rem;
+        border-top: 1px solid #dedede;
+        font-size: 1.4rem;
+        color: #000000;
+      }
+
+      .divStatueConstruit {
+        width: 95%;
+        margin: 10px auto 0 auto;
+        .list-header-md {
+          padding-left: 16px;
+          margin-bottom: 0;
+          min-height: 4.5rem;
+          border-top: 0px solid #dedede;
+          font-size: 1.4rem;
+          color: #000000;
+        }
+      }
+
+    }
+    .card:last-child {
+      border-bottom: 0;
+    }
+
+    .speBottomBorder {
+      border-bottom: 0 !important;
+    }
+    .margBottom{
+      margin-bottom: -15px;
+    }
+  }
 }
