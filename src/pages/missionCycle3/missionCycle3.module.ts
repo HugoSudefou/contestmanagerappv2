@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { missionCycle3 } from './missionCycle3';
-import { ComponentsModule } from '../../components/components.module';
+import { ComponentsC3Module } from '../../components/componentsC3.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { ComponentsModule } from '../../components/components.module';
   ],
   imports: [
     IonicPageModule.forChild(missionCycle3),
-    ComponentsModule,
+    ComponentsC3Module
   ],
   exports: [
     missionCycle3

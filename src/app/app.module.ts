@@ -4,7 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import {  ComponentsModule } from '../components/components.module'
+import {  ComponentsC2Module } from '../components/componentsC2.module'
+import {  ComponentsC3Module } from '../components/componentsC3.module'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,7 +18,8 @@ import { HomePage } from '../pages/home/home';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    ComponentsModule
+    ComponentsC2Module,
+    ComponentsC3Module
   ],
   bootstrap: [IonicApp],
   entryComponents: [

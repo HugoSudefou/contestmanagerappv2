@@ -2,25 +2,36 @@
   <ion-navbar>
     <ion-title>
       MissionC3Page
+      <div class="timer">
+        <timer #timer timeInSeconds="180"></timer>
+      </div>
+      <button (click)="reset();" style=" position: absolute !important;
+                      top: 0 !important;
+                      right: 10px !important;" ion-button>Reset</button>
+      <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBon.reset()" hidden></button>
     </ion-title>
     <total [scores]="scores" ></total>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <penalties (notifynbPena)="score($event, 'penalities')"></penalties>
-  <mission1-c3 (notifyScorM1)="score($event, 'mission1')"></mission1-c3>
+  <penalties #resetPen (notifynbPena)="score($event, 'penalities')"></penalties>
+  <mission1-c3 #resetM1 (notifyScorM1)="score($event, 'mission1')"></mission1-c3>
   <hr>
-  <mission2-c3 (notifyScorM2)="score($event, 'mission2')"></mission2-c3>
+  <mission2-c3 #resetM2 (notifyScorM2)="score($event, 'mission2')"></mission2-c3>
   <hr>
-  <mission3-c3 (notifyScorM3)="score($event, 'mission3')" [penalities]="scores.penalities"></mission3-c3>
+  <mission3-c3 #resetM3 (notifyScorM3)="score($event, 'mission3')" [penalities]="scores.penalities"></mission3-c3>
   <hr>
-  <mission4-c3 (notifyScorM4)="score($event, 'mission4')" ></mission4-c3>
+  <mission4-c3 #resetM4 (notifyScorM4)="score($event, 'mission4')" ></mission4-c3>
   <hr>
-  <mission5-c3 (notifyScorM5)="score($event, 'mission5')" ></mission5-c3>
+  <mission5-c3 #resetM5 (notifyScorM5)="score($event, 'mission5')" ></mission5-c3>
   <hr>
-  <mission6-c3 (notifyScorM6)="score($event, 'mission6')" ></mission6-c3>
+  <mission6-c3 #resetM6 (notifyScorM6)="score($event, 'mission6')" ></mission6-c3>
   <hr>
-  <bonus-c3 (notifyBonus)="score($event, 'bonus')" ></bonus-c3>
+  <bonus-c3 #resetBon (notifyBonus)="score($event, 'bonus')" ></bonus-c3>
+  <div class="btnTools">
+    <button ion-button (click)="saveScore()">Enregistrer</button>
+    <button ion-button (click)="goToScore()">Scores</button>
+  </div>
   <button ion-button full margin-bottom="10px" (click)="goToHome()">Back Home</button>
 </ion-content>

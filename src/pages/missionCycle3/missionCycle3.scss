@@ -1,3 +1,27 @@
 page-home {
 
 }
+ion-content {
+  .btnTools {
+    button {
+      width: 48% !important;
+    }
+  }
+}
+
+.timer {
+  width: 25%;
+  position: absolute;
+  top: 0;
+  right: 100px;
+}
+
+.popupSave {
+  .alert-title {
+    font-size: 20px;
+  }
+  .alert-message {
+    overflow: hidden;
+    color: #000000;
+  }
+}
