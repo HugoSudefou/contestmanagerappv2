@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ScoresPage } from '../scores/scores';
-import { TimerComponent } from '../../components/timer/timer';
+import { TimerC3Component } from '../../components/cycle3/timer/timer';
 
 @IonicPage()
 @Component({
@@ -11,7 +11,7 @@ import { TimerComponent } from '../../components/timer/timer';
 })
 export class missionCycle3 {
 
-  @ViewChild(TimerComponent) timer: TimerComponent;
+  @ViewChild(TimerC3Component) timer: TimerC3Component;
 
   scores: {
     penalities: number,
