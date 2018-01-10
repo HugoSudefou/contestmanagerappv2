@@ -24,16 +24,17 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
-###Problème lors du build
-```bash
+### Problème lors du build
+
 Si vous avez un problème regardez si vous avez bien vos variable d'environement a jour
 
-echo $ANDROID_HOME
-echo $PATHJAVA_HOME
-echo $JAVA_HOME
-export JAVA_HOME=CHEMIN DOSSIER JAVA ( ex : /usr/java )
-export PATH=CHEMIN DOSSIER BIN JAVA ( ex : ${PATH}:/usr/java/bin )
-export ANDROID_HOME= CHEMIN DOSSIER ANDROID SDK ( ex : /home/hugo/Android/Sdk )
-export PATH=CHEMIN DOSSIER ANDROID SDK PLATFORM ET TOOLS ( ex : ${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools )
+```bash
+$ echo $ANDROID_HOME
+$ echo $PATHJAVA_HOME
+$ echo $JAVA_HOME
+$ export JAVA_HOME=CHEMIN DOSSIER JAVA ( ex : /usr/java )
+$ export PATH=CHEMIN DOSSIER BIN JAVA ( ex : ${PATH}:/usr/java/bin )
+$ export ANDROID_HOME= CHEMIN DOSSIER ANDROID SDK ( ex : /home/hugo/Android/Sdk )
+$ export PATH=CHEMIN DOSSIER ANDROID SDK PLATFORM ET TOOLS ( ex : ${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools )
 ```
 
