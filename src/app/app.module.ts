@@ -20,6 +20,7 @@ import { HomePage } from '../pages/home/home';
     IonicModule.forRoot(MyApp),
     ComponentsC2Module,
     ComponentsC3Module
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

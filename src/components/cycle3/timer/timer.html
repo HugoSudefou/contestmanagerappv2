@@ -1,0 +1,3 @@
+<div *ngIf="timer" (tap)="startTimer()" (press)="initTimer()">
+    <button ion-button *ngIf="timeInSeconds && timeInSeconds > 0" large full clear class="timer-button timer-text">{{timer.displayTime}}</button>
+</div>

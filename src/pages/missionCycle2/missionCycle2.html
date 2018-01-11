@@ -2,7 +2,15 @@
   <ion-navbar>
     <ion-title>
       MissionC2Page
+      <div class="timer">
+        <timer #timer timeInSeconds="180"></timer>
+      </div>
+      <button (click)="reset();" style=" position: absolute !important;
+                    top: 0 !important;
+                    right: 10px !important;" ion-button>Reset</button>
+      <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBon.reset()" hidden></button>
     </ion-title>
+    <total [scores]="scores" ></total>
   </ion-navbar>
 </ion-header>
 
