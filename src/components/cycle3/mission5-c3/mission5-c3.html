@@ -1,5 +1,8 @@
 <div class="cardMission">
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/mission5.jpg" alt="">
+    </div>
     <div class="titleMission">
       <p class="first">Mission 5</p>
       <p class="second">Score : {{scores.total}}</p>
@@ -19,13 +22,13 @@
       <div class="divStatueConstruit">
         <ion-list radio-group (ionChange)="calculScore(1, $event)">
           <ion-item class="radioCheck">
-            <ion-label><b>-</b> à l'intérieur de l'auditorium.</ion-label>
+            <ion-label><b>-</b> quand GardBot était à l'intérieur de l'auditorium.</ion-label>
             <ion-radio value='{{20 | number}}' ngDefaultControl [disabled]="!bool" ></ion-radio>
           </ion-item>
 
           <ion-item>
-            <ion-label><b>-</b> à l'extérieur de l'auditorium.</ion-label>
-            <ion-radio checked value='{{10}}' ngDefaultControl [disabled]="!bool"></ion-radio>
+            <ion-label><b>-</b> quand GardBot était à l'extérieur de l'auditorium.</ion-label>
+            <ion-radio value='{{10}}' ngDefaultControl [disabled]="!bool"></ion-radio>
           </ion-item>
 
         </ion-list>
@@ -43,16 +46,16 @@
         <ion-list radio-group  (ionChange)="calculScore(2, $event)">
           <ion-item class="radioCheck">
             <ion-label><b>-</b> du répertoire du robot.</ion-label>
-            <ion-radio checked value='{{0 | number}}' ngDefaultControl [disabled]="!bool"></ion-radio>
+            <ion-radio value='{{0 | number}}' ngDefaultControl [disabled]="!bool"></ion-radio>
           </ion-item>
 
           <ion-item>
-            <ion-label><b>-</b> d'une carte musique.</ion-label>
+            <ion-label><b>-</b> d'une carte musique tirée au sort par l’équipe.</ion-label>
             <ion-radio value='{{40}}' ngDefaultControl [disabled]="!bool"></ion-radio>
           </ion-item>
 
           <ion-item>
-            <ion-label><b>-</b> s'une composition.</ion-label>
+            <ion-label><b>-</b> d'une mélodie composée par l'équipe.</ion-label>
             <ion-radio value='{{70}}' ngDefaultControl [disabled]="!bool"></ion-radio>
           </ion-item>
 

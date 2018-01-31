@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>
       MissionC3Page
       <div class="timer">
@@ -8,7 +8,7 @@
       <button (click)="reset();" style=" position: absolute !important;
                       top: 0 !important;
                       right: 10px !important;" ion-button>Reset</button>
-      <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBon.reset()" hidden></button>
+      <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBon.reset();resetBonTec.reset();resetBonPeda.reset();resetBonAtti.reset()" hidden></button>
     </ion-title>
     <total [scores]="scores" ></total>
   </ion-navbar>
@@ -28,6 +28,8 @@
   <hr>
   <mission6-c3 #resetM6 (notifyScorM6)="score($event, 'mission6')" ></mission6-c3>
   <hr>
+  <bonus-techno #resetBonTec (notifyBonus)="score($event, 'bonusTec')" ></bonus-techno>
+  <bonus-pedago #resetBonPeda (notifyBonus)="score($event, 'bonusPeda')" ></bonus-pedago>
   <bonus-c3 #resetBon (notifyBonus)="score($event, 'bonus')" ></bonus-c3>
   <div class="btnTools">
     <button ion-button (click)="saveScore()">Enregistrer</button>

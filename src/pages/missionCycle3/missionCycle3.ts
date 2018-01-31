@@ -21,23 +21,16 @@ export class missionCycle3 {
     mission4: number,
     mission5: number,
     mission6: number,
+    bonusTec: number,
+    bonusPeda: number,
+    bonusAtti: number,
     bonus: number,
     total: number,
   };
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
-    this.scores = {
-      penalities: 0,
-      mission1: 0,
-      mission2: 0,
-      mission3: 0,
-      mission4: 0,
-      mission5: 0,
-      mission6: 0,
-      bonus: 0,
-      total: 0
-    };
+    this.init();
   }
 
   init(){
@@ -49,6 +42,9 @@ export class missionCycle3 {
       mission4: 0,
       mission5: 0,
       mission6: 0,
+      bonusTec: 0,
+      bonusPeda: 0,
+      bonusAtti: 0,
       bonus: 0,
       total: 0
     };
@@ -65,7 +61,7 @@ export class missionCycle3 {
 
   score(scores: number, mission: string): void {
     this.scores[mission] = scores;
-    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus;
+    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus - this.scores.penalities;
   }
 
   reset(){
