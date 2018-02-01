@@ -23,8 +23,6 @@ export class missionCycle3 {
     mission6: number,
     bonusTec: number,
     bonusPeda: number,
-    bonusAtti: number,
-    bonus: number,
     total: number,
   };
 
@@ -44,8 +42,6 @@ export class missionCycle3 {
       mission6: 0,
       bonusTec: 0,
       bonusPeda: 0,
-      bonusAtti: 0,
-      bonus: 0,
       total: 0
     };
   }
@@ -54,6 +50,7 @@ export class missionCycle3 {
     this.navCtrl.push(HomePage);
     this.timer.initTimer();
   }
+
   goToScore(){
     this.navCtrl.push('ScoresPage')
     this.timer.initTimer();
@@ -61,7 +58,7 @@ export class missionCycle3 {
 
   score(scores: number, mission: string): void {
     this.scores[mission] = scores;
-    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus - this.scores.penalities;
+    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonusPeda + this.scores.bonusTec - this.scores.penalities;
   }
 
   reset(){

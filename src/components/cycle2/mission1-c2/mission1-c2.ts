@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import * as _ from 'lodash'
+import * as _ from 'lodash';
 
 /**
  * Generated class for the Mission1C2Component component.

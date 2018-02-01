@@ -1,0 +1,123 @@
+<div class="cardMission">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/bonus.jpg" alt="">
+    </div>
+    <div class="titleMission">
+      <p class="first">Bonus Pédagogique</p>
+      <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+  <div class="card">
+    <ion-list>
+      <ion-list-header class="titleLabel">
+        <ion-label class="titleRange">Les élèves de l'équipe :</ion-label>
+      </ion-list-header>
+      <ion-item class="ion-item first">
+        <div class="relative padding" (click)="bool.bool1 = !bool.bool1;calculScore('bool1', 10);">
+          <label text-wrap>se sont présentés à l'arbitre de manière originale </label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool1">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool2 = !bool.bool2;calculScore('bool2', 10);">
+          <label text-wrap>ont une bonne relation entre eux.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool2">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool3 = !bool.bool3;calculScore('bool3', 10);">
+          <label text-wrap>respectent les autres équipes. Ils sont fair-play. </label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool3">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool3">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool4 = !bool.bool4;calculScore('bool4', 10);">
+          <label text-wrap>respectent les lieux, le matériel, les personnes qui les accompagnent, les encadrent ou organisent le défi. </label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool4">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool4">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool5 = !bool.bool5;calculScore('bool5', 10);">
+          <label text-wrap>prennent en compte les remarques de l’arbitre et progressent pendant la rencontre. </label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool5">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool5">NON</span>
+          </label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="card">
+    <div class="relative padding" (click)="showPart2 = !showPart2;initializePart2()">
+      <label>Présence d'une affiche (format raisin) sur le stand de l’équipe. </label>
+      <label class="boolMission toggle">
+        <span class="track oui repBool" [hidden]="!showPart2">OUI</span>
+        <span class="track non repBool" [hidden]="showPart2">NON</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="card" [hidden]="!showPart2">
+    <ion-list>
+      <ion-item class="ion-item first">
+        <div class="relative padding" (click)="bool.bool6 = !bool.bool6;calculScore('bool6', 10);">
+          <label>Présentation de l’équipe.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool6">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool6">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool7 = !bool.bool7;calculScore('bool7', 10);">
+          <label>Conception du robot.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool7">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool7">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool8 = !bool.bool8;calculScore('bool8', 10);">
+          <label>Programmation du robot.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool8">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool8">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool9 = !bool.bool9;calculScore('bool9', 10);">
+          <label>Apports du projet robotique.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool9">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool9">NON</span>
+          </label>
+        </div>
+      </ion-item>
+      <ion-item class="ion-item">
+        <div class="relative padding" (click)="bool.bool10 = !bool.bool10;calculScore('bool10', 10);">
+          <label>Travail dans une équipe de robotique.</label>
+          <label class="boolMission toggle">
+            <span class="track oui repBool" [hidden]="!bool.bool10">OUI</span>
+            <span class="track non repBool" [hidden]="bool.bool10">NON</span>
+          </label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+
