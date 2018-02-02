@@ -1,17 +1,18 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 
 /**
- * Generated class for the Mission3C2Component component.
+ * Generated class for the Mission5C2Component component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'mission3-c2',
-  templateUrl: 'mission3-c2.html'
+  selector: 'mission5-c2',
+  templateUrl: 'mission5-c2.html'
 })
-export class Mission3C2Component {
-  @Output() notifyScorM3: EventEmitter<number> = new EventEmitter<number>();
+export class Mission5C2Component {
+
+  @Output() notifyScorM5: EventEmitter<number> = new EventEmitter<number>();
 
   bool: {
     bool1: boolean,
@@ -53,7 +54,6 @@ export class Mission3C2Component {
   }
 
   pushScore() :void{
-    this.notifyScorM3.emit(this.scores.total);
+    this.notifyScorM5.emit(this.scores.total);
   }
-
 }

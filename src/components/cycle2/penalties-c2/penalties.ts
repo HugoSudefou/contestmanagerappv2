@@ -15,7 +15,15 @@ export class PenaltiesComponent{
   @Output() notifynbPena: EventEmitter<number> = new EventEmitter<number>();
 
   constructor() {
-    this.nbPena = 0;
+    this.init();
     console.log('Hello PenaltiesComponent Component');
+  }
+
+  init(){
+    this.nbPena = 0;
+  }
+
+  reset(){
+    this.init();
   }
 }

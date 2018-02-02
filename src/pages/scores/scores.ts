@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {HomePage} from "../home/home";
+import {missionCycle2} from "../missionCycle2/missionCycle2";
+import {missionCycle3} from "../missionCycle3/missionCycle3";
 
 /**
  * Generated class for the ScoresPage page.
@@ -17,11 +20,42 @@ export class ScoresPage {
 
   dataScores: Array<any>;
   Object = Object;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.dataScores = JSON.parse(localStorage["scores"]).reverse();
-    this.dataScores.forEach((value, key) => {
-      if (key === 0) value.isActive = true;
-    })
+  cycle: number;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
+    this.cycle = navParams.data;
+    if(this.cycle === 2){
+      this.dataScores = JSON.parse(localStorage["scores"]).cycle2.reverse();
+      if(this.dataScores.length < 1) this.popup('scores');
+      this.dataScores.forEach((value, key) => {
+        if (key === 0) value.isActive = true;
+      })
+    }
+    else if(this.cycle === 3){
+      this.dataScores = JSON.parse(localStorage["scores"]).cycle3.reverse();
+      if(this.dataScores.length < 1) this.popup('scores');
+      this.dataScores.forEach((value, key) => {
+        if (key === 0) value.isActive = true;
+      })
+    }
+    else {
+      this.popup('error');
+    }
+  }
+
+  popup(type){
+    let confirmReset = this.alertController.create({
+      title: (type === 'error') ? 'Une erreur est survenu !' : 'Il n\'y a aucun score présent.',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            (this.cycle === 3) ? this.navCtrl.push('missionCycle3') : this.navCtrl.push('missionCycle2');
+          }
+        }
+      ]
+    });
+    confirmReset.present();
   }
 
   ionViewDidLoad() {

@@ -1,6 +1,13 @@
 page-home {
 
 }
+.toolbar{
+  font-size: 24px;
+  min-height: 85px !important;
+  .toolbar-title{
+    font-size: 26px;
+  }
+}
 ion-content {
   .btnTools {
     text-align: center;

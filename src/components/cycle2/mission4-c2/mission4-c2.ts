@@ -38,21 +38,13 @@ export class Mission4C2Component {
     },
     cas4:{
       first:boolean,
-      second:boolean,
-      third:boolean,
-      four:boolean,
+      second:boolean
     },
     cas5:{
-      first:boolean,
-      second:boolean,
-      third:boolean,
-      four:boolean,
+      first:boolean
     },
     cas6:{
-      first:boolean,
-      second:boolean,
-      third:boolean,
-      four:boolean,
+      first:boolean
     }
   };
   errorMessageBlock: String;
@@ -89,21 +81,13 @@ export class Mission4C2Component {
       },
       cas4:{
         first: false,
-        second: false,
-        third: false,
-        four: false,
+        second: false
       },
       cas5:{
-        first:false,
-        second:false,
-        third:false,
-        four:false,
+        first:false
       },
       cas6:{
-        first:false,
-        second:false,
-        third:false,
-        four:false,
+        first:false
       }
     };
   }

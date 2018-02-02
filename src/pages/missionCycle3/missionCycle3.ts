@@ -52,7 +52,7 @@ export class missionCycle3 {
   }
 
   goToScore(){
-    this.navCtrl.push('ScoresPage')
+    this.navCtrl.push('ScoresPage', 3)
     this.timer.initTimer();
   }
 
@@ -151,7 +151,7 @@ export class missionCycle3 {
 
   localSaveScore(allData){
     let scores = JSON.parse(localStorage["scores"]);
-    scores.push(allData);
+    scores.cycle3.push(allData);
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 }

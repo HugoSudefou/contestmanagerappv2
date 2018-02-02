@@ -1,7 +1,5 @@
-
-
 <ion-item>
-    <ion-label>Nombre de pénalité : {{nbPena}} </ion-label>
+  <ion-label>Nombre de pénalité : {{nbPena}} </ion-label>
   <ion-range name="rangePenalities" class="range" min="0" max="10" [(ngModel)]="nbPena" color="danger" pin="true" (ionChange)="this.notifynbPena.emit(nbPena)">
     <ion-label range-left>0</ion-label>
     <ion-label range-right>10</ion-label>
