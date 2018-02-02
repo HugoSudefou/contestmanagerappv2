@@ -1,18 +1,18 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import * as _ from 'lodash'
+import * as _ from 'lodash';
 
 /**
- * Generated class for the Mission2C2Component component.
+ * Generated class for the Mission4C2Component component.
  *
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
 @Component({
-  selector: 'mission2-c2',
-  templateUrl: 'mission2-c2.html'
+  selector: 'mission4-c2',
+  templateUrl: 'mission4-c2.html'
 })
-export class Mission2C2Component {
-  @Output() notifyScorM2: EventEmitter<number> = new EventEmitter<number>();
+export class Mission4C2Component {
+  @Output() notifyScorM4: EventEmitter<number> = new EventEmitter<number>();
 
   scores: {
     total:number
@@ -37,6 +37,18 @@ export class Mission2C2Component {
       four:boolean,
     },
     cas4:{
+      first:boolean,
+      second:boolean,
+      third:boolean,
+      four:boolean,
+    },
+    cas5:{
+      first:boolean,
+      second:boolean,
+      third:boolean,
+      four:boolean,
+    },
+    cas6:{
       first:boolean,
       second:boolean,
       third:boolean,
@@ -80,6 +92,18 @@ export class Mission2C2Component {
         second: false,
         third: false,
         four: false,
+      },
+      cas5:{
+        first:false,
+        second:false,
+        third:false,
+        four:false,
+      },
+      cas6:{
+        first:false,
+        second:false,
+        third:false,
+        four:false,
       }
     };
   }
@@ -165,8 +189,10 @@ export class Mission2C2Component {
     _.forEach(this.colorBackground, (key, cas) => {
       if(cas === 'cas1') score = 1;
       else if(cas === 'cas2') score = 3;
-      else if(cas === 'cas3') score = 2;
+      else if(cas === 'cas3') score = 5;
       else if(cas === 'cas4') score = 10;
+      else if(cas === 'cas5') score = 15;
+      else if(cas === 'cas6') score = 20;
       _.forEach(this.colorBackground[cas], (key, pos) => {
         if(key) {
           nbBlock++;
@@ -191,7 +217,8 @@ export class Mission2C2Component {
   }
 
   pushScore() :void{
-    this.notifyScorM2.emit(this.scores.total);
+    this.notifyScorM4.emit(this.scores.total);
   }
+
 
 }

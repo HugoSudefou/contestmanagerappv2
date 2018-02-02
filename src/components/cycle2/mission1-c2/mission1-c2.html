@@ -21,10 +21,10 @@
           <td class="cell-pad-align-center">
               Un déchet se trouve à l’école
           </td>
-          <td class="responseFalse" (click)="changeColor('first','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['first'], 'responseTrue' : colorBackground.cas0['first']}"><p>1</p></td>
-          <td class="responseFalse" (click)="changeColor('second','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['second'], 'responseTrue' : colorBackground.cas0['second']}"><p>2</p></td>
-          <td class="responseFalse" (click)="changeColor('third','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['third'], 'responseTrue' : colorBackground.cas0['third']}"><p>3</p></td>
-          <td class="responseFalse" (click)="changeColor('four','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['four'], 'responseTrue' : colorBackground.cas0['four']}"><p>4</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas0['first']) ? asErrorMessage : null" (click)="changeColor('first','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['first'], 'responseTrue' : colorBackground.cas0['first']}"><p>1</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas0['second']) ? asErrorMessage : null" (click)="changeColor('second','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['second'], 'responseTrue' : colorBackground.cas0['second']}"><p>2</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas0['third']) ? asErrorMessage : null" (click)="changeColor('third','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['third'], 'responseTrue' : colorBackground.cas0['third']}"><p>3</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas0['four']) ? asErrorMessage : null" (click)="changeColor('four','cas0')" [ngClass]="{'responseFalse' : !colorBackground.cas0['four'], 'responseTrue' : colorBackground.cas0['four']}"><p>4</p></td>
         </tr>
         <tr class="cas1">
           <td class="cell-pad-align-center">
@@ -35,10 +35,10 @@
           </td>
           <td class="cell-pad-align-center">Cas 1 : Un déchet se trouve sur le sol de la déchetteri
           </td>
-          <td class="responseFalse" (click)="changeColor('first','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['first'], 'responseTrue' : colorBackground.cas1['first']}"><p>1</p></td>
-          <td class="responseFalse" (click)="changeColor('second','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['second'], 'responseTrue' : colorBackground.cas1['second']}"><p>2</p></td>
-          <td class="responseFalse" (click)="changeColor('third','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['third'], 'responseTrue' : colorBackground.cas1['third']}"><p>3</p></td>
-          <td class="responseFalse" (click)="changeColor('four','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['four'], 'responseTrue' : colorBackground.cas1['four']}"><p>4</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['first']) ? asErrorMessage : null"  (click)="changeColor('first','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['first'], 'responseTrue' : colorBackground.cas1['first']}"><p>1</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['second']) ? asErrorMessage : null"  (click)="changeColor('second','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['second'], 'responseTrue' : colorBackground.cas1['second']}"><p>2</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['third']) ? asErrorMessage : null"  (click)="changeColor('third','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['third'], 'responseTrue' : colorBackground.cas1['third']}"><p>3</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['four']) ? asErrorMessage : null"  (click)="changeColor('four','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['four'], 'responseTrue' : colorBackground.cas1['four']}"><p>4</p></td>
         </tr>
         <tr class="cas2">
           <td class="cell-pad-align-center">
@@ -50,8 +50,8 @@
           <td class="cell-pad-align-center">
               Cas 2 : Un déchet se trouve au niveau 2 d’une tour de compactage dans la déchetterie
           </td>
-          <td colspan="2" class="responseFalse" (click)="changeColor('first','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['first'], 'responseTrue' : colorBackground.cas2['first']}"><p>1</p></td>
-          <td colspan="2" class="responseFalse" (click)="changeColor('second','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['second'], 'responseTrue' : colorBackground.cas2['second']}"><p>2</p></td>
+          <td colspan="2" class="responseFalse" [style.background-color]="(!colorBackground.cas2['first']) ? asErrorMessage : null" (click)="changeColor('first','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['first'], 'responseTrue' : colorBackground.cas2['first']}"><p>1</p></td>
+          <td colspan="2" class="responseFalse" [style.background-color]="(!colorBackground.cas2['second']) ? asErrorMessage : null"(click)="changeColor('second','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['second'], 'responseTrue' : colorBackground.cas2['second']}"><p>2</p></td>
         </tr>
         <tr class="cas3">
           <td class="cell-pad-align-center">
@@ -63,7 +63,7 @@
           <td class="cell-pad-align-center">
               Cas 3 : Un déchet se trouve au niveau 3 d’une tour de compactage dans la déchetterie
           </td>
-          <td colspan="4" class="responseFalse" (click)="changeColor('first','cas3')" [ngClass]="{'responseFalse' : !colorBackground.cas3['first'], 'responseTrue' : colorBackground.cas3['first']}"><p>1</p></td>
+          <td colspan="4" class="responseFalse" [style.background-color]="(!colorBackground.cas3['first']) ? asErrorMessage : null" (click)="changeColor('first','cas3')" [ngClass]="{'responseFalse' : !colorBackground.cas3['first'], 'responseTrue' : colorBackground.cas3['first']}"><p>1</p></td>
         </tr>
         <tr class="cas4">
           <td class="cell-pad-align-center">
@@ -75,7 +75,7 @@
           <td class="cell-pad-align-center">
               Cas 4 : Un déchet se trouve au niveau 4 d’une tour de compactage dans la déchetterie
           </td>
-          <td colspan="4" class="responseFalse" (click)="changeColor('first','cas4')" [ngClass]="{'responseFalse' : !colorBackground.cas4['first'], 'responseTrue' : colorBackground.cas4['first']}"><p>1</p></td>
+          <td colspan="4" class="responseFalse" [style.background-color]="(!colorBackground.cas4['first']) ? asErrorMessage : null" (click)="changeColor('first','cas4')" [ngClass]="{'responseFalse' : !colorBackground.cas4['first'], 'responseTrue' : colorBackground.cas4['first']}"><p>1</p></td>
         </tr>
         <tr class="cas5">
           <td class="cell-pad-align-center">
@@ -86,10 +86,10 @@
           <td class="cell-pad-align-center">
               Un déchet se trouve en dehors de la rivière mais ni à l’école ni à la déchetterie
           </td>
-          <td class="responseFalse" (click)="changeColor('first','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['first'], 'responseTrue' : colorBackground.cas5['first']}"><p>1</p></td>
-          <td class="responseFalse" (click)="changeColor('second','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['second'], 'responseTrue' : colorBackground.cas5['second']}"><p>2</p></td>
-          <td class="responseFalse" (click)="changeColor('third','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['third'], 'responseTrue' : colorBackground.cas5['third']}"><p>3</p></td>
-          <td class="responseFalse" (click)="changeColor('four','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['four'], 'responseTrue' : colorBackground.cas5['four']}"><p>4</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas5['first']) ? asErrorMessage : null" (click)="changeColor('first','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['first'], 'responseTrue' : colorBackground.cas5['first']}"><p>1</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas5['second']) ? asErrorMessage : null" (click)="changeColor('second','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['second'], 'responseTrue' : colorBackground.cas5['second']}"><p>2</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas5['third']) ? asErrorMessage : null" (click)="changeColor('third','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['third'], 'responseTrue' : colorBackground.cas5['third']}"><p>3</p></td>
+          <td class="responseFalse" [style.background-color]="(!colorBackground.cas5['four']) ? asErrorMessage : null" (click)="changeColor('four','cas5')" [ngClass]="{'responseFalse' : !colorBackground.cas5['four'], 'responseTrue' : colorBackground.cas5['four']}"><p>4</p></td>
         </tr>
       </tbody>
     </table>

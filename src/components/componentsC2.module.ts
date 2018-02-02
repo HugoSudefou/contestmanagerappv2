@@ -4,13 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from 'ionic-angular';
 import { TotalC2Component } from './cycle2/total-c2/total';
 import { Mission1C2Component } from './cycle2/mission1-c2/mission1-c2';
-import { TimerC2Component } from './cycle2/timer/timer';
 import { Mission2C2Component } from './cycle2/mission2-c2/mission2-c2';
+import { Mission3C2Component } from './cycle2/mission3-c2/mission3-c2';
+import { Mission4C2Component } from './cycle2/mission4-c2/mission4-c2';
+import { TimerC2Component } from './cycle2/timer/timer';
 
 @NgModule({
 	declarations: [
 	  Mission1C2Component,
     Mission2C2Component,
+    Mission3C2Component,
+    Mission4C2Component,
     PenaltiesComponent,
     TotalC2Component,
     TimerC2Component
@@ -23,6 +27,8 @@ import { Mission2C2Component } from './cycle2/mission2-c2/mission2-c2';
 	exports: [
 	  Mission1C2Component,
     Mission2C2Component,
+    Mission3C2Component,
+    Mission4C2Component,
     PenaltiesComponent,
     TotalC2Component,
     TimerC2Component

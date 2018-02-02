@@ -15,8 +15,10 @@
 </ion-header>
 
 <ion-content>
-  <penalties></penalties>
-  <mission1-c2></mission1-c2>
-  <mission2-c2></mission2-c2>
+  <penalties #resetPen (notifynbPena)="score($event, 'penalities')"></penalties>
+  <mission1-c2 #resetM1 (notifyScorM1)="score($event, 'mission1')"></mission1-c2>
+  <mission2-c2 #resetM2 (notifyScorM2)="score($event, 'mission2')"></mission2-c2>
+  <mission3-c2 #resetM3 (notifyScorM3)="score($event, 'mission3')"></mission3-c2>
+  <mission4-c2 #resetM4 (notifyScorM4)="score($event, 'mission4')"></mission4-c2>
   <button ion-button full margin-bottom="10px" (click)="goToHome()">Go Home</button>
 </ion-content>

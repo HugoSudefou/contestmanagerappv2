@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import * as _ from 'lodash';
 
 /**
@@ -12,6 +12,7 @@ import * as _ from 'lodash';
   templateUrl: 'mission1-c2.html'
 })
 export class Mission1C2Component {
+  @Output() notifyScorM1: EventEmitter<number> = new EventEmitter<number>();
 
   scores: {
     total:number
@@ -47,6 +48,7 @@ export class Mission1C2Component {
     },
   };
   errorMessageBlock: String;
+  asErrorMessage: String;
 
   constructor() {
     this.init()
@@ -54,6 +56,7 @@ export class Mission1C2Component {
 
   init(){
     this.errorMessageBlock = '';
+    this.asErrorMessage = null;
     this.scores = {
       total: 0
     };
@@ -225,6 +228,7 @@ export class Mission1C2Component {
 
   calculScore(){
     this.errorMessageBlock = '';
+    this.asErrorMessage = null;
     let score = 0;
     this.scores.total = 0;
     let nbBlock = 0;
@@ -244,11 +248,13 @@ export class Mission1C2Component {
           }
           else{
             this.scores.total = 0;
-            this.errorMessageBlock = 'Attention vous avez mis plus de 4 Blocks. Veuillez vérifier les points.'
+            this.errorMessageBlock = 'Attention vous avez mis plus de 4 Blocks. Veuillez vérifier les points.';
+            this.asErrorMessage = '#FFD900';
           }
         }
       })
     })
+    this.pushScore();
     console.log('this.scores.total : ', this.scores.total)
   }
 
@@ -256,4 +262,7 @@ export class Mission1C2Component {
     this.init();
   }
 
+  pushScore() :void{
+    this.notifyScorM1.emit(this.scores.total);
+  }
 }
