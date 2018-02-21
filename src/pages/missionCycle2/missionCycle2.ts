@@ -58,13 +58,13 @@ export class missionCycle2 {
     this.timer.initTimer();
   }
   goToScore(){
-    this.navCtrl.push('ScoresPage')
+    this.navCtrl.push('ScoresPage', 2)
     this.timer.initTimer();
   }
 
   score(scores: number, mission: string): void {
     this.scores[mission] = scores;
-    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus;
+    this.scores.total = (this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus) - (this.scores.penalities * 4);
   }
 
   reset(){
@@ -157,7 +157,7 @@ export class missionCycle2 {
 
   localSaveScore(allData){
     let scores = JSON.parse(localStorage["scores"]);
-    scores.push(allData);
+    scores.cycle2.push(allData);
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 }

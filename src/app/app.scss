@@ -34,11 +34,60 @@
     margin: auto;
     border: 1px solid grey;
   .card {
+    font-size: 24px;
+
+    border-bottom: 1px solid grey;
 
     .titleLabel {
       font-size: 16px;
       font-weight: bold;
       color: #000;
+    }
+
+    .img-mission {
+      position: absolute;
+      top: 0;
+      left: 1px;
+      max-width: 78px;
+      z-index: 2;
+    }
+
+    .item-range ion-range {
+      width: 90%;
+    }
+
+
+    .range {
+      padding: 40px 5px !important;
+      margin-left: -10px;
+    }
+
+    .range-md .range-bar {
+      height: 25px;
+      border-radius: 30px;
+      left: 0;
+      top: 12px;
+      position: absolute;
+      width: 103%;
+      background: #bdbdbd;
+      pointer-events: none;
+    }
+
+    .range-md .range-knob{
+      top: -15px;
+      left: 2px;
+      width: 75px;
+      height: 75px;
+    }
+    .range-md .range-pin {
+      padding: 4px 0;
+      position: relative;
+      top: -40px;
+      left: 18px;
+      display: inline-block;
+      min-width: 30px;
+      height: 30px;
+      font-size: 20px;
     }
 
     .titleMission{
@@ -48,16 +97,15 @@
       background-color: #b3b3b3;
 
       p.first {
-
-        font-size: 20px;
+        font-size: 34px;
         font-weight: bold;
-        width: 100%;
+        width: 80%;
         text-align: center;
         position: absolute;
         left: 0;
         top: 0;
         padding: 0;
-        margin: 2% 0;
+        margin: 0 10%;
       }
       p.second {
 
@@ -67,7 +115,8 @@
         right: 0;
         top: 0;
         padding: 0;
-        margin: 3% 0;
+        margin: 25px 0;
+        font-size: 24px;
       }
     }
   }

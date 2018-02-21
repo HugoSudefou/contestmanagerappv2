@@ -1,0 +1,79 @@
+mission4-c2 {
+
+  table{
+    width: 100%;
+    border: 1px solid black;
+
+    tr {
+      width: 100%;
+      border: 1px solid black;
+
+      td {
+        width: 50px;
+        border: 1px solid black;
+        p{
+          text-align: center;
+        }
+      }
+    }
+    .cas0 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas1 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas2 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas3 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas4 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas5 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+  }
+
+
+  .div-img{
+    img{
+      height: 45px;
+      display: inline-flex;
+    }
+  }
+
+  .responseFalse {
+    background-color: #e92a00;
+  }
+
+  .responseTrue {
+    background-color: #3fe901;
+  }
+
+}

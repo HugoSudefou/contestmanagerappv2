@@ -1,15 +1,50 @@
 penalties {
+  .penalities {
+    padding: 10px 0;
+  }
+
   .range {
-    padding-top: 5px !important;
+    width: 90%;
+    padding: 0 5px 40px 5px !important;
+    margin-top: 25px;
+    margin-left: -10px;
   }
+
   .range-md .range-bar {
-    height: 15px;
+    height: 25px;
     border-radius: 30px;
+    left: 0;
+    top: 12px;
+    position: absolute;
+    width: 103%;
+    background: #bdbdbd;
+    pointer-events: none;
   }
+
   .range-md .range-knob{
-    top: 10px;
+    top: -15px;
     left: 2px;
-    width: 38px;
-    height: 38px;
+    width: 75px;
+    height: 75px;
+  }
+  .range-md .range-pin {
+    padding: 4px 0;
+    position: relative;
+    top: -40px;
+    left: 18px;
+    display: inline-block;
+    min-width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .range-md [range-right] {
+    /* padding: 0px 0 0 25px; */
+    margin: 5px 0 0 45px;
+  }
+
+  .range-md [range-left] {
+    /* padding: 0px 0 0 25px; */
+    margin: 5px 20px 0 0;
   }
 }

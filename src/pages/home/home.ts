@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { missionCycle2 } from '../missionCycle2/missionCycle2';
 import { missionCycle3 } from '../missionCycle3/missionCycle3';
+import { NotFoundPage } from '../not-found/not-found';
 
 @Component({
   selector: 'page-home',
@@ -19,5 +20,9 @@ export class HomePage {
 
   goToC3(){
     this.navCtrl.push('missionCycle3')
+  }
+
+  goTo404(){
+    this.navCtrl.push('NotFoundPage')
   }
 }

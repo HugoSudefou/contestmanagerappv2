@@ -1,7 +1,10 @@
 <div class="cardMission">
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/mission1.jpg" alt="">
+    </div>
     <div class="titleMission">
-      <p class="first">Mission 1</p>
+      <p class="first">Mission 1 <br/> <span style="font-weight:normal;font-size: 20px">Dépose de la momie et de la tablette magique dans le sarcophage.</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -22,24 +25,24 @@
             La momie :
           </ion-list-header>
 
-          <ion-item class="radioCheck">
+          <ion-item class="inputRadio">
             <ion-label><b>-</b>est assise sur son trône et se trouve dans le sarcophage.</ion-label>
             <ion-radio [(ngModel)]="scores.choice" value='{{20}}' ngDefaultControl></ion-radio>
           </ion-item>
 
-          <ion-item>
+          <ion-item class="inputRadio">
             <ion-label><b>-</b> se trouve dans la loge du gardien.</ion-label>
             <ion-radio [(ngModel)]="scores.choice" value='{{50}}' ngDefaultControl></ion-radio>
           </ion-item>
 
-          <ion-item>
+          <ion-item class="inputRadio">
             <ion-label><b>-</b> est allongée dans le sarcophage.</ion-label>
             <ion-radio [(ngModel)]="scores.choice" value='{{80}}' ngDefaultControl></ion-radio>
           </ion-item>
 
-          <ion-item>
+          <ion-item class="inputRadio">
             <ion-label>Autre situation</ion-label>
-            <ion-radio [(ngModel)]="scores.choice" value='{{0}}' ngDefaultControl checked></ion-radio>
+            <ion-radio [(ngModel)]="scores.choice" value='{{0}}' ngDefaultControl></ion-radio>
           </ion-item>
         </ion-list>
       </div>

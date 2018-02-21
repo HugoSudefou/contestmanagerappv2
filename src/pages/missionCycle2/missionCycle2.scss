@@ -1,3 +1,26 @@
 page-home {
+}
+.toolbar{
+  font-size: 24px;
+  min-height: 85px !important;
+  .toolbar-title{
+    font-size: 26px;
+  }
+}
 
+
+.responseFalse {
+  background-color: #e92a00;
+}
+
+.responseTrue {
+  background-color: #3fe901;
+}
+
+.cardMission {
+  .card:first-child {
+    .titleMission{
+      min-height: 90px !important;
+    }
+  }
 }

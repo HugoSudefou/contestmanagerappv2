@@ -1,0 +1,42 @@
+<div class="cardMission">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/bonus.jpg" alt="">
+    </div>
+    <div class="titleMission">
+      <p class="first">Bonus Technologique</p>
+      <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <ion-list range-group (ionChange)="upRange2()">
+
+      <ion-list-header class="titleLabel">
+
+      </ion-list-header>
+      <ion-item class="ion-item first">
+        <ion-label class="titleRange">GardBot utilise des moteurs supplémentaires <span [textContent]="range.moteur.value" class="nbPersonage"></span></ion-label>
+        <ion-range name="moteur" class="range" min="0" [max]="range.moteur.max" [(ngModel)]="range.moteur.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
+      </ion-item>
+      <ion-item class="ion-item">
+        <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.capteur.value" class="nbPersonage"></span></ion-label>
+        <ion-range name="capteur" class="range" min="0" [max]="range.capteur.max" [(ngModel)]="range.capteur.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
+      </ion-item>
+      <ion-item class="ion-item">
+        <ion-label class="titleRange"><b>-</b> à l'intérieur du socle. <span [textContent]="range.imprimante.value" class="nbPersonage"></span></ion-label>
+        <ion-range name="imprimante" class="range" min="0" [max]="range.imprimante.max" [(ngModel)]="range.imprimante.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="card">
+    <div class="labelBool relative padding" (click)="bool4 = !bool4;calculScore();">
+      <label><b>La statue </b> est lestée : </label>
+      <label class="boolMission toggle">
+        <span class="track oui repBool" [hidden]="!bool4">OUI</span>
+        <span class="track non repBool" [hidden]="bool4">NON</span>
+      </label>
+    </div>
+  </div>
+</div>
+

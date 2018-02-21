@@ -8,23 +8,32 @@ bonus-c3 {
     .card{
 
       ion-label {
+        font-size: 24px;
         white-space: normal !important;
       }
 
       border-bottom: 1px solid grey;
 
       .padding{
-        padding: 10px;
+        width: 100%;
+        padding: 24px;
+        font-size: 24px;
+      }
+
+      #firstGroupeM1{
+        width: 100%;
+        padding: 24px;
+        font-size: 24px;
       }
 
       .track {
         z-index: -1;
         position: absolute;
-        top:5px;
-        right:2px;
+        top: 5px;
+        right: 10px;
         background-color: #E91E63;
-        width: 15% !important;
-        padding: 5px;
+        width: 20% !important;
+        padding: 19px;
         display: inline-block;
         border-radius: 50px;
       }
@@ -44,6 +53,7 @@ bonus-c3 {
       .non {
         background-color: red;
       }
+
 
       .list-header-md {
         padding-left: 16px;

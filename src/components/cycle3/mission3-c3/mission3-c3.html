@@ -1,13 +1,16 @@
 <div class="cardMission">
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/mission3.jpg" alt="">
+    </div>
     <div class="titleMission">
-      <p class="first">Mission 3</p>
+      <p class="first">Mission 3 <br/> <span style="font-weight:normal;font-size: 20px">Reconstruction de la statue de l’île de Pâques "Gum !Gum !"</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
-  <div class="card labelBool">
-    <div class="relative bool" (click)="upBool()" >
-      <label disabled checked="false"><b>La statue</b> est construite : </label>
+  <div class="card ">
+    <div id="labelBool" class="relative"  (click)="upBool()" >
+      <label class="textLabel" disabled checked="false"><b>La statue</b> est construite : </label>
       <label class="boolMission toggle" (click)="upBool()"><input [hidden]="true" type="checkbox" [(ngModel)]="bool" value="20">
         <span class="track oui repBool" [hidden]="!bool">OUI</span>
         <span class="track non repBool" [hidden]="bool">NON</span>
@@ -22,15 +25,15 @@
             Nombre de blocs :
           </ion-list-header>
           <ion-item class="ion-item first">
-            <ion-label class="titleRange"><b>-</b>debout dans sa vitrine. <span [textContent]="range.first.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> en dehors de l’auditorium. <span [textContent]="range.first.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.first.max" [disabled]="range.first.max < 1" [(ngModel)]="range.first.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> dans sa vitrine mais pas debout. <span [textContent]="range.second.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> dans l’atelier. <span [textContent]="range.second.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.second.max" [disabled]="range.second.max < 1" [(ngModel)]="range.second.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> dans la galerie des <br/> personnages historiques. <span [textContent]="range.third.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.third.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.third.max" [disabled]="range.third.max < 1" [(ngModel)]="range.third.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
         </ion-list>
@@ -41,15 +44,15 @@
             Nombre de blocs au dessus des blocs noirs :
           </ion-list-header>
           <ion-item class="ion-item first">
-            <ion-label class="titleRange"><b>-</b> dans l'atelier ou la loge. <span [textContent]="range.fourth.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> dans l'atelier. <span [textContent]="range.fourth.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.fourth.max" [disabled]="range.fourth.max < 1" [(ngModel)]="range.fourth.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> en dehoors des couloirs du temps <span [textContent]="range.five.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.five.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.five.max" [disabled]="range.five.max < 1" [(ngModel)]="range.five.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> en dehoors des couloirs du temps <span [textContent]="range.six.value" class="nbPersonage"></span></ion-label>
+            <ion-label class="titleRange"><b>-</b> à l'intérieur du socle. <span [textContent]="range.six.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.six.max" [disabled]="range.six.max < 1" [(ngModel)]="range.six.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
         </ion-list>

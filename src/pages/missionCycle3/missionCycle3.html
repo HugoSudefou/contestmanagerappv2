@@ -1,15 +1,19 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <ion-title>
       MissionC3Page
-      <div class="timer">
-        <timer #timer timeInSeconds="180"></timer>
-      </div>
-      <button (click)="reset();" style=" position: absolute !important;
-                      top: 0 !important;
-                      right: 10px !important;" ion-button>Reset</button>
-      <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBon.reset()" hidden></button>
     </ion-title>
+    <div class="timer">
+      <timer #timer timeInSeconds="180"></timer>
+    </div>
+    <button (click)="reset();" style="
+                    position: absolute !important;
+                    top: 14px !important;
+                    right: 10px !important;
+                    padding: 25px 20px;
+                    font-size: 24px;" ion-button>Reset</button>
+    <button id="reset" (click)="resetPen.reset();resetM1.reset();resetM2.reset();resetM3.reset();resetM4.reset();resetM5.reset();resetM6.reset();resetBonTec.reset();resetBonPeda.reset();" hidden></button>
+
     <total [scores]="scores" ></total>
   </ion-navbar>
 </ion-header>
@@ -20,7 +24,7 @@
   <hr>
   <mission2-c3 #resetM2 (notifyScorM2)="score($event, 'mission2')"></mission2-c3>
   <hr>
-  <mission3-c3 #resetM3 (notifyScorM3)="score($event, 'mission3')" [penalities]="scores.penalities"></mission3-c3>
+  <mission3-c3 #resetM3 (notifyScorM3)="score($event, 'mission3')"></mission3-c3>
   <hr>
   <mission4-c3 #resetM4 (notifyScorM4)="score($event, 'mission4')" ></mission4-c3>
   <hr>
@@ -28,7 +32,8 @@
   <hr>
   <mission6-c3 #resetM6 (notifyScorM6)="score($event, 'mission6')" ></mission6-c3>
   <hr>
-  <bonus-c3 #resetBon (notifyBonus)="score($event, 'bonus')" ></bonus-c3>
+  <bonus-techno #resetBonTec (notifyBonusTec)="score($event, 'bonusTec')" ></bonus-techno>
+  <bonus-pedago #resetBonPeda (notifyBonusPeda)="score($event, 'bonusPeda')" ></bonus-pedago>
   <div class="btnTools">
     <button ion-button (click)="saveScore()">Enregistrer</button>
     <button ion-button (click)="goToScore()">Scores</button>

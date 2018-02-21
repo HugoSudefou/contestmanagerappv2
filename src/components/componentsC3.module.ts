@@ -10,8 +10,9 @@ import { Mission3C3Component } from './cycle3/mission3-c3/mission3-c3';
 import { Mission4C3Component } from './cycle3/mission4-c3/mission4-c3';
 import { Mission5C3Component } from './cycle3/mission5-c3/mission5-c3';
 import { Mission6C3Component } from './cycle3/mission6-c3/mission6-c3';
-import { BonusC3Component } from './cycle3/bonus-c3/bonus-c3';
 import { TimerC3Component } from './cycle3/timer/timer';
+import { BonusTechnoComponent } from './cycle3/bonus-techno/bonus-techno';
+import { BonusPedagoComponent } from './cycle3/bonus-pedago/bonus-pedago';
 
 @NgModule({
 	declarations: [
@@ -23,8 +24,9 @@ import { TimerC3Component } from './cycle3/timer/timer';
     Mission4C3Component,
     Mission5C3Component,
     Mission6C3Component,
-    BonusC3Component,
-    TimerC3Component
+    TimerC3Component,
+    BonusTechnoComponent,
+    BonusPedagoComponent
   ],
 	imports: [
     FormsModule,
@@ -40,8 +42,9 @@ import { TimerC3Component } from './cycle3/timer/timer';
     Mission4C3Component,
     Mission5C3Component,
     Mission6C3Component,
-    BonusC3Component,
-    TimerC3Component
+    TimerC3Component,
+    BonusTechnoComponent,
+    BonusPedagoComponent
   ]
 })
 export class ComponentsC3Module {}

@@ -6,23 +6,18 @@ This is a starter template for [Ionic](http://ionicframework.com/docs/) projects
 
 To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
 
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+### Lancer l'appli :
 
 ```bash
 $ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+$ git clone {url}
+$ cd contestmanagerv2
+$ npm i
+$ ionic serve
 ```
+### Problème avec node >= 9.5
 
-Then, to run it, cd into `myBlank` and run:
-
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
-```
-
-Substitute ios for android if not on a Mac.
+*Il y a un problème avec nodejs version 9.5 mini et node sass. Il faut max node 8.9
 
 ### Problème lors du build
 

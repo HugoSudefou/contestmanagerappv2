@@ -1,3 +1,99 @@
 mission1-c2 {
 
+  .fullscreen-image {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+
+  .image-modal {
+    width: 100% !important;
+    height: 100%;
+    position: fixed;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: rgba(21, 20, 20, 0.64);
+  }
+  table{
+    width: 100%;
+    border: 1px solid black;
+
+    tr {
+      width: 100%;
+      border: 1px solid black;
+
+      td {
+        width: 50px;
+        border: 1px solid black;
+        p{
+          text-align: center;
+        }
+      }
+    }
+    .cas0 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas1 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas2 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas3 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas4 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+    .cas5 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
+  }
+
+
+  .div-img{
+    img{
+      height: 45px;
+      display: inline-flex;
+    }
+  }
+}
+
+
+.responseFalse {
+  background-color: #e92a00;
+}
+
+.responseTrue {
+  background-color: #3fe901;
 }

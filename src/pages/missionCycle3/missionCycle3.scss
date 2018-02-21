@@ -1,8 +1,16 @@
 page-home {
 
 }
+.toolbar{
+  font-size: 24px;
+  min-height: 85px !important;
+  .toolbar-title{
+    font-size: 26px;
+  }
+}
 ion-content {
   .btnTools {
+    text-align: center;
     button {
       width: 48% !important;
     }
@@ -12,7 +20,7 @@ ion-content {
 .timer {
   width: 25%;
   position: absolute;
-  top: 10px;
+  top: 0;
   right: 100px;
 }
 
@@ -23,5 +31,12 @@ ion-content {
   .alert-message {
     overflow: hidden;
     color: #000000;
+  }
+}
+.cardMission {
+  .card:first-child {
+    .titleMission{
+      min-height: 45px;
+    }
   }
 }

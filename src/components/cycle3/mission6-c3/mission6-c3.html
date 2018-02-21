@@ -1,7 +1,10 @@
 <div class="cardMission">
-  <div class="card">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle3/mission6.jpg" alt="">
+    </div>
     <div class="titleMission">
-      <p class="first">Mission 6</p>
+      <p class="first">Mission 6 <br/> <span style="font-weight:normal;font-size: 20px">Recharge des batteries de GardBot</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -27,7 +30,7 @@
 
           <ion-item>
             <ion-label>Autre situation</ion-label>
-            <ion-radio checked value='{{0}}' ngDefaultControl></ion-radio>
+            <ion-radio value='{{0}}' ngDefaultControl></ion-radio>
           </ion-item>
 
         </ion-list>
@@ -36,7 +39,7 @@
   </div>
   <div class="card">
     <div id="firstGroupeM1" class="relative" (click)="bool = !bool;calculScore(scores.total);">
-      <label><b>La mélodie</b> a été entendue : </label>
+      <label><b>GardBot est éteint </b> dans la loge du gardien. </label>
       <label class="boolMission toggle">
         <span class="track oui repBool" [hidden]="!bool">OUI</span>
         <span class="track non repBool" [hidden]="bool">NON</span>

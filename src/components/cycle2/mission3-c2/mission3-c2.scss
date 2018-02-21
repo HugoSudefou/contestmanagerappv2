@@ -1,0 +1,103 @@
+mission3-c2 {
+    .card{
+      ion-item {
+        padding: 25px;
+        padding-right: 20%;
+      }
+
+      ion-label {
+        font-size: 24px;
+        white-space: normal !important;
+      }
+
+      border-bottom: 1px solid grey;
+
+      .bool{
+        width: 100%;
+        padding: 24px;
+        font-size: 24px;
+      }
+
+      .track {
+        z-index: -1;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background-color: #E91E63;
+        width: 20% !important;
+        padding: 19px;
+        display: inline-block;
+        border-radius: 50px;
+      }
+
+      .repBool {
+        text-align: center;
+        font-size: 100% !important;
+        color: white;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .oui {
+        background-color: green;
+      }
+
+      .non {
+        background-color: red;
+      }
+
+      .list-header-md {
+        padding-left: 16px;
+        margin-bottom: 0;
+        min-height: 4.5rem;
+        border-top: 1px solid #dedede;
+        font-size: 1.4rem;
+        color: #000000;
+      }
+
+      .scoreTab {
+        position: absolute;
+        right: 10%;
+      }
+
+    }
+
+    .ion-item{
+      white-space: normal;
+      width: 95%;
+      margin: auto;
+      border-left: 1px solid #dedede;
+      border-right: 1px solid #dedede;
+
+
+      .range {
+        padding-top: 5px !important;
+      }
+      .range-md .range-bar {
+        height: 15px;
+        border-radius: 30px;
+      }
+      .range-md .range-knob{
+        top: 10px;
+        left: 2px;
+        width: 38px;
+        height: 38px;
+      }
+    }
+
+    .ion-item.first{
+      border-top: 1px solid #dedede;
+    }
+
+    .ion-item:last-child{
+      border-bottom: 1px solid #dedede;
+    }
+
+    .range-md.range-has-pin {
+      padding-top: 0;
+    }
+
+    .card:last-child {
+      border-bottom: 0;
+    }
+}

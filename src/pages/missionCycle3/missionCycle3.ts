@@ -21,23 +21,14 @@ export class missionCycle3 {
     mission4: number,
     mission5: number,
     mission6: number,
-    bonus: number,
+    bonusTec: number,
+    bonusPeda: number,
     total: number,
   };
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
-    this.scores = {
-      penalities: 0,
-      mission1: 0,
-      mission2: 0,
-      mission3: 0,
-      mission4: 0,
-      mission5: 0,
-      mission6: 0,
-      bonus: 0,
-      total: 0
-    };
+    this.init();
   }
 
   init(){
@@ -49,7 +40,8 @@ export class missionCycle3 {
       mission4: 0,
       mission5: 0,
       mission6: 0,
-      bonus: 0,
+      bonusTec: 0,
+      bonusPeda: 0,
       total: 0
     };
   }
@@ -58,14 +50,15 @@ export class missionCycle3 {
     this.navCtrl.push(HomePage);
     this.timer.initTimer();
   }
+
   goToScore(){
-    this.navCtrl.push('ScoresPage')
+    this.navCtrl.push('ScoresPage', 3)
     this.timer.initTimer();
   }
 
   score(scores: number, mission: string): void {
     this.scores[mission] = scores;
-    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus;
+    this.scores.total = this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonusPeda + this.scores.bonusTec - (this.scores.penalities * 10);
   }
 
   reset(){
@@ -158,7 +151,7 @@ export class missionCycle3 {
 
   localSaveScore(allData){
     let scores = JSON.parse(localStorage["scores"]);
-    scores.push(allData);
+    scores.cycle3.push(allData);
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 }

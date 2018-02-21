@@ -1,0 +1,32 @@
+<div class="cardMission">
+  <div class="card" style="position: relative;">
+    <div class="img-mission">
+      <img src="assets/imgs/cycle2/logoMission/mission6.ico" alt="">
+    </div>
+    <div class="titleMission">
+      <p class="first">Mission 6 <br/> <span style="font-weight:normal;font-size: 24px">Protection des insectes pollinisateurs</span></p>
+      <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+  <div class="card labelBool">
+    <ion-list button-group>
+      <ion-list-header class="titleLabel">
+        RoBee doit être en sécurité pour passer la nuit.
+      </ion-list-header>
+      <ion-item (click)="calculScore('bool1', 10, 'bool2')">
+        <label disabled checked="false">RoBee se trouve dans la «Ruche»</label>
+        <label class="boolMission toggle">
+          <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
+          <span class="track non repBool" [hidden]="bool.bool1">NON</span>
+        </label>
+      </ion-item>
+      <ion-item (click)="calculScore('bool2', 20, 'bool1')">
+        <label disabled checked="false">RoBee se trouve dans l'hôtel à insectes situé dans l'école</label>
+        <label class="boolMission toggle" >
+          <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
+          <span class="track non repBool" [hidden]="bool.bool2">NON</span>
+        </label>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
