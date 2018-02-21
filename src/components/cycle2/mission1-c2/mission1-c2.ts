@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import * as _ from 'lodash';
+import {AlertController} from "ionic-angular";
 
 /**
  * Generated class for the Mission1C2Component component.
@@ -49,14 +50,18 @@ export class Mission1C2Component {
   };
   errorMessageBlock: String;
   asErrorMessage: String;
+  showModal: boolean;
+  nbBlock: number;
 
-  constructor() {
+  constructor(public alertController: AlertController) {
     this.init()
   }
 
   init(){
     this.errorMessageBlock = '';
     this.asErrorMessage = null;
+    this.showModal = false;
+    this.nbBlock = 0;
     this.scores = {
       total: 0
     };
@@ -92,9 +97,45 @@ export class Mission1C2Component {
     };
   }
 
+  openPopupHelp(){
+    let confirmReset = this.alertController.create({
+      title: 'Aide mission 1',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Fermer',
+          handler: () => {
+
+          }
+        }
+      ]
+    });
+    confirmReset.present();
+  }
+
   changeColor(position, nCas) {
 
-    if (!this.colorBackground[nCas][position]) {
+    let beforKey;
+    let moreThanFourClic = false;
+    console.log('this.nbBlock : ', this.nbBlock )
+    if(position !== 'four'){
+      if(this.nbBlock < 4){
+        _.forEach(this.colorBackground, (key, cas) => {
+          beforKey = false;
+          console.log(cas + '-----');
+          _.forEach(this.colorBackground[cas], (key, pos) => {
+            if (!key){
+              if (!beforKey && (this.nbBlock === 3 || this.nbBlock === 2) && position === 'third' && cas === nCas) moreThanFourClic = true;
+              if (!beforKey && this.nbBlock === 3 && position === 'second' && cas === nCas) moreThanFourClic = true;
+            }
+            beforKey = (beforKey === false) ? key : true;
+          })
+        });
+      }
+      else if(this.nbBlock >= 4) moreThanFourClic = true;
+    }
+
+    if (!moreThanFourClic && !this.colorBackground[nCas][position]) {
       if (position === 'four') {
         _.forEachRight(this.colorBackground, (key, cas) => {
           _.forEachRight(this.colorBackground[cas], (key, pos) => {
@@ -175,7 +216,6 @@ export class Mission1C2Component {
         }
       }
       else if (nCas === 'cas3') {
-
         _.forEachRight(this.colorBackground, (key, cas) => {
           _.forEach(this.colorBackground[cas], (pos, key) => {
             if (key !== 'first') this.colorBackground[cas][key] = false;
@@ -212,18 +252,17 @@ export class Mission1C2Component {
           this.colorBackground.cas2.second = false;
         }
       }
+      this.calculScore();
     }
-    else{
+    else if(this.colorBackground[nCas][position]){
       let change: boolean = true;
-      _.forEachRight(this.colorBackground[nCas], (pos, key)=>{
-        if(change) this.colorBackground[nCas][key] = false;
-        if(key === position) change = false;
+      _.forEachRight(this.colorBackground[nCas], (pos, key) => {
+        if (change) this.colorBackground[nCas][key] = false;
+        if (key === position) change = false;
       })
-      if(nCas === 'cas3') this.colorBackground.cas4.first = false;
-
+      if (nCas === 'cas3') this.colorBackground.cas4.first = false;
+      this.calculScore();
     }
-
-    this.calculScore();
   }
 
   calculScore(){
@@ -231,7 +270,7 @@ export class Mission1C2Component {
     this.asErrorMessage = null;
     let score = 0;
     this.scores.total = 0;
-    let nbBlock = 0;
+    this.nbBlock = 0;
     _.forEach(this.colorBackground, (key, cas) => {
       if(cas === 'cas0') score = 3;
       else if(cas === 'cas1') score = 5;
@@ -241,8 +280,8 @@ export class Mission1C2Component {
       else if(cas === 'cas5') score = 1;
       _.forEach(this.colorBackground[cas], (key, pos) => {
         if(key) {
-          nbBlock++;
-          if(nbBlock < 5){
+          this.nbBlock++;
+          if(this.nbBlock < 5){
             console.log('score : ', score)
             this.scores.total += score;
           }

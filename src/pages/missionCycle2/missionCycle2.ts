@@ -64,7 +64,7 @@ export class missionCycle2 {
 
   score(scores: number, mission: string): void {
     this.scores[mission] = scores;
-    this.scores.total = (this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus) - this.scores.penalities;
+    this.scores.total = (this.scores.mission1 + this.scores.mission2 + this.scores.mission3 + this.scores.mission4 + this.scores.mission5 + this.scores.mission6 + this.scores.bonus) - (this.scores.penalities * 4);
   }
 
   reset(){

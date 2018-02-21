@@ -46,10 +46,10 @@ export class Mission5C2Component {
     this.init();
   }
 
-  calculScore(label, score){
-    this.bool[label] = !this.bool[label];
-    (this.bool[label]) ? this.scores[label] = score : this.scores[label] = 0;
-    this.scores.total = this.scores.bool1 + this.scores.bool2;
+  calculScore(label, score, label2){
+    this.bool[label] = (this.bool[label]) ? false : true;
+    this.bool[label2] = false;
+    this.scores.total = (!this.bool[label]) ? 0 : score;
     this.pushScore();
   }
 

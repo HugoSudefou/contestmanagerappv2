@@ -15,12 +15,14 @@ export class Mission3C2Component {
 
   bool: {
     bool1: boolean,
-    bool2: boolean
+    bool2: boolean,
+    bool3: boolean
   }
 
   scores: {
     bool1: number,
     bool2: number,
+    bool3: number,
     total:number
   };
 
@@ -31,12 +33,14 @@ export class Mission3C2Component {
   init(){
     this.bool= {
       bool1: false,
-      bool2: false
+      bool2: false,
+      bool3: false
     };
 
     this.scores= {
       bool1: 0,
       bool2: 0,
+      bool3: 0,
       total:0
     };
   }
@@ -48,7 +52,7 @@ export class Mission3C2Component {
   calculScore(label, score){
     this.bool[label] = !this.bool[label];
     (this.bool[label]) ? this.scores[label] = score : this.scores[label] = 0;
-    this.scores.total = this.scores.bool1 + this.scores.bool2;
+    this.scores.total = this.scores.bool1 + this.scores.bool2 + this.scores.bool3;
     this.pushScore();
   }
 

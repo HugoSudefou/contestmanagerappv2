@@ -1,10 +1,10 @@
 <div class="cardMission">
   <div class="card" style="position: relative;">
     <div class="img-mission">
-      <img src="assets/imgs/cycle3/mission4.jpg" alt="">
+      <img src="assets/imgs/cycle2/logoMission/mission5.ico" alt="">
     </div>
     <div class="titleMission">
-      <p class="first">Mission 5</p>
+      <p class="first">Mission 5 <br/> <span style="font-weight:normal;font-size: 24px">La danse du butineur</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -14,15 +14,15 @@
         Lorsqu'il arrive dans la «Ruche», RoBee doit indiquer l'emplacement du jardin à ses congénères en effectuant
         une danse et un chant.
       </ion-list-header>
-      <ion-item (click)="calculScore('bool1', 10)">
+      <ion-item (click)="calculScore('bool1', 5, 'bool2')">
         <label disabled checked="false">RoBee a effectué une danse</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
         </label>
       </ion-item>
-      <ion-item (click)="calculScore('bool2', 10)">
-        <label disabled checked="false">RoBee a produit un chant</label>
+      <ion-item (click)="calculScore('bool2', 10, 'bool1')">
+        <label disabled checked="false">RoBee a effectué une danse en forme de huit</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool2">NON</span>

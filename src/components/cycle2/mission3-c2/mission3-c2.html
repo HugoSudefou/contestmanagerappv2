@@ -1,10 +1,10 @@
 <div class="cardMission">
   <div class="card" style="position: relative;">
     <div class="img-mission">
-      <img src="assets/imgs/cycle3/mission4.jpg" alt="">
+      <img src="assets/imgs/cycle2/logoMission/mission3.ico" alt="">
     </div>
     <div class="titleMission">
-      <p class="first">Mission 3</p>
+      <p class="first">Mission 3 <br/> <span style="font-weight:normal;font-size: 24px">Passage du pont en chantant</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -14,17 +14,24 @@
         RoBee doit passer le pont.
       </ion-list-header>
       <ion-item (click)="calculScore('bool1', 10)">
-        <label disabled checked="false">RoBee a traversé le pont en touchant le pont avec deux roues</label>
+        <label disabled checked="false">RoBee s’est arrêté sur le pont</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
         </label>
       </ion-item>
-      <ion-item (click)="calculScore('bool2', 20)">
-        <label disabled checked="false">RoBee a traversé le pont sans toucher la structure du pont</label>
+      <ion-item (click)="calculScore('bool2', 10)">
+        <label disabled checked="false">RoBee a produit l’air de musique demandé</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool2">NON</span>
+        </label>
+      </ion-item>
+      <ion-item (click)="calculScore('bool3', 10)">
+        <label disabled checked="false">RoBee n’a pas touché la structure du pont</label>
+        <label class="boolMission toggle">
+          <span class="track oui repBool" [hidden]="!bool.bool3">OUI</span>
+          <span class="track non repBool" [hidden]="bool.bool3">NON</span>
         </label>
       </ion-item>
     </ion-list>

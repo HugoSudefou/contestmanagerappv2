@@ -45,6 +45,7 @@ export class Mission2C2Component {
   };
   errorMessageBlock: String;
   asErrorMessage: String;
+  nbBlock: number;
 
   constructor() {
     this.init()
@@ -53,6 +54,7 @@ export class Mission2C2Component {
   init(){
     this.errorMessageBlock = '';
     this.asErrorMessage = null;
+    this.nbBlock = 0;
     this.scores = {
       total: 0
     };
@@ -85,8 +87,26 @@ export class Mission2C2Component {
   }
 
   changeColor(position, nCas) {
-    if (!this.colorBackground[nCas][position]) {
+    let beforKey;
+    let moreThanFourClic = false;
+    if(position !== 'four'){
+      if(this.nbBlock < 4){
+        _.forEach(this.colorBackground, (key, cas) => {
+          beforKey = false;
+          console.log(cas + '-----');
+          _.forEach(this.colorBackground[cas], (key, pos) => {
+            if (!key){
+              if (!beforKey && (this.nbBlock === 3 || this.nbBlock === 2) && position === 'third' && cas === nCas) moreThanFourClic = true;
+              if (!beforKey && this.nbBlock === 3 && position === 'second' && cas === nCas) moreThanFourClic = true;
+            }
+            beforKey = (beforKey === false) ? key : true;
+          })
+        });
+      }
+      else if(this.nbBlock >= 4) moreThanFourClic = true;
+    }
 
+    if (!moreThanFourClic && !this.colorBackground[nCas][position]) {
       if(position === 'four'){
         let change: boolean = false;
         _.forEachRight(this.colorBackground, (dataPos, cas)=>{
@@ -106,7 +126,6 @@ export class Mission2C2Component {
           _.forEach(dataPos, (pos, key)=>{
             if(change) this.colorBackground[cas][key] = (key === 'four') ? false : true;
             else this.colorBackground[cas][key] = (key === 'first' && pos === true) ? true : false;
-
           })
         })
       }
@@ -114,7 +133,7 @@ export class Mission2C2Component {
         let change: boolean = false;
         _.forEachRight(this.colorBackground, (dataPos, cas)=>{
           if(cas === nCas) change = true;
-          else  change = false;
+          else change = false;
           _.forEach(dataPos, (pos, key)=>{
             if(change) this.colorBackground[cas][key] = (key === 'four' || key === 'third') ? false : true;
             else this.colorBackground[cas][key] = ((key === 'first' || key === 'second') && pos === true) ? true : false;
@@ -129,7 +148,7 @@ export class Mission2C2Component {
           else  change = false;
           _.forEach(dataPos, (pos, key)=>{
             if(change) this.colorBackground[cas][key] = (key === 'four' || key === 'third' || key === 'second') ? false : true;
-            else this.colorBackground[cas][key] = ((key === 'first' || key === 'second' || key === 'third') && pos === true) ? true : false;;
+            else this.colorBackground[cas][key] = (key !== 'four' && pos === true) ? true : false;
 
           })
         })
@@ -142,18 +161,17 @@ export class Mission2C2Component {
           else this.colorBackground[nCas][key] = false;
         })
       }
+      this.calculScore();
     }
-    else{
-
+    else if(this.colorBackground[nCas][position]){
       let change: boolean = true;
-      _.forEachRight(this.colorBackground[nCas], (pos, key)=>{
-        if(change) this.colorBackground[nCas][key] = false;
-        else this.colorBackground[nCas][key] = true;
-        if(key === position) change = false;
+      _.forEachRight(this.colorBackground[nCas], (pos, key) => {
+        if (change) this.colorBackground[nCas][key] = false;
+        if (key === position) change = false;
       })
+      if (nCas === 'cas3') this.colorBackground.cas4.first = false;
+      this.calculScore();
     }
-
-    this.calculScore();
   }
 
   calculScore(){
@@ -161,7 +179,7 @@ export class Mission2C2Component {
     this.asErrorMessage = null;
     let score = 0;
     this.scores.total = 0;
-    let nbBlock = 0;
+    this.nbBlock = 0;
     _.forEach(this.colorBackground, (key, cas) => {
       if(cas === 'cas1') score = 1;
       else if(cas === 'cas2') score = 3;
@@ -169,8 +187,8 @@ export class Mission2C2Component {
       else if(cas === 'cas4') score = 10;
       _.forEach(this.colorBackground[cas], (key, pos) => {
         if(key) {
-          nbBlock++;
-          if(nbBlock < 5){
+          this.nbBlock++;
+          if(this.nbBlock < 5){
             console.log('score : ', score)
             this.scores.total += score;
           }

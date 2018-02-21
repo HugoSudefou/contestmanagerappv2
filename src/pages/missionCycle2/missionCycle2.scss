@@ -16,3 +16,11 @@ page-home {
 .responseTrue {
   background-color: #3fe901;
 }
+
+.cardMission {
+  .card:first-child {
+    .titleMission{
+      min-height: 90px !important;
+    }
+  }
+}
