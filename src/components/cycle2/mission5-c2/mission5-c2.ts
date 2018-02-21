@@ -24,6 +24,7 @@ export class Mission5C2Component {
     bool2: number,
     total:number
   };
+  showModal: boolean;
 
   constructor() {
     this.init();
@@ -40,6 +41,7 @@ export class Mission5C2Component {
       bool2: 0,
       total:0
     };
+    this.showModal = false;
   }
 
   reset(){

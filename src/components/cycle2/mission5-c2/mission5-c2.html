@@ -1,11 +1,16 @@
 <div class="cardMission">
   <div class="card" style="position: relative;">
     <div class="img-mission">
-      <img src="assets/imgs/cycle2/logoMission/mission5.ico" alt="">
+      <img src="assets/imgs/cycle2/logoMission/mission5.jpg" alt="">
     </div>
-    <div class="titleMission">
+    <div class="titleMission" (click)="showModal = true">
       <p class="first">Mission 5 <br/> <span style="font-weight:normal;font-size: 24px">La danse du butineur</span></p>
       <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+  <div [hidden]="!showModal" class="modal image-modal transparent" (click)="showModal = false">
+    <div class="transparent">
+      <img src="assets/imgs/cycle2/explMission/mission5-logo.jpg" class="fullscreen-image"/>
     </div>
   </div>
   <div class="card labelBool">
@@ -22,7 +27,8 @@
         </label>
       </ion-item>
       <ion-item (click)="calculScore('bool2', 10, 'bool1')">
-        <label disabled checked="false">RoBee a effectué une danse en forme de huit</label>
+        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee_danse_mission5.jpg" alt="">
+        <label style="margin-left: 105px;" disabled checked="false">RoBee a effectué une danse en forme de huit</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool2">NON</span>

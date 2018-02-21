@@ -28,6 +28,30 @@
 
 }
 
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  position: fixed;
+  top: 0 !important;
+  left: 0 !important;
+  background-color: rgba(21, 20, 20, 0.64);
+}
+
+.modal{
+  z-index: 1000;
+}
 .cardMission{
 
     width: 100%;
@@ -48,7 +72,7 @@
       position: absolute;
       top: 0;
       left: 1px;
-      max-width: 78px;
+      max-width: 90px;
       z-index: 2;
     }
 

@@ -62,13 +62,18 @@ mission3-c2 {
 
     }
 
+    .miniImg{
+      width: 100px;
+      position: absolute;
+      top: -4px;
+    }
+
     .ion-item{
       white-space: normal;
       width: 95%;
       margin: auto;
       border-left: 1px solid #dedede;
       border-right: 1px solid #dedede;
-
 
       .range {
         padding-top: 5px !important;

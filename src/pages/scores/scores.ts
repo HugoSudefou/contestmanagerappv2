@@ -21,6 +21,7 @@ export class ScoresPage {
   dataScores: Array<any>;
   Object = Object;
   cycle: number;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
     this.cycle = navParams.data;
     if(this.cycle === 2){

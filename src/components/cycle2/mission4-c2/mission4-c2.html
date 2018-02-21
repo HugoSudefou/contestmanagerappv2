@@ -1,11 +1,16 @@
 <div class="cardMission">
   <div class="card" style="position: relative;">
     <div class="img-mission">
-      <img src="assets/imgs/cycle2/logoMission/mission4.ico" alt="">
+      <img src="assets/imgs/cycle2/logoMission/mission4.jpg" alt="">
     </div>
-    <div class="titleMission">
+    <div class="titleMission" (click)="showModal = true">
       <p class="first">Mission 4 <br/> <span style="font-weight:normal;font-size: 24px">Fabrication du miel</span></p>
       <p class="second">Score : {{scores.total}}</p>
+    </div>
+  </div>
+  <div [hidden]="!showModal" class="modal image-modal transparent" (click)="showModal = false">
+    <div class="transparent">
+      <img src="assets/imgs/cycle2/explMission/mission4-logo.jpg" class="fullscreen-image"/>
     </div>
   </div>
   <div class="card">

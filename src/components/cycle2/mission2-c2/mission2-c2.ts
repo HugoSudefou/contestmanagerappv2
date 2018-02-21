@@ -45,6 +45,7 @@ export class Mission2C2Component {
   };
   errorMessageBlock: String;
   asErrorMessage: String;
+  showModal: boolean;
   nbBlock: number;
 
   constructor() {
@@ -54,6 +55,7 @@ export class Mission2C2Component {
   init(){
     this.errorMessageBlock = '';
     this.asErrorMessage = null;
+    this.showModal = false;
     this.nbBlock = 0;
     this.scores = {
       total: 0

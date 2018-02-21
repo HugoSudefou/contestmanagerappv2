@@ -25,12 +25,14 @@ export class Mission3C2Component {
     bool3: number,
     total:number
   };
+  showModal: boolean;
 
   constructor() {
     this.init();
   }
 
   init(){
+    this.showModal = false;
     this.bool= {
       bool1: false,
       bool2: false,

@@ -22,6 +22,7 @@ export class Mission6C2Component {
   scores: {
     total:number
   };
+  showModal: boolean;
 
   constructor() {
     this.init();
@@ -36,6 +37,7 @@ export class Mission6C2Component {
     this.scores= {
       total:0
     };
+    this.showModal = false;
   }
 
   reset(){
