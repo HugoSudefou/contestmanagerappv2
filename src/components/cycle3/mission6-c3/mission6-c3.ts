@@ -29,7 +29,6 @@ export class Mission6C3Component {
   }
 
   calculScore(score){
-    console.log('this.bool : ', this.bool);
     score = parseInt(score)
     if (score === 80 && this.bool) score = score + 20;
     if (score === 100 && !this.bool) score = score - 20;

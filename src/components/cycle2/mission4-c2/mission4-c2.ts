@@ -103,7 +103,6 @@ export class Mission4C2Component {
       if(this.nbBlock < 4){
         _.forEach(this.colorBackground, (key, cas) => {
           beforKey = false;
-          console.log(cas + '-----');
           _.forEach(this.colorBackground[cas], (key, pos) => {
             if (!key){
               if (!beforKey && (this.nbBlock === 3 || this.nbBlock === 2) && position === 'third' && cas === nCas) moreThanFourClic = true;
@@ -207,7 +206,6 @@ export class Mission4C2Component {
         if(key) {
           this.nbBlock++;
           if(this.nbBlock < 5){
-            console.log('score : ', score)
             this.scores.total += score;
           }
           else{
@@ -219,7 +217,6 @@ export class Mission4C2Component {
       })
     })
     this.pushScore();
-    console.log('this.scores.total : ', this.scores.total)
   }
 
   reset(){

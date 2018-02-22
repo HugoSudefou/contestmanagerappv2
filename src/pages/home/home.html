@@ -7,6 +7,16 @@
 </ion-header>
 
 <ion-content padding>
-  <button ion-button full margin-bottom="10px" (click)="goToC2()">Cycle 2</button>
-  <button ion-button full margin-top="10px" (click)="goToC3()">Cycle 3</button>
+  <div [hidden]="!showCycle">
+    <button ion-button full margin-bottom="10px" (click)="goToPage('SearchMatchPage')">Je suis un Arbitre</button>
+    <button ion-button full margin-bottom="10px" (click)="goToPage('SearchTeamPage')">Je suis une Team</button>
+  </div>
+  <div [hidden]="showCycle">
+    <button ion-button full margin-bottom="10px" (click)="goToPage('missionCycle2')">Cycle 2</button>
+    <button ion-button full margin-top="10px" (click)="goToPage('missionCycle3')">Cycle 3</button>
+  </div>
+  <div>
+    <button ion-button full margin-top="10px" (click)="switchBtn()">{{txtBtnSwitch}}</button>
+
+  </div>
 </ion-content>
