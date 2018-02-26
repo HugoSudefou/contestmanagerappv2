@@ -1,17 +1,24 @@
 import { NgModule } from '@angular/core';
-import { Mission4C2Component } from './cycle2/mission4-c2/mission4-c2';
-import { Mission5C2Component } from './cycle2/mission5-c2/mission5-c2';
-import { Mission6C2Component } from './cycle2/mission6-c2/mission6-c2';
-import { BonusC2Component } from './cycle2/bonus-c2/bonus-c2';
+import { IonicModule } from 'ionic-angular';
+import { CommonModule } from '@angular/common';
+import { SearchTournamentsComponent } from './searchArbitre/search-tournaments/search-tournaments';
+import { SearchGroupComponent } from './searchArbitre/search-group/search-group';
+import { SearchTeamComponent } from './searchArbitre/search-team/search-team';
+import { SearchMatchComponent } from './searchArbitre/search-match/search-match';
+
 @NgModule({
-	declarations: [Mission4C2Component,
-    Mission5C2Component,
-    Mission6C2Component,
-    BonusC2Component],
-	imports: [],
-	exports: [Mission4C2Component,
-    Mission5C2Component,
-    Mission6C2Component,
-    BonusC2Component]
+	declarations: [
+    SearchTournamentsComponent,
+    SearchGroupComponent,
+    SearchTeamComponent,
+    SearchMatchComponent,
+    ],
+	imports: [CommonModule,IonicModule],
+	exports: [
+    SearchTournamentsComponent,
+    SearchGroupComponent,
+    SearchTeamComponent,
+    SearchMatchComponent,
+    ]
 })
 export class ComponentsModule {}

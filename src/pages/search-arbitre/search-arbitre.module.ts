@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { SearchMatchPage } from './search-match';
+import { SearchMatchPage } from './search-arbitre';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,10 @@ import { SearchMatchPage } from './search-match';
   ],
   imports: [
     IonicPageModule.forChild(SearchMatchPage),
+    ComponentsModule,
   ],
+  exports: [
+    SearchMatchPage
+  ]
 })
 export class SearchMatchPageModule {}

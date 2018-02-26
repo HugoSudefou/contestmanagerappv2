@@ -1,22 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Choississez le cycle
+      Choississez {{choice}}
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <div [hidden]="!showCycle">
-    <button ion-button full margin-bottom="10px" (click)="goToPage('SearchMatchPage')">Je suis un Arbitre</button>
-    <button ion-button full margin-bottom="10px" (click)="goToPage('SearchTeamPage')">Je suis une Team</button>
+  <div class="divBtnChoice" [hidden]="!showCycle">
+    <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('SearchMatchPage')">Je suis un Arbitre</button>
+    <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('SearchTeamPage')">Je suis une Team</button>
   </div>
-  <div [hidden]="showCycle">
-    <button ion-button full margin-bottom="10px" (click)="goToPage('missionCycle2')">Cycle 2</button>
-    <button ion-button full margin-top="10px" (click)="goToPage('missionCycle3')">Cycle 3</button>
+  <div class="divBtnChoice" [hidden]="showCycle">
+    <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('missionCycle2')">Cycle 2</button>
+    <button class="btnChoice" ion-button full margin-top="10px" (click)="goToPage('missionCycle3')">Cycle 3</button>
   </div>
   <div>
-    <button ion-button full margin-top="10px" (click)="switchBtn()">{{txtBtnSwitch}}</button>
-
+    <button class="btnChangeChoice" ion-button full margin-top="10px" (click)="switchBtn()">{{txtBtnSwitch}}<ion-icon style="position: absolute;top: 16px;right: 25px;" name="arrow-forward"></ion-icon></button>
   </div>
 </ion-content>
