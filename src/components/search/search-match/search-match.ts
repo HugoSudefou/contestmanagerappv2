@@ -17,14 +17,19 @@ export class SearchMatchComponent {
   @Output() notifySearchMatch: EventEmitter<number> = new EventEmitter<number>();
 
   matchs: Array<{}>;
+  idTeam: number;
+  currentMatch;
   hiddenDivMatch: boolean = true;
 
   constructor(private http: HttpProvider, public alertController: AlertController) {
     console.log('Hello SearchGroupComponent Component');
+    this.currentMatch = (localStorage['currentMatch'] !== undefined) ? JSON.parse(localStorage.getItem('currentMatch')) : null;
     this.matchs =  [{}];
   }
 
   search(idTeam){
+    if (idTeam !== undefined && idTeam !== null) this.idTeam = idTeam;
+    else idTeam = this.idTeam;
     console.log('---------------------- SearchMatch -----------------------');
     console.log('idTeam : ', idTeam);
     let url = 'matchs/team/' + idTeam;
@@ -46,6 +51,7 @@ export class SearchMatchComponent {
       this.popupSaveScore(match);
     }
     else{
+      localStorage.setItem('currentMatch', JSON.stringify(match));
       this.notifySearchMatch.emit(match.id);
     }
   }

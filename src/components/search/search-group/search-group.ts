@@ -16,14 +16,19 @@ export class SearchGroupComponent {
 
   objectKeys = Object.keys;
   groups: {};
+  currentGroup;
+  idTournament: number;
   hiddenDivGroup: boolean = true;
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchGroupComponent Component');
+    this.currentGroup = (localStorage['currentGroup'] !== undefined) ? JSON.parse(localStorage.getItem('currentGroup')) : null;
     this.groups = {};
   }
 
   search(idTournament){
+    if (idTournament !== undefined && idTournament !== null) this.idTournament = idTournament;
+    else idTournament = this.idTournament;
     console.log('---------------------- SearchGroup -----------------------');
     console.log('idTournamentClass : ', idTournament);
     let url = 'tournaments/groups/' + idTournament;
@@ -39,7 +44,9 @@ export class SearchGroupComponent {
     });
   }
 
-  selectGroup(idGroup){
+  selectGroup(group){
+    let idGroup = group.id;
+    localStorage.setItem('currentGroup', JSON.stringify(group));
     console.log('idGroup : ', idGroup);
     this.notifySearchGroup.emit(idGroup);
   }

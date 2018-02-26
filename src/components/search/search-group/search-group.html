@@ -1,0 +1,20 @@
+<!-- Generated template for the SearchGroupComponent component -->
+<div *ngIf="currentGroup !== null">
+  <div class="cardTeam tournament" (click)="selectGroup(currentGroup)">
+    <div class="nomGroupTeam">
+      <span>{{currentGroup.name}}</span>
+    </div>
+  </div>
+  <div class="seperation">
+    <hr>
+  </div>
+</div>
+<div>
+  <div class="cardTeam tournament" *ngFor="let key of objectKeys(groups)" [hidden]="hiddenDivGroup" (click)="selectGroup(groups[key])">
+    <div class="nomGroupTeam">
+      <span>{{groups[key].name}}</span>
+    </div>
+  </div>
+</div>
+
+<button class="btnReset" (click)="search();"><ion-icon style="font-size: 24px;" name="refresh"></ion-icon></button>

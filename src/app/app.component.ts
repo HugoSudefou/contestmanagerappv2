@@ -17,9 +17,8 @@ export class MyApp {
         "cycle3":[]
       };
       //console.log('JSON.parse(localStorage["scores"]) : ', JSON.parse(localStorage["scores"]))
-      if(localStorage.length === 0 || JSON.parse(localStorage["scores"]).length === 0) {
-        localStorage.setItem('scores', JSON.stringify(scores));
-      }
+      if(localStorage.length === 0) localStorage.setItem('scores', JSON.stringify(scores));
+      else if(localStorage["scores"] === undefined) localStorage.setItem('scores', JSON.stringify(scores));
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

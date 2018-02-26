@@ -10,4 +10,18 @@ page-search-match {
     bottom: 20px;
     right: 20px;
   }
+
+  .seperation{
+    position: relative;
+    margin: 10px 5%;
+    height: 2px;
+    width: 90%;
+    hr {
+      border-top: 1px solid #868686 !important;
+      height: 100%;
+      width: 100%;
+      display: block !important;
+      visibility: visible !important;
+    }
+  }
 }

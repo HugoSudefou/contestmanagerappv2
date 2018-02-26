@@ -1,9 +1,0 @@
-<!-- Generated template for the SearchTournamentsComponent component -->
-<div>
-  <div class="cardTeam tournament" *ngFor="let tournament of tournaments" [hidden]="hiddenDivTournament" (click)="selectTournament(tournament.id)">
-    <div class="nomGroupTeam">
-      <span>{{tournament.name}}</span>
-    </div>
-  </div>
-  <button class="btnReset" (click)="search();"><ion-icon style="font-size: 24px;" name="refresh"></ion-icon></button>
-</div>

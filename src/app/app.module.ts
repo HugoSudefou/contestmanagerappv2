@@ -13,6 +13,7 @@ import {  ComponentsModule } from '../components/components.module'
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { HttpProvider } from '../providers/http/http';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpProvider } from '../providers/http/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
+    DataProvider
   ]
 })
 export class AppModule {}

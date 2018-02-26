@@ -50,6 +50,12 @@ export class SearchMatchPage {
 
   selectMatch(idMatch){
     this.hiddenMatch = true;
+    let cycle = 3;
+    let currentTeam = JSON.parse(localStorage.getItem('currentTeam'));
+    if(cycle === 2) this.navCtrl.push('missionCycle2');
+    else if(cycle === 3) this.navCtrl.push('missionCycle3');
+    else this.navCtrl.push('NotFoundPage');
+    console.log('currentTeam : ', currentTeam);
     console.log('idMatch : ', idMatch);
   }
 
