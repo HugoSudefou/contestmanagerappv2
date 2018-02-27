@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Output, Input} from '@angular/core';
 import { HttpProvider } from '../../../providers/http/http';
 
 /**
@@ -20,7 +20,7 @@ export class SearchTournamentsComponent {
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchTournamentsComponent Component');
-    this.currentTournament = (localStorage['currentTournament'] !== undefined) ? JSON.parse(localStorage.getItem('currentTournament')) : null;
+    this.currentTournament = (localStorage['currentTournamentA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTournamentA')) : null;
     this.tournaments = [{}];
     this.search();
   }
@@ -41,9 +41,6 @@ export class SearchTournamentsComponent {
   }
 
   selectTournament(tournament){
-    let idTournament = tournament.id;
-    localStorage.setItem('currentTournament', JSON.stringify(tournament));
-    console.log('idTournament : ', idTournament);
-    this.notifySearchTounaments.emit(idTournament);
+    this.notifySearchTounaments.emit(tournament);
   }
 }

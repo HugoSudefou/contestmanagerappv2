@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <search-tournaments #tournament [hidden]="hiddenTournament" (notifySearchTounaments)="selectTournament($event)"></search-tournaments>
-  <search-group #group [hidden]="hiddenGroup" (notifySearchGroup)="selectGroup($event)"></search-group>
+  <search-group-by-tournament #group [hidden]="hiddenGroup" (notifySearchGroup)="selectGroup($event)"></search-group-by-tournament>
   <search-team #team [hidden]="hiddenTeam" (notifySearchTeam)="selectTeam($event)"></search-team>
   <search-match #match [hidden]="hiddenMatch" (notifySearchMatch)="selectMatch($event)"></search-match>
 </ion-content>

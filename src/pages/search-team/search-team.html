@@ -14,5 +14,6 @@
 
 
 <ion-content padding>
-
+  <search-group #group [hidden]="hiddenGroup" (notifySearchGroup)="selectGroup($event)"></search-group>
+  <search-team #team [hidden]="hiddenTeam" (notifySearchTeam)="selectTeam($event)"></search-team>
 </ion-content>

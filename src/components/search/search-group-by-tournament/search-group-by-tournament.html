@@ -1,4 +1,4 @@
-<!-- Generated template for the SearchGroupComponent component -->
+<!-- Generated template for the SearchGroupByTournamentComponent component -->
 <div *ngIf="currentGroup !== null">
   <div class="cardTeam tournament" (click)="selectGroup(currentGroup)">
     <div class="nomGroupTeam">
@@ -10,7 +10,7 @@
   </div>
 </div>
 <div>
-  <div class="cardTeam groups" *ngFor="let key of objectKeys(groups)" [hidden]="hiddenDivGroup" (click)="selectGroup(groups[key])">
+  <div class="cardTeam tournament" *ngFor="let key of objectKeys(groups)" [hidden]="hiddenDivGroup" (click)="selectGroup(groups[key])">
     <div class="nomGroupTeam">
       <span>{{groups[key].name}}</span>
     </div>

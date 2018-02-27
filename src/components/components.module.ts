@@ -5,6 +5,7 @@ import { SearchTournamentsComponent } from './search/search-tournaments/search-t
 import { SearchGroupComponent } from './search/search-group/search-group';
 import { SearchTeamComponent } from './search/search-team/search-team';
 import { SearchMatchComponent } from './search/search-match/search-match';
+import { SearchGroupByTournamentComponent } from './search/search-group-by-tournament/search-group-by-tournament';
 
 @NgModule({
 	declarations: [
@@ -12,6 +13,7 @@ import { SearchMatchComponent } from './search/search-match/search-match';
     SearchGroupComponent,
     SearchTeamComponent,
     SearchMatchComponent,
+    SearchGroupByTournamentComponent,
     ],
 	imports: [CommonModule,IonicModule],
 	exports: [
@@ -19,6 +21,7 @@ import { SearchMatchComponent } from './search/search-match/search-match';
     SearchGroupComponent,
     SearchTeamComponent,
     SearchMatchComponent,
+    SearchGroupByTournamentComponent,
     ]
 })
 export class ComponentsModule {}

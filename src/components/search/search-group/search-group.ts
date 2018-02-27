@@ -15,28 +15,27 @@ export class SearchGroupComponent {
   @Output() notifySearchGroup: EventEmitter<number> = new EventEmitter<number>();
 
   objectKeys = Object.keys;
-  groups: {};
+  groups: any;
   currentGroup;
   idTournament: number;
   hiddenDivGroup: boolean = true;
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchGroupComponent Component');
-    this.currentGroup = (localStorage['currentGroup'] !== undefined) ? JSON.parse(localStorage.getItem('currentGroup')) : null;
-    this.groups = {};
+    this.currentGroup = (localStorage['currentGroupT'] !== undefined) ? JSON.parse(localStorage.getItem('currentGroupT')) : null;
+    this.groups = [];
+    this.search();
   }
 
-  search(idTournament){
-    if (idTournament !== undefined && idTournament !== null) this.idTournament = idTournament;
-    else idTournament = this.idTournament;
+  search(){
     console.log('---------------------- SearchGroup -----------------------');
-    console.log('idTournamentClass : ', idTournament);
-    let url = 'tournaments/groups/' + idTournament;
+    let url = 'matchs/groups';
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       console.log('API', res.json());
       this.groups = res.json();
       this.hiddenDivGroup = false;
+      console.log('this.groups : ', this.groups);
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
@@ -45,10 +44,7 @@ export class SearchGroupComponent {
   }
 
   selectGroup(group){
-    let idGroup = group.id;
-    localStorage.setItem('currentGroup', JSON.stringify(group));
-    console.log('idGroup : ', idGroup);
-    this.notifySearchGroup.emit(idGroup);
+    this.notifySearchGroup.emit(group);
   }
 
 }

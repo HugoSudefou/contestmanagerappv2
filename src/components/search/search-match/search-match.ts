@@ -23,7 +23,7 @@ export class SearchMatchComponent {
 
   constructor(private http: HttpProvider, public alertController: AlertController) {
     console.log('Hello SearchGroupComponent Component');
-    this.currentMatch = (localStorage['currentMatch'] !== undefined) ? JSON.parse(localStorage.getItem('currentMatch')) : null;
+    this.currentMatch = (localStorage['currentMatchA'] !== undefined) ? JSON.parse(localStorage.getItem('currentMatchA')) : null;
     this.matchs =  [{}];
   }
 
@@ -46,13 +46,11 @@ export class SearchMatchComponent {
   }
 
   selectMatch(match){
-    console.log('match : ', match);
     if(match.score !== undefined){
       this.popupSaveScore(match);
     }
     else{
-      localStorage.setItem('currentMatch', JSON.stringify(match));
-      this.notifySearchMatch.emit(match.id);
+      this.notifySearchMatch.emit(match);
     }
   }
 

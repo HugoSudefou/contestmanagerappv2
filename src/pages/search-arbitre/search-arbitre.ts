@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the SearchMatchPage page.
@@ -22,41 +23,48 @@ export class SearchMatchPage {
   hiddenGroup: boolean = true;
   hiddenTeam: boolean = true;
   hiddenMatch: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
+    this.currentData.setIsArbitre(true);
+    localStorage.setItem('isArbitre', 'true');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchMatchPage');
   }
 
-  selectTournament(idTournament){
+  selectTournament(tournament){
+    this.currentData.setTournament(tournament);
+    localStorage.setItem('currentTournamentA', JSON.stringify(tournament));
     this.hiddenTournament = true;
     this.hiddenGroup = false;
-    this.searchGroup.search(idTournament);
+    this.searchGroup.search(tournament.id);
   }
 
-  selectGroup(idGroup){
-    console.log('idGroup SearchMatchPage : ', idGroup);
+  selectGroup(group){
+    this.currentData.setGroup(group);
+    localStorage.setItem('currentGroupA', JSON.stringify(group));
     this.hiddenGroup = true;
     this.hiddenTeam = false;
-    this.searchTeam.search(idGroup);
+    this.searchTeam.search(group.id);
   }
 
-  selectTeam(idTeam){
+  selectTeam(team){
+    this.currentData.setTeam(team);
+    localStorage.setItem('currentTeamA', JSON.stringify(team));
     this.hiddenTeam = true;
     this.hiddenMatch = false;
-    this.searchMatch.search(idTeam);
+    this.searchMatch.search(team.id);
   }
 
-  selectMatch(idMatch){
+  selectMatch(match){
+    this.currentData.setMatch(match);
+    localStorage.setItem('currentMatchA', JSON.stringify(match));
     this.hiddenMatch = true;
     let cycle = 3;
     let currentTeam = JSON.parse(localStorage.getItem('currentTeam'));
     if(cycle === 2) this.navCtrl.push('missionCycle2');
     else if(cycle === 3) this.navCtrl.push('missionCycle3');
     else this.navCtrl.push('NotFoundPage');
-    console.log('currentTeam : ', currentTeam);
-    console.log('idMatch : ', idMatch);
   }
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {HttpProvider} from "../../../providers/http/http";
 
 /**
@@ -21,8 +21,13 @@ export class SearchTeamComponent {
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchGroupComponent Component');
-    this.currentTeam = (localStorage['currentTeam'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeam')) : null;
+    console.log('isArbitre', localStorage['isArbitre']);
+
+    if(localStorage['isArbitre'] === 'true') this.currentTeam = (localStorage['currentTeamA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamA')) : null;
+    else this.currentTeam = (localStorage['currentTeamT'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamT')) : null;
     console.log('this.currentTeam : ', this.currentTeam);
+    console.log('JSON.parse(localStorage.getItem(\'currentTeamA\')) : ', JSON.parse(localStorage.getItem('currentTeamA')));
+    console.log('JSON.parse(localStorage.getItem(\'currentTeamT\')) : ', JSON.parse(localStorage.getItem('currentTeamT')));
     this.teams =  [{}];
   }
 
@@ -30,7 +35,7 @@ export class SearchTeamComponent {
     if (idGroup !== undefined && idGroup !== null) this.idGroup = idGroup;
     else idGroup = this.idGroup;
     console.log('---------------------- SearchGroup -----------------------');
-    console.log('idGroup : ', idGroup);
+    if (localStorage['idGroupOfTeamSelectedA'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedA']).id !== this.idGroup) this.currentTeam = null;
     let url = 'groups/' + idGroup +  '/match';
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
@@ -45,10 +50,10 @@ export class SearchTeamComponent {
   }
 
   selectTeam(team){
-    let idTeam = team.id;
-    localStorage.setItem('currentTeam', JSON.stringify(team));
-    console.log('idTeam : ', idTeam);
-    this.notifySearchTeam.emit(idTeam);
+    if(localStorage['isArbitre'] === 'true') localStorage.setItem('idGroupOfTeamSelectedA', JSON.stringify({id: this.idGroup}));
+    else localStorage.setItem('idGroupOfTeamSelectedT', JSON.stringify({id: this.idGroup}));
+
+    this.notifySearchTeam.emit(team);
   }
 
 }

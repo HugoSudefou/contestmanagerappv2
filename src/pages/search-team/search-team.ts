@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HttpProvider } from '../../providers/http/http';
+import { DataProvider } from '../../providers/data/data';
 
 /**
  * Generated class for the SearchTeamPage page.
@@ -12,29 +12,40 @@ import { HttpProvider } from '../../providers/http/http';
 @IonicPage()
 @Component({
   selector: 'page-search-team',
-  templateUrl: 'search-team.html',
-  providers: [HttpProvider]
+  templateUrl: 'search-team.html'
 })
 export class SearchTeamPage {
+  @ViewChild('group') searchGroup;
+  @ViewChild('team') searchTeam;
+  @ViewChild('match') searchMatch;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpProvider) {
-    this.search();
+  hiddenGroup: boolean = false;
+  hiddenTeam: boolean = true;
+  hiddenMatch: boolean = true;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
+    let data = this.currentData.getData();
+    console.log('allData : ', data)
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad SearchTeamPage');
   }
 
-  search(){
-    console.log('---------------------- SelectGroup -----------------------');
-    let urlGroupId = 'tournaments';
-    this.http.async(urlGroupId).subscribe((res)=>{
-      // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
-      return res;
-    }, (reason)=> {
-      console.log('ERREUR API : ', reason);
-      return reason;
-    });
+  selectGroup(group){
+    this.currentData.setGroup(group);
+    localStorage.setItem('currentGroupT', JSON.stringify(group));
+    this.hiddenGroup = true;
+    this.hiddenTeam = false;
+    this.searchTeam.search(group.id);
   }
+
+  selectTeam(team){
+    this.currentData.setTeam(team);
+    localStorage.setItem('currentTeamT', JSON.stringify(team));
+    this.hiddenTeam = true;
+    this.hiddenGroup = false;
+    this.navCtrl.push('HomeTeamPage'  , {idTeam: team.id})
+  }
+
 
 }

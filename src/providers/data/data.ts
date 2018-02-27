@@ -15,9 +15,11 @@ export class DataProvider {
 
   constructor(public http: Http) {
     this.data = {
-      currentTournament: {},
-      currentGroup: {},
-      currentTeam: {},
+      isArbitre: false,
+      tournament: {},
+      group: {},
+      team: {},
+      match: {},
       score: {
         cycle2:[],
         cycle3:[]
@@ -29,32 +31,48 @@ export class DataProvider {
     return this.data;
   }
 
-  getCurrentTournament(){
-    return this.data;
+  getIsArbitre():boolean{
+    return this.data.isArbitre;
   }
 
-  getCurrentGroup(){
-    return this.data;
+  getTournament(){
+    return this.data.tournament;
   }
 
-  getCurrentTeam(){
-    return this.data;
+  getGroup(){
+    return this.data.group;
+  }
+
+  getTeam(){
+    return this.data.team;
+  }
+
+  getMatch(){
+    return this.data.match;
   }
 
   getScore(){
     return this.data.score;
   }
 
-  setCurrentTournament(tournament){
-    this.data.currentTournament = tournament;
+  setIsArbitre(isArbitre){
+    this.data.isArbitre = isArbitre;
   }
 
-  setCurrentGroup(group){
-    this.data.currentGroup = group;
+  setTournament(tournament){
+    this.data.tournament = tournament;
   }
 
-  setCurrentTeam(team){
-    return this.data.currentTeam = team;
+  setGroup(group){
+    this.data.group = group;
+  }
+
+  setTeam(team){
+    return this.data.team = team;
+  }
+
+  setMatch(match){
+    return this.data.match = match;
   }
 
 
