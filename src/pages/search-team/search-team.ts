@@ -24,6 +24,7 @@ export class SearchTeamPage {
   hiddenMatch: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
     let data = this.currentData.getData();
+    localStorage.setItem('isArbitre', 'false  ');
     console.log('allData : ', data)
   }
 

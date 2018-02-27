@@ -22,6 +22,9 @@ export class SearchTeamComponent {
   constructor(private http: HttpProvider) {
     console.log('Hello SearchGroupComponent Component');
     console.log('isArbitre', localStorage['isArbitre']);
+    console.log('localStorage[\'idGroupOfTeamSelectedA\'] isArbitre', localStorage['idGroupOfTeamSelectedA']);
+    console.log('localStorage[\'idGroupOfTeamSelectedT\'] ', localStorage['idGroupOfTeamSelectedT']);
+    console.log('---------------------- SearchTeam constructor-----------------------');
 
     if(localStorage['isArbitre'] === 'true') this.currentTeam = (localStorage['currentTeamA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamA')) : null;
     else this.currentTeam = (localStorage['currentTeamT'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamT')) : null;
@@ -35,7 +38,11 @@ export class SearchTeamComponent {
     if (idGroup !== undefined && idGroup !== null) this.idGroup = idGroup;
     else idGroup = this.idGroup;
     console.log('---------------------- SearchGroup -----------------------');
-    if (localStorage['idGroupOfTeamSelectedA'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedA']).id !== this.idGroup) this.currentTeam = null;
+    if(localStorage['isArbitre'] === 'true') {
+      if (localStorage['idGroupOfTeamSelectedA'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedA']).id !== this.idGroup) this.currentTeam = null;
+    }else {
+      if (localStorage['idGroupOfTeamSelectedT'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedT']).id !== this.idGroup) this.currentTeam = null;
+    }
     let url = 'groups/' + idGroup +  '/match';
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
@@ -50,6 +57,7 @@ export class SearchTeamComponent {
   }
 
   selectTeam(team){
+    console.log('team : ', team);
     if(localStorage['isArbitre'] === 'true') localStorage.setItem('idGroupOfTeamSelectedA', JSON.stringify({id: this.idGroup}));
     else localStorage.setItem('idGroupOfTeamSelectedT', JSON.stringify({id: this.idGroup}));
 
