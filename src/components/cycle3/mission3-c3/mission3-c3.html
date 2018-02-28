@@ -11,9 +11,9 @@
   <div class="card ">
     <div id="labelBool" class="relative"  (click)="upBool()" >
       <label class="textLabel" disabled checked="false"><b>La statue</b> est construite : </label>
-      <label class="boolMission toggle" (click)="upBool()"><input [hidden]="true" type="checkbox" [(ngModel)]="bool" value="20">
-        <span class="track oui repBool" [hidden]="!bool">OUI</span>
-        <span class="track non repBool" [hidden]="bool">NON</span>
+      <label class="boolMission toggle"><input [hidden]="true" type="checkbox" [(ngModel)]="bool" value="20">
+        <span class="track oui repBool"  (click)="upBool()" [hidden]="!bool">OUI</span>
+        <span class="track non repBool"  (click)="upBool()" [hidden]="bool">NON</span>
       </label>
     </div>
   </div>

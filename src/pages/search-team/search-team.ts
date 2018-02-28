@@ -24,6 +24,7 @@ export class SearchTeamPage {
   hiddenMatch: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
     let data = this.currentData.getData();
+    this.currentData.setIsArbitre(false);
     localStorage.setItem('isArbitre', 'false  ');
     console.log('allData : ', data)
   }
@@ -33,6 +34,7 @@ export class SearchTeamPage {
   }
 
   selectGroup(group){
+    (group.id % 2 === 0) ? group["cycle"] = 2 : group["cycle"] = 3;
     this.currentData.setGroup(group);
     localStorage.setItem('currentGroupT', JSON.stringify(group));
     this.hiddenGroup = true;
@@ -45,7 +47,7 @@ export class SearchTeamPage {
     localStorage.setItem('currentTeamT', JSON.stringify(team));
     this.hiddenTeam = true;
     this.hiddenGroup = false;
-    this.navCtrl.push('HomeTeamPage'  , {idTeam: team.id})
+    this.navCtrl.push('HomeTeamPage' )
   }
 
 

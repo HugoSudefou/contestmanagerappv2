@@ -88,9 +88,14 @@ export class BonusC2Component {
   }
 
   calculScore(label=null, score=null){
-    if(label !== null && score != null)this.bool[label] = !this.bool[label];
-    (this.bool[label]) ? this.scores[label] = score : this.scores[label] = 0;
+    if(label !== null && score != null){
+      this.bool[label] = !this.bool[label];
+      (this.bool[label]) ? this.scores[label] = score : this.scores[label] = 0;
+    }
     this.scores.total = this.scores.bool1 ;
+    _.forEach(this.colorBackground['cas1'], (key, pos) => {
+      if(key) this.scores.total += 10;
+    });
     this.pushScore();
   }
 

@@ -14,7 +14,7 @@ import 'rxjs/add/operator/map';
 export class HttpProvider {
   url = {
     api : 'http://collab-lod.nexen.net:12345/api/',
-    apiDev : 'http://contestmanager.dev/api/',
+    apiDev : 'http://127.0.0.1:8000/api/',
   };
   constructor(public http: Http, public loadingCtrl: LoadingController) {
     console.log('Hello HttpProvider Provider');
@@ -30,8 +30,8 @@ export class HttpProvider {
     // $http returns a promise, which has a then function, which also returns a promise
     // url prod : http://collab-lod.nexen.net:12345/api/
     // url dev : http://contestmanager.dev/api/
-    console.log(this.url.api + chemin);
-    return this.http.get(this.url.api + chemin).map((res)=>{
+    console.log(this.url.apiDev + chemin);
+    return this.http.get(this.url.apiDev + chemin).map((res)=>{
       // The return value gets picked up by the then in the controller.
       loading.dismiss();
       return res;
@@ -51,8 +51,8 @@ export class HttpProvider {
     // url prod : http://collab-lod.nexen.net:12345/api/
     // url dev : http://contestmanager.dev/api/
     console.log('url api : ');
-    console.log(this.url.api + chemin);
-    this.http.post(this.url.api + chemin, body).subscribe((res)=>{
+    console.log(this.url.apiDev + chemin);
+    this.http.post(this.url.apiDev + chemin, body).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       loading.dismiss();
       return res;

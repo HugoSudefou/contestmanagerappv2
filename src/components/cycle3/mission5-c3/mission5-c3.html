@@ -8,8 +8,8 @@
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
-  <div class="card speBottomBorder margBottom ">
-    <div id="firstGroupeM1" class="relative" (click)="bool = !bool;">
+  <div class="card speBottomBorder margBottom " (click)="bool = !bool;">
+    <div id="firstGroupeM1" class="relative">
       <label><b>La mélodie</b> a été entendue : </label>
       <label class="boolMission toggle">
         <span class="track oui repBool" [hidden]="!bool">OUI</span>

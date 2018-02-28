@@ -41,6 +41,7 @@ export class SearchMatchPage {
   }
 
   selectGroup(group){
+    (group.id % 2 === 0) ? group["cycle"] = 2 : group["cycle"] = 3;
     this.currentData.setGroup(group);
     localStorage.setItem('currentGroupA', JSON.stringify(group));
     this.hiddenGroup = true;
@@ -59,8 +60,8 @@ export class SearchMatchPage {
   selectMatch(match){
     this.currentData.setMatch(match);
     localStorage.setItem('currentMatchA', JSON.stringify(match));
+    let cycle = this.currentData.getGroup().cycle;
     this.hiddenMatch = true;
-    let cycle = 3;
     let currentTeam = JSON.parse(localStorage.getItem('currentTeam'));
     if(cycle === 2) this.navCtrl.push('missionCycle2');
     else if(cycle === 3) this.navCtrl.push('missionCycle3');

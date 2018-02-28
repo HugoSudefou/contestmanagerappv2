@@ -37,8 +37,8 @@
       </div>
     </div>
   </div>
-  <div class="card">
-    <div id="firstGroupeM1" class="relative" (click)="bool = !bool;calculScore(scores.total);">
+  <div class="card" (click)="bool = !bool;calculScore(scores.total);">
+    <div id="firstGroupeM1" class="relative">
       <label><b>GardBot est éteint </b> dans la loge du gardien. </label>
       <label class="boolMission toggle">
         <span class="track oui repBool" [hidden]="!bool">OUI</span>

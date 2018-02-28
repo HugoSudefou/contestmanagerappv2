@@ -11,9 +11,9 @@
   <div class="card">
     <div id="firstGroupeM1" class="relative" (click)="upBoolM1()" >
       <label disabled checked="false"><b>La tablette</b> est dans le sarcophage.</label>
-      <label class="boolMission toggle" (click)="upBoolM1()"><input [hidden]="true" type="checkbox" [(ngModel)]="boolM1" value="20">
-        <span class="track oui repBool" [hidden]="!boolM1">OUI</span>
-        <span class="track non repBool" [hidden]="boolM1">NON</span>
+      <label class="boolMission toggle" ><input [hidden]="true" type="checkbox" [(ngModel)]="boolM1" value="20">
+        <span class="track oui repBool" (click)="upBoolM1()" [hidden]="!boolM1">OUI</span>
+        <span class="track non repBool" (click)="upBoolM1()" [hidden]="boolM1">NON</span>
       </label>
     </div>
   </div>

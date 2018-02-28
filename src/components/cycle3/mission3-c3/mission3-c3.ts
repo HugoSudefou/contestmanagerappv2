@@ -104,7 +104,7 @@ export class Mission3C3Component {
   upRange2() :void{
     this.range.fourth.max = 10 - (this.range.five.value + this.range.six.value);
     this.range.five.max = 10 - (this.range.fourth.value + this.range.six.value);
-    this.range.six.max = 10 - (this.range.five.value + this.range.second.value);
+    this.range.six.max = 10 - (this.range.five.value + this.range.fourth.value);
 
     let range1 = 6 * this.range.fourth.value;
     let range2 = 8 * this.range.five.value;

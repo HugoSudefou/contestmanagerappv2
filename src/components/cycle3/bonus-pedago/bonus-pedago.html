@@ -13,8 +13,8 @@
       <ion-list-header class="titleLabel">
         <ion-label class="titleRange">Les élèves de l'équipe :</ion-label>
       </ion-list-header>
-      <ion-item class="ion-item first">
-        <div class="relative padding" (click)="bool.bool1 = !bool.bool1;calculScore('bool1', 10);">
+      <ion-item class="ion-item first" (click)="bool.bool1 = !bool.bool1;calculScore('bool1', 10);">
+        <div class="relative padding">
           <label text-wrap>se sont présentés à l'arbitre de manière originale </label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
@@ -22,8 +22,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool2 = !bool.bool2;calculScore('bool2', 10);">
+      <ion-item class="ion-item" (click)="bool.bool2 = !bool.bool2;calculScore('bool2', 10);">
+        <div class="relative padding" >
           <label text-wrap>ont une bonne relation entre eux.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
@@ -31,8 +31,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool3 = !bool.bool3;calculScore('bool3', 10);">
+      <ion-item class="ion-item" (click)="bool.bool3 = !bool.bool3;calculScore('bool3', 10);">
+        <div class="relative padding">
           <label text-wrap>respectent les autres équipes. Ils sont fair-play. </label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool3">OUI</span>
@@ -40,8 +40,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool4 = !bool.bool4;calculScore('bool4', 10);">
+      <ion-item class="ion-item" (click)="bool.bool4 = !bool.bool4;calculScore('bool4', 10);">
+        <div class="relative padding">
           <label text-wrap>respectent les lieux, le matériel, les personnes qui les accompagnent, les encadrent ou organisent le défi. </label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool4">OUI</span>
@@ -49,8 +49,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool5 = !bool.bool5;calculScore('bool5', 10);">
+      <ion-item class="ion-item" (click)="bool.bool5 = !bool.bool5;calculScore('bool5', 10);">
+        <div class="relative padding">
           <label text-wrap>prennent en compte les remarques de l’arbitre et progressent pendant la rencontre. </label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool5">OUI</span>
@@ -72,8 +72,8 @@
 
   <div class="card" [hidden]="!showPart2">
     <ion-list>
-      <ion-item class="ion-item first">
-        <div class="relative padding" (click)="bool.bool6 = !bool.bool6;calculScore('bool6', 10);">
+      <ion-item class="ion-item first" (click)="bool.bool6 = !bool.bool6;calculScore('bool6', 10);">
+        <div class="relative padding">
           <label>Présentation de l’équipe.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool6">OUI</span>
@@ -81,8 +81,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool7 = !bool.bool7;calculScore('bool7', 10);">
+      <ion-item class="ion-item" (click)="bool.bool7 = !bool.bool7;calculScore('bool7', 10);">
+        <div class="relative padding">
           <label>Conception du robot.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool7">OUI</span>
@@ -90,8 +90,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool8 = !bool.bool8;calculScore('bool8', 10);">
+      <ion-item class="ion-item" (click)="bool.bool8 = !bool.bool8;calculScore('bool8', 10);">
+        <div class="relative padding">
           <label>Programmation du robot.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool8">OUI</span>
@@ -99,8 +99,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool9 = !bool.bool9;calculScore('bool9', 10);">
+      <ion-item class="ion-item" (click)="bool.bool9 = !bool.bool9;calculScore('bool9', 10);">
+        <div class="relative padding">
           <label>Apports du projet robotique.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool9">OUI</span>
@@ -108,8 +108,8 @@
           </label>
         </div>
       </ion-item>
-      <ion-item class="ion-item">
-        <div class="relative padding" (click)="bool.bool10 = !bool.bool10;calculScore('bool10', 10);">
+      <ion-item class="ion-item" (click)="bool.bool10 = !bool.bool10;calculScore('bool10', 10);">
+        <div class="relative padding">
           <label>Travail dans une équipe de robotique.</label>
           <label class="boolMission toggle">
             <span class="track oui repBool" [hidden]="!bool.bool10">OUI</span>
