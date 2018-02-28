@@ -25,7 +25,7 @@ Si vous avez un problème regardez si vous avez bien vos variable d'environement
 
 ```bash
 $ echo $ANDROID_HOME
-$ echo $PATHJAVA_HOME
+$ echo $PATH
 $ echo $JAVA_HOME
 $ export JAVA_HOME=CHEMIN DOSSIER JAVA ( ex : /usr/java )
 $ export PATH=CHEMIN DOSSIER BIN JAVA ( ex : ${PATH}:/usr/java/bin )
