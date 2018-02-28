@@ -20,14 +20,15 @@
         une danse et un chant.
       </ion-list-header>
       <ion-item (click)="calculScore('bool1', 5, 'bool2')">
-        <label disabled checked="false">RoBee a effectué une danse</label>
+        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee_danse_mission5.jpg" alt="">
+        <label style="margin-left: 105px;" disabled checked="false">RoBee a effectué une danse</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
         </label>
       </ion-item>
       <ion-item (click)="calculScore('bool2', 10, 'bool1')">
-        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee_danse_mission5.jpg" alt="">
+        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee_danse_8_mission5.jpg" alt="">
         <label style="margin-left: 105px;" disabled checked="false">RoBee a effectué une danse en forme de huit</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>

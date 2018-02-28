@@ -19,14 +19,16 @@
         RoBee doit être en sécurité pour passer la nuit.
       </ion-list-header>
       <ion-item (click)="calculScore('bool1', 10, 'bool2')">
-        <label disabled checked="false">RoBee se trouve dans la «Ruche»</label>
+        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee-Ruche.jpg" alt="">
+        <label style="margin-left: 105px;" disabled checked="false">RoBee se trouve dans la «Ruche»</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
         </label>
       </ion-item>
       <ion-item (click)="calculScore('bool2', 20, 'bool1')">
-        <label disabled checked="false">RoBee se trouve dans l'hôtel à insectes situé dans l'école</label>
+        <img class="miniImg" src="assets/imgs/cycle2/explMission/RoBee-ecole.jpg" alt="">
+        <label style="margin-left: 105px;" disabled checked="false">RoBee se trouve dans l'hôtel à insectes situé dans l'école</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool2">NON</span>

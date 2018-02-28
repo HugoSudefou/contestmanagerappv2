@@ -19,7 +19,6 @@ mission6-c2 {
     }
 
     .track {
-      z-index: -1;
       position: absolute;
       top: 5px;
       right: 10px;
@@ -53,6 +52,11 @@ mission6-c2 {
       border-top: 1px solid #dedede;
       font-size: 1.4rem;
       color: #000000;
+    }
+    .miniImg{
+      width: 100px;
+      position: absolute;
+      top: -4px;
     }
 
     .scoreTab {

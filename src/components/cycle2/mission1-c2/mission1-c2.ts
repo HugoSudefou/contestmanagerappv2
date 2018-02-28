@@ -201,8 +201,9 @@ export class Mission1C2Component {
         if (position === 'first') {
           this.colorBackground.cas4.first = false;
           this.colorBackground.cas3.first = false;
+          this.colorBackground.cas1.first = true;
         }
-        if (position !== 'first') {
+        else {
           let change: boolean = true;
           _.forEachRight(this.colorBackground, (key, cas) => {
             _.forEachRight(this.colorBackground[cas], (key, pos) => {
@@ -211,6 +212,11 @@ export class Mission1C2Component {
             })
           })
           this.colorBackground.cas4.first = false;
+          if (this.colorBackground.cas3.first) this.colorBackground.cas2.second = false;
+          else {
+            this.colorBackground.cas1.first = true;
+            this.colorBackground.cas1.second = true;
+          }
         }
       }
       else if (nCas === 'cas3') {
@@ -221,6 +227,7 @@ export class Mission1C2Component {
         })
         this.colorBackground.cas3.first = true;
         this.colorBackground.cas2.first = true;
+        this.colorBackground.cas1.first = true;
       }
       else if (nCas === 'cas4') {
         this.init();

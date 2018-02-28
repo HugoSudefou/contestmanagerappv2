@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
+import * as _ from 'lodash';
 
 /**
  * Generated class for the BonusC2Component component.
@@ -15,19 +16,26 @@ export class BonusC2Component {
   @Output() notifyScorBonus: EventEmitter<number> = new EventEmitter<number>();
 
   bool: {
-    bool1: boolean,
-    bool2: boolean,
-    bool3: boolean,
-    bool4: boolean
+    bool1: boolean
   }
 
   scores: {
     bool1: number,
-    bool2: number,
-    bool3: number,
-    bool4: number,
     total:number
   };
+
+  colorBackground: {
+    cas1:{
+      first:boolean,
+      second:boolean,
+      third:boolean
+    }
+  };
+
+  errorMessageBlock: String;
+  asErrorMessage: String;
+  showModal: boolean;
+  nbBlock: number;
 
   constructor() {
     this.init();
@@ -35,18 +43,24 @@ export class BonusC2Component {
 
   init(){
     this.bool= {
-      bool1: false,
-      bool2: false,
-      bool3: false,
-      bool4: false
+      bool1: false
     };
 
     this.scores= {
       bool1: 0,
-      bool2: 0,
-      bool3: 0,
-      bool4: 0,
       total:0
+    };
+
+    this.errorMessageBlock = '';
+    this.asErrorMessage = null;
+    this.showModal = false;
+    this.nbBlock = 0;
+    this.colorBackground = {
+      cas1:{
+        first: false,
+        second: false,
+        third: false
+      }
     };
   }
 
@@ -54,10 +68,29 @@ export class BonusC2Component {
     this.init();
   }
 
-  calculScore(label, score){
-    this.bool[label] = !this.bool[label];
+
+  changeColor(position, nCas) {
+    let change: boolean = true;
+    if (!this.colorBackground[nCas][position]) {
+      _.forEach(this.colorBackground[nCas], (key, pos) => {
+        if(change) this.colorBackground[nCas][pos] = true;
+        if (position === pos) change = false;
+      })
+      this.calculScore();
+    }
+    else{
+      _.forEachRight(this.colorBackground[nCas], (key, pos) => {
+        if(change) this.colorBackground[nCas][pos] = false;
+        if (position === pos) change = false;
+      })
+      this.calculScore();
+    }
+  }
+
+  calculScore(label=null, score=null){
+    if(label !== null && score != null)this.bool[label] = !this.bool[label];
     (this.bool[label]) ? this.scores[label] = score : this.scores[label] = 0;
-    this.scores.total = this.scores.bool1 + this.scores.bool2 + this.scores.bool3 + this.scores.bool4;
+    this.scores.total = this.scores.bool1 ;
     this.pushScore();
   }
 

@@ -8,6 +8,10 @@ mission4-c2 {
       width: 100%;
       border: 1px solid black;
 
+      td:first-child {
+        width: 20%;
+      }
+
       td {
         width: 50px;
         border: 1px solid black;
@@ -58,12 +62,19 @@ mission4-c2 {
       }
     }
 
+    .cas6 {
+      .cell-pad-align-center{
+        padding: 5px;
+        text-align: center;
+      }
+    }
+
   }
 
 
   .div-img{
     img{
-      height: 45px;
+      width: 30%;
       display: inline-flex;
     }
   }

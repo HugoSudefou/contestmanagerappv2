@@ -8,39 +8,35 @@
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
+
+  <div class="card">
+    <table>
+      <tbody>
+      <tr class="cas">
+        <td class="cell-pad-align-center">
+          <div class="div-img">
+            <img src="assets/imgs/cycle2/explMission/capteur-lumiere-couleurs.jpg" alt="">
+            <img src="assets/imgs/cycle2/explMission/capteur-lumiere-suiveur_ligne.jpg" alt="">
+            <img src="assets/imgs/cycle2/explMission/detecteur_de_contact.jpg" alt="">
+          </div>
+        </td>
+        <td class="cell-pad-align-center">
+          RoBee a utilisé un capteur pour suivre la ligne noire, différencier les couleurs ou détecter la présence des objets.
+        </td>
+        <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['first']) ? asErrorMessage : null" (click)="changeColor('first','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['first'], 'responseTrue' : colorBackground.cas1['first']}"><p>1</p></td>
+        <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['second']) ? asErrorMessage : null" (click)="changeColor('second','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['second'], 'responseTrue' : colorBackground.cas1['second']}"><p>2</p></td>
+        <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['third']) ? asErrorMessage : null" (click)="changeColor('third','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['third'], 'responseTrue' : colorBackground.cas1['third']}"><p>3</p></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
   <div class="card labelBool">
-    <ion-list button-group>
-      <ion-list-header class="titleLabel">
-        Utilisation de capteurs et de moteurs
-      </ion-list-header>
-      <ion-item (click)="calculScore('bool1', 10)">
-        <label disabled checked="false">RoBee a utilisé un capteur de lumière ou de couleur pour suivre les lignes noires</label>
-        <label class="boolMission toggle">
+      <ion-item (click)="calculScore('bool1', 20)">
+        <label disabled checked="false">RoBee a utilisé un moteur supplémentaire pour soulever les objets</label>
+        <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
         </label>
       </ion-item>
-      <ion-item (click)="calculScore('bool2', 10)">
-        <label disabled checked="false">RoBee a utilisé un capteur de couleur pour différencier les couleurs de l’arboretum</label>
-        <label class="boolMission toggle" >
-          <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
-          <span class="track non repBool" [hidden]="bool.bool2">NON</span>
-        </label>
-      </ion-item>
-      <ion-item (click)="calculScore('bool3', 10)">
-        <label disabled checked="false">RoBee a utilisé un capteur pour détecter la présence des objets sur la table</label>
-        <label class="boolMission toggle" >
-          <span class="track oui repBool" [hidden]="!bool.bool3">OUI</span>
-          <span class="track non repBool" [hidden]="bool.bool3">NON</span>
-        </label>
-      </ion-item>
-      <ion-item (click)="calculScore('bool4', 20)">
-        <label disabled checked="false">RoBee a utilisé un moteur supplémentaire pour soulever les objets</label>
-        <label class="boolMission toggle" >
-          <span class="track oui repBool" [hidden]="!bool.bool4">OUI</span>
-          <span class="track non repBool" [hidden]="bool.bool4">NON</span>
-        </label>
-      </ion-item>
-    </ion-list>
   </div>
 </div>

@@ -8,6 +8,11 @@ mission1-c2 {
       width: 100%;
       border: 1px solid black;
 
+      td:first-child {
+        padding: 5px;
+        width: 20%;
+      }
+
       td {
         width: 50px;
         border: 1px solid black;
@@ -63,7 +68,7 @@ mission1-c2 {
 
   .div-img{
     img{
-      height: 45px;
+      width: 30%;
       display: inline-flex;
     }
   }

@@ -1,5 +1,44 @@
 bonus-c2 {
   .card{
+    table{
+      width: 100%;
+      border: 1px solid black;
+
+      tr {
+        width: 100%;
+        border: 1px solid black;
+
+        td:first-child {
+          padding: 5px;
+          width: 20%;
+        }
+
+        td {
+          padding: 5px;
+          width: 50px;
+          border: 1px solid black;
+          p{
+            text-align: center;
+          }
+        }
+      }
+
+      .cas1 {
+        .cell-pad-align-center{
+          padding: 5px;
+          text-align: center;
+        }
+      }
+
+    }
+
+
+    .div-img{
+      img{
+        width: 30%;
+        display: inline-flex;
+      }
+    }
     ion-item {
       padding: 25px;
       padding-right: 20%;
@@ -19,7 +58,6 @@ bonus-c2 {
     }
 
     .track {
-      z-index: -1;
       position: absolute;
       top: 5px;
       right: 10px;
