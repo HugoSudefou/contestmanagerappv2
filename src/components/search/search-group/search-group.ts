@@ -29,7 +29,7 @@ export class SearchGroupComponent {
 
   search(){
     console.log('---------------------- SearchGroup -----------------------');
-    let url = 'matchs/groups';
+    let url = 'groups';
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       console.log('API', res.json());

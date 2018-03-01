@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { LoadingController } from 'ionic-angular';
 
 import 'rxjs/add/operator/map';
@@ -36,6 +36,7 @@ export class HttpProvider {
       loading.dismiss();
       return res;
     }, (error)=> {
+      loading.dismiss();
       return error;
     });
   }
@@ -50,14 +51,19 @@ export class HttpProvider {
     // $http returns a promise, which has a then function, which also returns a promise
     // url prod : http://collab-lod.nexen.net:12345/api/
     // url dev : http://contestmanager.dev/api/
-    console.log('url api : ');
-    console.log(this.url.apiDev + chemin);
-    this.http.post(this.url.apiDev + chemin, body).subscribe((res)=>{
+    console.log('url api : ', this.url.apiDev + chemin);
+    console.log('body : ', body);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    let opts = new RequestOptions();
+    opts.headers = headers;
+    return this.http.post(this.url.apiDev + chemin, body, opts).map((res)=>{
       // The return value gets picked up by the then in the controller.
       loading.dismiss();
       return res;
     }, (reason)=> {
       console.log('ERREUR API');
+      loading.dismiss();
       return reason;
     });
   }

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { HomePage } from '../home/home';
 import { ScoresPage } from '../scores/scores';
 import { TimerC3Component } from '../../components/cycle3/timer/timer';
+import {HttpProvider} from "../../providers/http/http";
+import {DataProvider} from "../../providers/data/data";
 
 @IonicPage()
 @Component({
@@ -12,6 +14,7 @@ import { TimerC3Component } from '../../components/cycle3/timer/timer';
 export class missionCycle3 {
 
   @ViewChild(TimerC3Component) timer: TimerC3Component;
+  isArbitre;
 
   scores: {
     penalities: number,
@@ -27,8 +30,11 @@ export class missionCycle3 {
   };
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private http: HttpProvider, public currentData: DataProvider) {
     this.init();
+
+    if(this.currentData.getIsArbitre() === undefined) this.isArbitre = JSON.parse(localStorage["isArbitre"]);
+    else this.isArbitre = this.currentData.getIsArbitre();
   }
 
   init(){
@@ -85,27 +91,91 @@ export class missionCycle3 {
     confirmReset.present();
   }
 
-  saveScore(){
-    this.timer.pauseTimer();
-    let time = this.timer.timer.displayTime;
-    const total = this.scores.total;
-    let cancelSaveScore = this.alertController.create({
+  popupCancel(){
+    return this.alertController.create({
       title: 'Le score n\'a pas été enregistré',
       cssClass: 'popupSave',
       message: 'Il manque le nom de l\'équipe ',
       buttons: ['OK']
     });
-    let confirmScore = this.alertController.create({
-      title: 'Êtes-vous sur de vouloir enregistrer ce score ?',
+  }
+
+  popupFinishSave(time, total, team){
+    return this.alertController.create({
+      title: 'Le score a bien été enregistré',
       cssClass: 'popupSave',
-      inputs: [
-        {
-          name: 'team',
-          placeholder: 'Nom de l\'équipe'
-        }
-      ],
-      message: 'Score total : ' + total + '<br/> Temps : ' + time,
+      message: 'Équipe : ' + team + '<br/> Score : ' + total + '<br/> Temps : ' + time,
       buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.goToScore();
+          }
+        }
+      ]
+    });
+  }
+
+  popupConfirmScore(time, total, team, match, isArbitre){
+    let title;
+    let inputs;
+    let subTitle;
+    let message;
+    let buttons;
+    console.log('match : ', match)
+    if(isArbitre){
+      title = 'Êtes vous sur de vouloir enregistrer ce score ?';
+      subTitle = 'Equipe : ' + team.name + '<br/> Match ' + match.numMatch ;
+      message = 'Score total : ' + total + '<br/> Temps : ' + time;
+      buttons = [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Envoyer',
+          handler: () => {
+
+            let url = 'matchs/team/score';
+            let body = {
+              id_team : team.id,
+              id_match : match.id,
+              score : total
+            };
+            this.http.asyncPost(url, body).subscribe((res)=>{
+              // The return value gets picked up by the then in the controller.
+              console.log('API', res.json());
+              return res;
+            }, (reason)=> {
+              console.log('ERREUR API : ', reason);
+              return reason;
+            });
+
+            // if (false) {
+            //   let allData: any = {
+            //     scores: this.scores,
+            //     team: team,
+            //     timer: time,
+            //     isActive: false
+            //   }
+            //   this.localSaveScore(allData);
+            //   this.popupFinishSave(time, total, team).present();
+            // }
+          }
+        }
+      ];
+    }
+    else{
+      title = 'Êtes-vous sur de vouloir enregistrer ce score ?';
+      inputs = [{
+        name: 'team',
+        placeholder: 'Nom de l\'équipe'
+      }];
+      message = 'Score total : ' + total + '<br/> Temps : ' + time;
+      buttons = [
         {
           text: 'Cancel',
           role: 'cancel',
@@ -125,7 +195,7 @@ export class missionCycle3 {
                   {
                     text: 'OK',
                     handler: () => {
-                      this.goToScore();
+                      //this.goToScore();
                     }
                   }
                 ]
@@ -137,16 +207,37 @@ export class missionCycle3 {
                 timer: time,
                 isActive: false
               }
-              this.localSaveScore(allData);
-              saveScore.present();
-          } else {
-              cancelSaveScore.present();
-          }
+              //this.localSaveScore(allData);
+              //saveScore.present();
+            } else {
+              this.popupCancel().present();
+            }
           }
         }
-      ]
+      ];
+    }
+    return this.alertController.create({
+      title: title,
+      subTitle: subTitle,
+      cssClass: 'popupSave',
+      inputs: inputs,
+      message: message,
+      buttons: buttons
     });
-    confirmScore.present();
+  }
+
+  saveScore(){
+    let team = null;
+    let match = null;
+    if(this.isArbitre) {
+      team = (this.currentData.getTeam()["id"] === undefined) ? JSON.parse(localStorage['currentTeamA']) : this.currentData.getTeam();
+      match = (this.currentData.getMatch()["id"] === undefined) ? JSON.parse(localStorage['currentMatchA']) : this.currentData.getMatch();
+    }
+    this.timer.pauseTimer();
+    let time = this.timer.timer.displayTime;
+    const total = this.scores.total;
+
+    this.popupConfirmScore(time, total, team, match, this.isArbitre).present();
   }
 
   localSaveScore(allData){

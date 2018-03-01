@@ -1,6 +1,6 @@
 <!-- Generated template for the SearchMatchComponent component -->
 <div>
-  <div class="cardTeam" *ngFor="let match of matchs; let i = index" [hidden]="hiddenDivTournament" (click)="selectMatch(match)" [style.background]="(match.score === undefined) ? null : '#8e888a'">
+  <div class="cardTeam" *ngFor="let match of matchs; let i = index" [hidden]="hiddenDivTournament" (click)="selectMatch(match, i+1)" [style.background]="(match.score === undefined) ? null : '#8e888a'">
     <div class="nomGroupTeam">
       <span>Match {{i + 1}}</span>
     </div>

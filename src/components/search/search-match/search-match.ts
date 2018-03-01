@@ -45,7 +45,8 @@ export class SearchMatchComponent {
     });
   }
 
-  selectMatch(match){
+  selectMatch(match, numMatch){
+    match["numMatch"] = numMatch;
     if(match.score !== undefined){
       this.popupSaveScore(match);
     }

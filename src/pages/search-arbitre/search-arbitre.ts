@@ -25,7 +25,9 @@ export class SearchMatchPage {
   hiddenMatch: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
     this.currentData.setIsArbitre(true);
+    let data = this.currentData.getData();
     localStorage.setItem('isArbitre', 'true');
+    console.log('alldata  : ', data);
   }
 
   ionViewDidLoad() {
@@ -60,8 +62,9 @@ export class SearchMatchPage {
   selectMatch(match){
     this.currentData.setMatch(match);
     localStorage.setItem('currentMatchA', JSON.stringify(match));
-    let cycle = this.currentData.getGroup().cycle;
+    let cycle = this.currentData.getGroup()["cycle"];
     this.hiddenMatch = true;
+    this.hiddenTournament = false;
     let currentTeam = JSON.parse(localStorage.getItem('currentTeam'));
     if(cycle === 2) this.navCtrl.push('missionCycle2');
     else if(cycle === 3) this.navCtrl.push('missionCycle3');

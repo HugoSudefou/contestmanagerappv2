@@ -21,16 +21,9 @@ export class SearchTeamComponent {
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchGroupComponent Component');
-    console.log('isArbitre', localStorage['isArbitre']);
-    console.log('localStorage[\'idGroupOfTeamSelectedA\'] isArbitre', localStorage['idGroupOfTeamSelectedA']);
-    console.log('localStorage[\'idGroupOfTeamSelectedT\'] ', localStorage['idGroupOfTeamSelectedT']);
-    console.log('---------------------- SearchTeam constructor-----------------------');
 
     if(localStorage['isArbitre'] === 'true') this.currentTeam = (localStorage['currentTeamA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamA')) : null;
     else this.currentTeam = (localStorage['currentTeamT'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamT')) : null;
-    console.log('this.currentTeam : ', this.currentTeam);
-    console.log('JSON.parse(localStorage.getItem(\'currentTeamA\')) : ', JSON.parse(localStorage.getItem('currentTeamA')));
-    console.log('JSON.parse(localStorage.getItem(\'currentTeamT\')) : ', JSON.parse(localStorage.getItem('currentTeamT')));
     this.teams =  [{}];
   }
 
@@ -43,7 +36,8 @@ export class SearchTeamComponent {
     }else {
       if (localStorage['idGroupOfTeamSelectedT'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedT']).id !== this.idGroup) this.currentTeam = null;
     }
-    let url = 'groups/' + idGroup +  '/match';
+    let url = 'groups/' + idGroup;
+    console.log('url', url);
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       console.log('API', res.json());

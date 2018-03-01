@@ -11,7 +11,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataProvider {
 
-  data;
+  data: {
+    isArbitre: boolean,
+    tournament: {},
+    group: {},
+    team: {},
+    match: {},
+    score: {
+      cycle2:Array<any>,
+      cycle3:Array<any>
+    },
+  };
 
   constructor(public http: Http) {
     this.data = {

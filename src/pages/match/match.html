@@ -15,46 +15,45 @@
 
 <ion-content padding>
   <div  [hidden]="showMatch">
-    slfiuqhsdf
-    <!--<div class="card clearfix " ng-repeat="match in matchsFinish">-->
-      <!--<div class="item item-text-wrap div_match cardMatch finish" on-swipe-left="onSwipeleft()" ng-click="show=!show" ng-class="{show: show}">-->
-        <!--<div class="row div_match" ng-class="{div_match_active: show}">-->
-          <!--<span class="col col-40 center">{{match.team.name}}</span>-->
-          <!--<span class="col col-20 center">VS</span>-->
-          <!--<span class="col col-40 center">{{match.versus.score[0].team.name}}</span>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<span class="col col-40 center">Score : {{match.score}}</span>-->
-          <!--<span class="col col-20 center"></span>-->
-          <!--<span class="col col-40 center">Score : {{match.versus.score[0].score}}</span>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<button class="col col-50 center button-clear" ui-sref='home.team({ id: match.team.id})'>Infos sur la team</button>-->
-          <!--<button class="col col-50 center button-clear" ui-sref='home.team({ id: match.versus.score[0].team.id})'>Infos sur la team</button>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<span class="col center">Date : {{match.versus.date_match | date:"EEEE d MMMM 'à' H:mm":"+0000"}}</span>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="card clearfix " ng-repeat="match in matchsNotFinish">-->
-      <!--<div class="item item-text-wrap div_match cardMatch not-finish" on-swipe-left="onSwipeleft()" ng-click="show=!show" ng-class="{show: show}">-->
-        <!--<div class="row div_match" ng-class="{div_match_active: show}">-->
-          <!--<span class="col col-40 center">{{match.team.name}}</span>-->
-          <!--<span class="col col-20 center">VS</span>-->
-          <!--<span class="col col-40 center">{{match.versus.score[0].team.name}}</span>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<span class="col center">Table : {{match.versus.table_number}}</span>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<button class="col col-50 center button-clear" ui-sref='home.team({ id: match.team.id})'>Infos sur la team</button>-->
-          <!--<button class="col col-50 center button-clear" ui-sref='home.team({ id: match.versus.score[0].team.id})'>Infos sur la team</button>-->
-        <!--</div>-->
-        <!--<div class="row">-->
-          <!--<span class="col center">Date : {{match.versus.date_match | date:"EEEE d MMMM 'à' H:mm":"+0000"}}</span>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
+    <ion-card class="card clearfix " *ngFor="let match of matchsFinish">
+      <div class="item item-text-wrap div_match cardMatch finish" (click)="match.show=!match.show" [ngClass]="{show: match.show}">
+        <div class="row div_match">
+          <span class="col col-40 center">{{match.team.name}}</span>
+          <span class="col col-20 center">VS</span>
+          <span class="col col-40 center">{{match.versus.score[0].team.name}}</span>
+        </div>
+        <div class="row">
+          <span class="col col-40 center">Score : {{match.score}}</span>
+          <span class="col col-20 center"></span>
+          <span class="col col-40 center">Score : {{match.versus.score[0].score}}</span>
+        </div>
+        <div class="row">
+          <span class="col center">Date : {{match.versus.date_match | date:"EEEE d MMMM H:mm":"+0000":"fr"}}</span>
+        </div>
+        <div class="row">
+          <button class="col col-50 center button-clear" (click)='goToPage("InfoTeamPage", match.team.id)'>Infos sur la team</button>
+          <button class="col col-50 center button-clear" (click)='goToPage("InfoTeamPage", match.versus.score[0].team.id)'>Infos sur la team</button>
+        </div>
+      </div>
+    </ion-card>
+    <ion-card class="card clearfix " *ngFor="let match of matchsNotFinish">
+      <div class="item item-text-wrap div_match cardMatch not-finish" (click)="match.show=!match.show" [ngClass]="{show: match.show}">
+        <div class="row div_match" [ngClass]="{div_match_active: match.show}">
+          <span class="col col-40 center">{{match.team.name}}</span>
+          <span class="col col-20 center">VS</span>
+          <span class="col col-40 center">{{match.versus.score[0].team.name}}</span>
+        </div>
+        <div class="row">
+          <span class="col center">Table : {{match.versus.table_number}}</span>
+        </div>
+        <div class="row">
+          <span class="col center">Date : {{match.versus.date_match | date:"EEEE d MMMM H:mm":"+0000":"fr"}}</span>
+        </div>
+        <div class="row">
+          <button class="col col-50 center" (click)='goToPage("InfoTeamPage", match.team.id)'>Infos sur la team</button>
+          <button class="col col-50 center" (click)='goToPage("InfoTeamPage", match.versus.score[0].team.id)'>Infos sur la team</button>
+        </div>
+      </div>
+    </ion-card>
   </div>
 </ion-content>

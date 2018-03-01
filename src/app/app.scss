@@ -19,6 +19,25 @@
   white-space: normal;
 }
 
+
+.popupSave {
+  .alert-wrapper{
+    max-width: 80%;
+    .alert-head{
+      text-align: center;
+    }
+    .alert-title{
+      font-size: 28px;
+    }
+    .alert-sub-title{
+      font-size: 24px;
+    }
+    .alert-message{
+      font-size: 20px;
+    }
+  }
+}
+
 .relative {
   position: relative;
 }

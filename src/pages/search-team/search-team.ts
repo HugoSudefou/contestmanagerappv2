@@ -25,6 +25,8 @@ export class SearchTeamPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider) {
     let data = this.currentData.getData();
     this.currentData.setIsArbitre(false);
+    this.currentData.setMatch({});
+    localStorage.setItem('currentMatchA', JSON.stringify({}));
     localStorage.setItem('isArbitre', 'false  ');
     console.log('allData : ', data)
   }
