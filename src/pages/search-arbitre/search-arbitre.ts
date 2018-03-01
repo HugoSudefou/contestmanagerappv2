@@ -60,6 +60,7 @@ export class SearchMatchPage {
   }
 
   selectMatch(match){
+    console.log('match select : ', match)
     this.currentData.setMatch(match);
     localStorage.setItem('currentMatchA', JSON.stringify(match));
     let cycle = this.currentData.getGroup()["cycle"];

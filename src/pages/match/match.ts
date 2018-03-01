@@ -42,9 +42,9 @@ export class MatchPage {
     let url = 'matchs/team/' + idTeam;
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
+      console.log('API', res);
       this.showMatch = false;
-      let allMatch = res.json();
+      let allMatch = res;
       _.forEach(allMatch, (match, key)=>{
         match["show"] = false;
         (match.score === undefined) ? this.matchsNotFinish.push(match) : this.matchsFinish.push(match);

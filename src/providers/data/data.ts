@@ -12,11 +12,17 @@ import 'rxjs/add/operator/map';
 export class DataProvider {
 
   data: {
+    fromHomeTeam: boolean,
     isArbitre: boolean,
-    tournament: {},
-    group: {},
-    team: {},
-    match: {},
+    tournament: {
+      id: number
+    },
+    group: {
+      id: number},
+    team: {
+      id: number},
+    match: {
+      id: number},
     score: {
       cycle2:Array<any>,
       cycle3:Array<any>
@@ -25,11 +31,20 @@ export class DataProvider {
 
   constructor(public http: Http) {
     this.data = {
+      fromHomeTeam: false,
       isArbitre: false,
-      tournament: {},
-      group: {},
-      team: {},
-      match: {},
+      tournament: {
+        id: null
+      },
+      group: {
+        id: null
+      },
+      team: {
+        id: null
+      },
+      match: {
+        id: null
+      },
       score: {
         cycle2:[],
         cycle3:[]
@@ -39,6 +54,10 @@ export class DataProvider {
 
   getData(){
     return this.data;
+  }
+
+  getFromHomeTeam():boolean{
+    return this.data.fromHomeTeam;
   }
 
   getIsArbitre():boolean{
@@ -63,6 +82,10 @@ export class DataProvider {
 
   getScore(){
     return this.data.score;
+  }
+
+  setFromHomeTeam(fromHomeTeam){
+    this.data.fromHomeTeam = fromHomeTeam;
   }
 
   setIsArbitre(isArbitre){

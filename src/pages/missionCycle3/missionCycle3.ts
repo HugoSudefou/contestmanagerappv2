@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ScoresPage } from '../scores/scores';
 import { TimerC3Component } from '../../components/cycle3/timer/timer';
@@ -30,9 +30,9 @@ export class missionCycle3 {
   };
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private http: HttpProvider, public currentData: DataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, public loadingCtrl: LoadingController, private http: HttpProvider, public currentData: DataProvider) {
     this.init();
-
+    console.log('JSON.parse(localStorage["isArbitre"]) : ', JSON.parse(localStorage["isArbitre"]));
     if(this.currentData.getIsArbitre() === undefined) this.isArbitre = JSON.parse(localStorage["isArbitre"]);
     else this.isArbitre = this.currentData.getIsArbitre();
   }
@@ -123,6 +123,7 @@ export class missionCycle3 {
     let message;
     let buttons;
     console.log('match : ', match)
+    console.log('team : ', team)
     if(isArbitre){
       title = 'Êtes vous sur de vouloir enregistrer ce score ?';
       subTitle = 'Equipe : ' + team.name + '<br/> Match ' + match.numMatch ;
@@ -147,7 +148,7 @@ export class missionCycle3 {
             };
             this.http.asyncPost(url, body).subscribe((res)=>{
               // The return value gets picked up by the then in the controller.
-              console.log('API', res.json());
+              console.log('API', res);
               return res;
             }, (reason)=> {
               console.log('ERREUR API : ', reason);
@@ -227,11 +228,12 @@ export class missionCycle3 {
   }
 
   saveScore(){
+    if(this.isArbitre === undefined) this.isArbitre = JSON.parse(localStorage["isArbitre"]);
     let team = null;
     let match = null;
     if(this.isArbitre) {
-      team = (this.currentData.getTeam()["id"] === undefined) ? JSON.parse(localStorage['currentTeamA']) : this.currentData.getTeam();
-      match = (this.currentData.getMatch()["id"] === undefined) ? JSON.parse(localStorage['currentMatchA']) : this.currentData.getMatch();
+      team = (this.currentData.getTeam().id === null || this.currentData.getTeam().id === null) ? JSON.parse(localStorage['currentTeamA']) : this.currentData.getTeam();
+      match = (this.currentData.getMatch().id === undefined || this.currentData.getMatch().id === null) ? JSON.parse(localStorage['currentMatchA']) : this.currentData.getMatch();
     }
     this.timer.pauseTimer();
     let time = this.timer.timer.displayTime;

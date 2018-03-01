@@ -20,6 +20,7 @@ export class HomeTeamPage {
   group: {};
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider, public alertController: AlertController) {
     console.log('--------------Construc HomeTeam ------------------');
+    this.currentData.setFromHomeTeam(true);
     if(this.currentData.getTeam().id === undefined && localStorage['currentTeamT'] === undefined) this.popupError();
     else this.team = (this.currentData.getTeam().id === undefined) ? JSON.parse(localStorage['currentTeamT']) : this.currentData.getTeam();
     if(this.currentData.getGroup().id === undefined && localStorage['currentGroupT'] === undefined) this.popupError();

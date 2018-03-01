@@ -4,6 +4,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 import {  ComponentsC2Module } from '../components/componentsC2.module'
@@ -22,9 +23,10 @@ import { DataProvider } from '../providers/data/data';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpModule,
     CommonModule,
     IonicModule.forRoot(MyApp),
-    HttpModule,
     ComponentsC2Module,
     ComponentsModule,
     ComponentsC3Module

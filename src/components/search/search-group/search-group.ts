@@ -32,8 +32,8 @@ export class SearchGroupComponent {
     let url = 'groups';
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
-      this.groups = res.json();
+      console.log('API', res);
+      this.groups = res;
       this.hiddenDivGroup = false;
       console.log('this.groups : ', this.groups);
       return res;

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import {HomePage} from "../home/home";
-import {missionCycle2} from "../missionCycle2/missionCycle2";
-import {missionCycle3} from "../missionCycle3/missionCycle3";
+import * as _ from 'lodash'
+import {DataProvider} from "../../providers/data/data";
+import {SearchMatchPage} from "../search-arbitre/search-arbitre";
+import {HttpProvider} from "../../providers/http/http";
 
 /**
  * Generated class for the ScoresPage page.
@@ -21,26 +22,53 @@ export class ScoresPage {
   dataScores: Array<any>;
   Object = Object;
   cycle: number;
+  fromHomeTeam;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private http: HttpProvider, public currentData: DataProvider) {
     this.cycle = navParams.data;
-    if(this.cycle === 2){
-      this.dataScores = JSON.parse(localStorage["scores"]).cycle2.reverse();
-      if(this.dataScores.length < 1) this.popup('scores');
-      this.dataScores.forEach((value, key) => {
-        if (key === 0) value.isActive = true;
+    this.fromHomeTeam = this.currentData.getFromHomeTeam();
+    console.log('fromHomeTeam : ', this.fromHomeTeam)
+    if(this.fromHomeTeam){
+      this.search(this.currentData.getTeam().id);
+    }
+    else{
+      if(this.cycle === 2){
+        this.dataScores = JSON.parse(localStorage["scores"]).cycle2.reverse();
+        if(this.dataScores.length < 1) this.popup('scores');
+        this.dataScores.forEach((value, key) => {
+          if (key === 0) value.isActive = true;
+        })
+      }
+      else if(this.cycle === 3){
+        this.dataScores = JSON.parse(localStorage["scores"]).cycle3.reverse();
+        if(this.dataScores.length < 1) this.popup('scores');
+        this.dataScores.forEach((value, key) => {
+          if (key === 0) value.isActive = true;
+        })
+      }
+      else {
+        this.popup('error');
+      }
+    }
+  }
+
+  search(idTeam){
+    console.log('---------------------- SearchScore -----------------------');
+    console.log('idTeam : ', idTeam);
+    let url = 'matchs/team/' + idTeam;
+    this.http.async(url).subscribe((res)=>{
+      // The return value gets picked up by the then in the controller.
+      console.log('API', res);
+      _.forEach(()=>{
+
       })
-    }
-    else if(this.cycle === 3){
-      this.dataScores = JSON.parse(localStorage["scores"]).cycle3.reverse();
-      if(this.dataScores.length < 1) this.popup('scores');
-      this.dataScores.forEach((value, key) => {
-        if (key === 0) value.isActive = true;
-      })
-    }
-    else {
-      this.popup('error');
-    }
+      // this.matchs = res;
+      // this.hiddenDivMatch = false;
+      return res;
+    }, (reason)=> {
+      console.log('ERREUR API : ', reason);
+      return reason;
+    });
   }
 
   popup(type){
@@ -51,7 +79,11 @@ export class ScoresPage {
         {
           text: 'OK',
           handler: () => {
-            (this.cycle === 3) ? this.navCtrl.push('missionCycle3') : this.navCtrl.push('missionCycle2');
+            if(this.fromHomeTeam) {
+              this.navCtrl.push('SearchMatchPage');
+            } else{
+              this.navCtrl.push('missionCycle' + this.cycle);
+            }
           }
         }
       ]

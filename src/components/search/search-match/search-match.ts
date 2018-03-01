@@ -16,7 +16,7 @@ import {HttpProvider} from "../../../providers/http/http";
 export class SearchMatchComponent {
   @Output() notifySearchMatch: EventEmitter<number> = new EventEmitter<number>();
 
-  matchs: Array<{}>;
+  matchs;
   idTeam: number;
   currentMatch;
   hiddenDivMatch: boolean = true;
@@ -24,7 +24,7 @@ export class SearchMatchComponent {
   constructor(private http: HttpProvider, public alertController: AlertController) {
     console.log('Hello SearchGroupComponent Component');
     this.currentMatch = (localStorage['currentMatchA'] !== undefined) ? JSON.parse(localStorage.getItem('currentMatchA')) : null;
-    this.matchs =  [{}];
+    this.matchs =  [];
   }
 
   search(idTeam){
@@ -35,8 +35,8 @@ export class SearchMatchComponent {
     let url = 'matchs/team/' + idTeam;
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
-      this.matchs = res.json();
+      console.log('API', res);
+      this.matchs = res;
       this.hiddenDivMatch = false;
       return res;
     }, (reason)=> {

@@ -37,11 +37,12 @@ export class SearchTeamComponent {
       if (localStorage['idGroupOfTeamSelectedT'] !== undefined && JSON.parse(localStorage['idGroupOfTeamSelectedT']).id !== this.idGroup) this.currentTeam = null;
     }
     let url = 'groups/' + idGroup;
+    // let url = 'groups/' + idGroup + '/match';
     console.log('url', url);
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
-      this.teams = res.json()[0]["team"];
+      console.log('API', res);
+      this.teams = res[0]["team"];
       this.hiddenDivTeam = false;
       return res;
     }, (reason)=> {

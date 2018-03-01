@@ -14,14 +14,14 @@ import { HttpProvider } from '../../../providers/http/http';
 export class SearchTournamentsComponent {
   @Output() notifySearchTounaments: EventEmitter<number> = new EventEmitter<number>();
 
-  tournaments: Array<{}>;
+  tournaments;
   currentTournament;
   hiddenDivTournament: boolean = true;
 
   constructor(private http: HttpProvider) {
     console.log('Hello SearchTournamentsComponent Component');
     this.currentTournament = (localStorage['currentTournamentA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTournamentA')) : null;
-    this.tournaments = [{}];
+    this.tournaments = [];
     this.search();
   }
 
@@ -30,8 +30,8 @@ export class SearchTournamentsComponent {
     let urlGroupId = 'tournaments';
     this.http.async(urlGroupId).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
-      console.log('API', res.json());
-      this.tournaments = res.json();
+      console.log('API', res);
+      this.tournaments = res;
       this.hiddenDivTournament = false;
       return res;
     }, (reason)=> {
