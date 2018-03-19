@@ -12,6 +12,7 @@ import 'rxjs/add/operator/map';
 export class DataProvider {
 
   data: {
+    token: String
     fromHomeTeam: boolean,
     isArbitre: boolean,
     tournament: {
@@ -31,6 +32,7 @@ export class DataProvider {
 
   constructor(public http: Http) {
     this.data = {
+      token: '',
       fromHomeTeam: false,
       isArbitre: false,
       tournament: {
@@ -82,6 +84,14 @@ export class DataProvider {
 
   getScore(){
     return this.data.score;
+  }
+
+  getToken(){
+    return this.data.token;
+  }
+
+  setToken(token){
+    this.data.token = token;
   }
 
   setFromHomeTeam(fromHomeTeam){

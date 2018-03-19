@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, AlertController, LoadingController} from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { TimerC2Component } from '../../components/cycle2/timer/timer';
 import { ScoresPage } from '../scores/scores';
@@ -28,7 +28,12 @@ export class missionCycle2 {
   };
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertController: AlertController, private http: HttpProvider, public currentData: DataProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public alertController: AlertController,
+              private http: HttpProvider,
+              public currentData: DataProvider,
+              public loadingCtrl: LoadingController) {
     this.init();
     console.log('JSON.parse(localStorage["isArbitre"]) : ', JSON.parse(localStorage["isArbitre"]))
     if(this.currentData.getIsArbitre() === undefined) this.isArbitre = JSON.parse(localStorage["isArbitre"]);
@@ -118,9 +123,8 @@ export class missionCycle2 {
     let subTitle;
     let message;
     let buttons;
-    console.log('match : ', match)
-    console.log('team : ', team)
     if(isArbitre){
+      let token = JSON.parse(localStorage.getItem('currentUser')).token;
       title = 'Êtes vous sur de vouloir enregistrer ce score ?';
       subTitle = 'Equipe : ' + team.name + '<br/> Match ' + match.numMatch ;
       message = 'Score total : ' + total + '<br/> Temps : ' + time;
@@ -142,7 +146,7 @@ export class missionCycle2 {
               id_match : match.id,
               score : total
             };
-            this.http.asyncPost(url, body).subscribe((res)=>{
+            this.http.asyncPost(url, body, token).subscribe((res)=>{
               // The return value gets picked up by the then in the controller.
               console.log('API', res);
               return res;
@@ -150,17 +154,6 @@ export class missionCycle2 {
               console.log('ERREUR API : ', reason);
               return reason;
             });
-
-            // if (false) {
-            //   let allData: any = {
-            //     scores: this.scores,
-            //     team: team,
-            //     timer: time,
-            //     isActive: false
-            //   }
-            //   this.localSaveScore(allData);
-            //   this.popupFinishSave(time, total, team).present();
-            // }
           }
         }
       ];
@@ -204,8 +197,8 @@ export class missionCycle2 {
                 timer: time,
                 isActive: false
               }
-              //this.localSaveScore(allData);
-              //saveScore.present();
+              this.localSaveScore(allData);
+              saveScore.present();
             } else {
               this.popupCancel().present();
             }

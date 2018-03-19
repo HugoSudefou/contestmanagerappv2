@@ -1,0 +1,34 @@
+page-score-group {
+  table{
+    width: 90%;
+    margin: auto;
+    border: 1px solid white;
+    background: aliceblue;
+
+    thead {
+      tr{
+        height: 50px;
+        font-size: 24px;
+        .score{
+          text-align: right;
+        }
+        td{
+          padding: 5px;
+        }
+      }
+    }
+
+    tbody {
+      tr{
+        height: 50px;
+        font-size: 20px;
+        .score{
+          text-align: right;
+        }
+        td{
+          padding: 5px;
+        }
+      }
+    }
+  }
+}

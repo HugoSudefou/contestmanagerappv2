@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>infoTeam</ion-title>
+    <ion-title>Information</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div *ngIf="showProfil">
+    <div>
+      Nom de l'école : {{team.group.name}}
+    </div>
+    <div>
+      Nom de l'équpe : {{team.name}}
+    </div>
+    <div>
+      Elève présent dans l'équipe
+      <div *ngFor="let student of team['student']; let i = index">
+      Elève {{i+1}} : {{student.first_name}}
+      </div>
+    </div>
+  </div>
 </ion-content>
