@@ -175,7 +175,6 @@ export class Mission4C2Component {
           })
         }
       }
-      console.log('nCas : ', nCas);
       if (nCas === 'cas6') {
         _.forEachRight(this.colorBackground, (key, cas) => {
           _.forEach(this.colorBackground[cas], (pos, key) => {
