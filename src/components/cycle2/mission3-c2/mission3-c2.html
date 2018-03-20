@@ -4,7 +4,7 @@
       <img src="assets/imgs/cycle2/logoMission/mission3.jpg" alt="">
     </div>
     <div class="titleMission" (click)="showModal = true">
-      <p class="first">Mission 3 <br/> <span style="font-weight:normal;font-size: 24px">Passage du pont en chantant</span></p>
+      <p class="first">Mission 3 <br/> <span style="font-weight:normal;font-size: 24px">Passage du pont en chantant.</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -20,7 +20,7 @@
       </ion-list-header>
       <ion-item (click)="calculScore('bool1', 10)">
         <img class="miniImg" src="assets/imgs/cycle2/explMission/pont-mission3.jpg" alt="">
-        <label style="margin-left: 105px;" disabled checked="false">RoBee s’est arrêté sur le pont</label>
+        <label style="margin-left: 105px;" disabled checked="false">RoBee s’est arrêté sur le pont.</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool1">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool1">NON</span>
@@ -28,7 +28,7 @@
       </ion-item>
       <ion-item (click)="calculScore('bool3', 10)">
         <img class="miniImg" src="assets/imgs/cycle2/explMission/pont-structure-mission3.jpg" alt="">
-        <label style="margin-left: 105px;" disabled checked="false">RoBee n’a pas touché la structure du pont</label>
+        <label style="margin-left: 105px;" disabled checked="false">RoBee n’a pas touché la structure du pont.</label>
         <label class="boolMission toggle">
           <span class="track oui repBool" [hidden]="!bool.bool3">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool3">NON</span>
@@ -36,7 +36,7 @@
       </ion-item>
       <ion-item (click)="calculScore('bool2', 10)">
         <img class="miniImg" src="assets/imgs/cycle2/explMission/jouer_melodie_mission3.jpg" alt="">
-        <label style="margin-left: 105px;" disabled checked="false">RoBee a produit l’air de musique demandé</label>
+        <label style="margin-left: 105px;" disabled checked="false">RoBee a produit l’air de musique demandé.</label>
         <label class="boolMission toggle" >
           <span class="track oui repBool" [hidden]="!bool.bool2">OUI</span>
           <span class="track non repBool" [hidden]="bool.bool2">NON</span>

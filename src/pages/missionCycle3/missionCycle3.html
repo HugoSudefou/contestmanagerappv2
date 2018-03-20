@@ -35,8 +35,8 @@
   <bonus-techno #resetBonTec (notifyBonusTec)="score($event, 'bonusTec')" ></bonus-techno>
   <bonus-pedago #resetBonPeda (notifyBonusPeda)="score($event, 'bonusPeda')" ></bonus-pedago>
   <div class="btnTools">
-    <button ion-button (click)="saveScore()">Enregistrer</button>
     <button ion-button (click)="goToScore()">Scores</button>
+    <button ion-button (click)="saveScore()">Enregistrer</button>
   </div>
   <button ion-button full margin-bottom="10px" (click)="goToHome()">Back Home</button>
 </ion-content>

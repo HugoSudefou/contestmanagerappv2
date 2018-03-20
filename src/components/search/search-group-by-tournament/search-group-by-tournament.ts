@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {HttpProvider} from "../../../providers/http/http";
+import { HomePage } from '../../../pages/home/home';
+import {AlertController, LoadingController, NavController} from 'ionic-angular';
 
 /**
  * Generated class for the SearchGroupByTournamentComponent component.
@@ -21,7 +23,7 @@ export class SearchGroupByTournamentComponent {
   idTournament: number;
   hiddenDivGroup: boolean = true;
 
-  constructor(private http: HttpProvider) {
+  constructor(private http: HttpProvider, public navCtrl: NavController, public alertController: AlertController, public loadingCtrl: LoadingController) {
     console.log('Hello SearchGroupComponent Component');
     this.currentGroup = (localStorage['currentGroupA'] !== undefined) ? JSON.parse(localStorage.getItem('currentGroupA')) : null;
     this.groups = {};
@@ -34,6 +36,9 @@ export class SearchGroupByTournamentComponent {
     console.log('idTournamentClass : ', idTournament);
     let url = 'tournaments/groups/' + idTournament;
     console.log('idTournamentClass : ', 'tournaments/groups/' + idTournament);
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       console.log('API', res);
@@ -42,6 +47,7 @@ export class SearchGroupByTournamentComponent {
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      this.errorPopup(loading).present();
       return reason;
     });
   }
@@ -50,5 +56,20 @@ export class SearchGroupByTournamentComponent {
     this.notifySearchGroup.emit(group);
   }
 
+  errorPopup(loading){
+    return this.alertController.create({
+      title: 'Une erreur est survenue vous allez être redirigé',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'ok',
+          handler: data => {
+            this.navCtrl.push(HomePage, {loading: loading});
+          }
+        }
+      ]
+    });
+  }
 
 }

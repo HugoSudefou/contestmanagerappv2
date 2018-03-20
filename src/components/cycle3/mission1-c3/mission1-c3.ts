@@ -17,6 +17,7 @@ export class Mission1C3Component {
   colorBoolM1: string;
   scores: {bool: number, choice: number, total: number};
   choice: number;
+  test: true;
 
   constructor() {
     this.init();

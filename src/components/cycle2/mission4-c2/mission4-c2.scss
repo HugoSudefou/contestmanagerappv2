@@ -74,16 +74,18 @@ mission4-c2 {
 
   .div-img{
     img{
-      width: 30%;
+      width: 45%;
       display: inline-flex;
     }
   }
 
   .responseFalse {
+    border: 2px solid white;
     background-color: #e92a00;
   }
 
   .responseTrue {
+    border: 2px solid white;
     background-color: #3fe901;
   }
 

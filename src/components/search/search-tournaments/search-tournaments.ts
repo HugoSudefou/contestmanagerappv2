@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Output, Input} from '@angular/core';
 import { HttpProvider } from '../../../providers/http/http';
+import { HomePage } from '../../../pages/home/home';
+import {AlertController, LoadingController, NavController} from 'ionic-angular';
 
 /**
  * Generated class for the SearchTournamentsComponent component.
@@ -18,7 +20,7 @@ export class SearchTournamentsComponent {
   currentTournament;
   hiddenDivTournament: boolean = true;
 
-  constructor(private http: HttpProvider) {
+  constructor(private http: HttpProvider, public navCtrl: NavController, public alertController: AlertController, public loadingCtrl: LoadingController) {
     console.log('Hello SearchTournamentsComponent Component');
     this.currentTournament = (localStorage['currentTournamentA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTournamentA')) : null;
     this.tournaments = [];
@@ -26,6 +28,9 @@ export class SearchTournamentsComponent {
   }
 
   search(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
     console.log('---------------------- SearchTournament -----------------------');
     let urlGroupId = 'tournaments';
     this.http.async(urlGroupId).subscribe((res)=>{
@@ -35,6 +40,7 @@ export class SearchTournamentsComponent {
       this.hiddenDivTournament = false;
       return res;
     }, (reason)=> {
+      this.errorPopup(loading).present();
       console.log('ERREUR API : ', reason);
       return reason;
     });
@@ -42,5 +48,21 @@ export class SearchTournamentsComponent {
 
   selectTournament(tournament){
     this.notifySearchTounaments.emit(tournament);
+  }
+
+  errorPopup(loading){
+    return this.alertController.create({
+      title: 'Une erreur est survenue vous allez être redirigé',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'ok',
+          handler: data => {
+            this.navCtrl.push(HomePage, {loading: loading});
+          }
+        }
+      ]
+    });
   }
 }

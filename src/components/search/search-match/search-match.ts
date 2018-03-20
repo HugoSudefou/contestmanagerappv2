@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import { AlertController } from 'ionic-angular';
 import {HttpProvider} from "../../../providers/http/http";
+import { HomePage } from '../../../pages/home/home';
+import {AlertController, LoadingController, NavController} from 'ionic-angular';
 
 
 /**
@@ -21,13 +22,16 @@ export class SearchMatchComponent {
   currentMatch;
   hiddenDivMatch: boolean = true;
 
-  constructor(private http: HttpProvider, public alertController: AlertController) {
+  constructor(private http: HttpProvider, public navCtrl: NavController, public alertController: AlertController, public loadingCtrl: LoadingController) {
     console.log('Hello SearchGroupComponent Component');
     this.currentMatch = (localStorage['currentMatchA'] !== undefined) ? JSON.parse(localStorage.getItem('currentMatchA')) : null;
     this.matchs =  [];
   }
 
   search(idTeam){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
     if (idTeam !== undefined && idTeam !== null) this.idTeam = idTeam;
     else idTeam = this.idTeam;
     console.log('---------------------- SearchMatch -----------------------');
@@ -40,6 +44,7 @@ export class SearchMatchComponent {
       this.hiddenDivMatch = false;
       return res;
     }, (reason)=> {
+      this.errorPopup(loading).present();
       console.log('ERREUR API : ', reason);
       return reason;
     });
@@ -84,4 +89,19 @@ export class SearchMatchComponent {
     console.log('score : ', score);
   }
 
+  errorPopup(loading){
+    return this.alertController.create({
+      title: 'Une erreur est survenue vous allez être redirigé',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'ok',
+          handler: data => {
+            this.navCtrl.push(HomePage, {loading: loading});
+          }
+        }
+      ]
+    });
+  }
 }

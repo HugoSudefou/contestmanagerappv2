@@ -13,6 +13,16 @@ bonus-c2 {
           width: 20%;
         }
 
+        .responseFalse {
+          border: 2px solid white;
+          background-color: #e92a00;
+        }
+
+        .responseTrue {
+          border: 2px solid white;
+          background-color: #3fe901;
+        }
+
         td {
           padding: 5px;
           width: 50px;
