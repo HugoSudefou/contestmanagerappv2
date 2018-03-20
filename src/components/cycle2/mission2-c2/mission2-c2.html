@@ -4,7 +4,7 @@
       <img src="assets/imgs/cycle2/logoMission/mission2.jpg" alt="">
     </div>
     <div class="titleMission" (click)="showModal = true">
-      <p class="first">Mission 2 <br/> <span style="font-weight:normal;font-size: 24px">Création d'un arboretum</span></p>
+      <p class="first">Mission 2 <br/> <span style="font-weight:normal;font-size: 24px">Création d'un arboretum.</span></p>
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
@@ -19,11 +19,11 @@
       <tr class="cas4">
         <td class="cell-pad-align-center">
           <div class="div-img">
-            <img src="assets/imgs/cycle2/explMission/arboretum_bonne_place_mission2.jpg" alt="">
+            <img class="full" src="assets/imgs/cycle2/explMission/arboretum_mauvaise_place_mission2.jpg" alt="">
           </div>
         </td>
         <td class="cell-pad-align-center">
-          Une graine se trouve dans l'arboretum sur la bonne zone de couleur
+          Une graine se trouve dans l'arboretum sur la bonne zone de couleur.
         </td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas4['first']) ? asErrorMessage : null" (click)="changeColor('first','cas4')" [ngClass]="{'responseFalse' : !colorBackground.cas4['first'], 'responseTrue' : colorBackground.cas4['first']}"><p>1</p></td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas4['second']) ? asErrorMessage : null" (click)="changeColor('second','cas4')" [ngClass]="{'responseFalse' : !colorBackground.cas4['second'], 'responseTrue' : colorBackground.cas4['second']}"><p>2</p></td>
@@ -33,11 +33,11 @@
       <tr class="cas2">
         <td class="cell-pad-align-center">
           <div class="div-img">
-            <img src="assets/imgs/cycle2/explMission/arboretum_mauvaise_place_mission2.jpg" alt="">
+            <img class="full" src="assets/imgs/cycle2/explMission/arboretum_bonne_place_mission2.jpg" alt="">
           </div>
         </td>
         <td class="cell-pad-align-center">
-          Une graine se trouve dans la cour de l'école
+          Une graine se trouve dans la cour de l'école.
         </td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas2['first']) ? asErrorMessage : null" (click)="changeColor('first','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['first'], 'responseTrue' : colorBackground.cas2['first']}"><p>1</p></td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas2['second']) ? asErrorMessage : null" (click)="changeColor('second','cas2')" [ngClass]="{'responseFalse' : !colorBackground.cas2['second'], 'responseTrue' : colorBackground.cas2['second']}"><p>2</p></td>
@@ -52,7 +52,7 @@
           </div>
         </td>
         <td class="cell-pad-align-center">
-          Une graine se trouve dans l'arboretum sur la mauvaise zone de couleur
+          Une graine se trouve dans l'arboretum sur la mauvaise zone de couleur.
         </td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas3['first']) ? asErrorMessage : null" (click)="changeColor('first','cas3')" [ngClass]="{'responseFalse' : !colorBackground.cas3['first'], 'responseTrue' : colorBackground.cas3['first']}"><p>1</p></td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas3['second']) ? asErrorMessage : null" (click)="changeColor('second','cas3')" [ngClass]="{'responseFalse' : !colorBackground.cas3['second'], 'responseTrue' : colorBackground.cas3['second']}"><p>2</p></td>
@@ -67,7 +67,7 @@
           </div>
         </td>
         <td class="cell-pad-align-center">
-          Une graine se trouve dans la pépinière
+          Une graine se trouve dans la pépinière.
         </td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['first']) ? asErrorMessage : null" (click)="changeColor('first','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['first'], 'responseTrue' : colorBackground.cas1['first']}"><p>1</p></td>
         <td class="responseFalse" [style.background-color]="(!colorBackground.cas1['second']) ? asErrorMessage : null" (click)="changeColor('second','cas1')" [ngClass]="{'responseFalse' : !colorBackground.cas1['second'], 'responseTrue' : colorBackground.cas1['second']}"><p>2</p></td>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AlertController, LoadingController, NavController} from 'ionic-angular';
+import {AlertController, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {DataProvider} from "../../providers/data/data";
 import {HttpProvider} from "../../providers/http/http";
 
@@ -11,9 +11,10 @@ export class HomePage {
   showCycle: boolean;
   txtBtnSwitch: String;
   choice: String;
-  constructor(public navCtrl: NavController, public currentData: DataProvider, public alertController: AlertController, public loadingCtrl: LoadingController, private http: HttpProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider, public alertController: AlertController, public loadingCtrl: LoadingController, private http: HttpProvider) {
     localStorage.setItem('isArbitre', 'false');
     this.currentData.setIsArbitre(false);
+    if(navParams.get('loading')) navParams.get('loading').dismiss();
     this.showCycle = false;
     this.txtBtnSwitch = (this.showCycle) ? 'Feuille de mission' : 'Tournois';
     this.choice = (this.showCycle) ? 'votre profil' : 'le cycle';

@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import { HttpProvider } from '../../../providers/http/http';
+import { HomePage } from '../../../pages/home/home';
+import {AlertController, LoadingController, NavController} from 'ionic-angular';
 
 /**
  * Generated class for the SearchGroupComponent component.
@@ -20,7 +22,7 @@ export class SearchGroupComponent {
   idTournament: number;
   hiddenDivGroup: boolean = true;
 
-  constructor(private http: HttpProvider) {
+  constructor(private http: HttpProvider, public navCtrl: NavController, public alertController: AlertController, public loadingCtrl: LoadingController) {
     console.log('Hello SearchGroupComponent Component');
     this.currentGroup = (localStorage['currentGroupT'] !== undefined) ? JSON.parse(localStorage.getItem('currentGroupT')) : null;
     this.groups = [];
@@ -28,6 +30,9 @@ export class SearchGroupComponent {
   }
 
   search(){
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
     console.log('---------------------- SearchGroup -----------------------');
     let url = 'groups';
     this.http.async(url).subscribe((res)=>{
@@ -39,7 +44,10 @@ export class SearchGroupComponent {
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      this.errorPopup(loading).present();
       return reason;
+    }, ()=>{
+      loading.dismiss();
     });
   }
 
@@ -47,4 +55,20 @@ export class SearchGroupComponent {
     this.notifySearchGroup.emit(group);
   }
 
+
+  errorPopup(loading){
+    return this.alertController.create({
+      title: 'Une erreur est survenue vous allez être redirigé',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'ok',
+          handler: data => {
+            this.navCtrl.push(HomePage, {loading: loading});
+          }
+        }
+      ]
+    });
+  }
 }

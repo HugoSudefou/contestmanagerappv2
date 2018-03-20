@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {HttpProvider} from "../../../providers/http/http";
+import {AlertController, LoadingController, NavController} from 'ionic-angular';
 
 /**
  * Generated class for the SearchTeamComponent component.
@@ -19,7 +20,7 @@ export class SearchTeamComponent {
   currentTeam;
   hiddenDivTeam: boolean = true;
 
-  constructor(private http: HttpProvider) {
+  constructor(private http: HttpProvider, public navCtrl: NavController, public alertController: AlertController, public loadingCtrl: LoadingController) {
     console.log('Hello SearchGroupComponent Component');
 
     if(localStorage['isArbitre'] === 'true') this.currentTeam = (localStorage['currentTeamA'] !== undefined) ? JSON.parse(localStorage.getItem('currentTeamA')) : null;
@@ -47,6 +48,7 @@ export class SearchTeamComponent {
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      this.errorPopup();
       return reason;
     });
   }
@@ -57,6 +59,25 @@ export class SearchTeamComponent {
     else localStorage.setItem('idGroupOfTeamSelectedT', JSON.stringify({id: this.idGroup}));
 
     this.notifySearchTeam.emit(team);
+  }
+
+  errorPopup(){
+    console.log('errorPopup');
+    let loading = this.loadingCtrl.create();
+    return this.alertController.create({
+      title: 'Une erreur est survenue vous allez être redirigé',
+      cssClass: 'popupSave',
+      buttons: [
+        {
+          text: 'Ok',
+          role: 'ok',
+          handler: data => {
+            loading.dismissAll();
+            this.navCtrl.push('HomePage');
+          }
+        }
+      ]
+    });
   }
 
 }

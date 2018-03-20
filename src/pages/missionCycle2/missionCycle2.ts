@@ -35,7 +35,6 @@ export class missionCycle2 {
               public currentData: DataProvider,
               public loadingCtrl: LoadingController) {
     this.init();
-    console.log('JSON.parse(localStorage["isArbitre"]) : ', JSON.parse(localStorage["isArbitre"]))
     if(this.currentData.getIsArbitre() === undefined) this.isArbitre = JSON.parse(localStorage["isArbitre"]);
     else this.isArbitre = this.currentData.getIsArbitre();
   }
@@ -233,7 +232,8 @@ export class missionCycle2 {
 
   localSaveScore(allData){
     let scores = JSON.parse(localStorage["scores"]);
-    scores.cycle2.push(allData);
+    console.log('scores : ', scores)
+    scores['cycle2'].push(allData);
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 }

@@ -28,8 +28,8 @@
   <mission6-c2 #resetM6 (notifyScorM6)="score($event, 'mission6')"></mission6-c2>
   <bonus-c2 #resetBon (notifyScorBonus)="score($event, 'bonus')"></bonus-c2>
   <div class="btnTools">
-    <button ion-button (click)="saveScore()">Enregistrer</button>
     <button ion-button (click)="goToScore()">Scores</button>
+    <button ion-button (click)="saveScore()">Enregistrer</button>
   </div>
   <button ion-button full margin-bottom="10px" (click)="goToHome()">Go Home</button>
 </ion-content>

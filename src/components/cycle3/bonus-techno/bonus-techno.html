@@ -16,7 +16,7 @@
 
       </ion-list-header>
       <ion-item class="ion-item first">
-        <ion-label class="titleRange">GardBot utilise des moteurs supplémentaires <span [textContent]="range.moteur.value" class="nbPersonage"></span></ion-label>
+        <ion-label class="titleRange">GardBot utilise des moteurs supplémentaires. <span [textContent]="range.moteur.value" class="nbPersonage"></span></ion-label>
         <ion-range name="moteur" class="range" min="0" [max]="range.moteur.max" [(ngModel)]="range.moteur.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
       </ion-item>
       <ion-item class="ion-item">

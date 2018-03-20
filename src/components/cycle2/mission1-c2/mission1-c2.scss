@@ -68,7 +68,7 @@ mission1-c2 {
 
   .div-img{
     img{
-      width: 30%;
+      width: 45%;
       display: inline-flex;
     }
   }
@@ -76,9 +76,11 @@ mission1-c2 {
 
 
 .responseFalse {
+  border: 2px solid white;
   background-color: #e92a00;
 }
 
 .responseTrue {
+  border: 2px solid white;
   background-color: #3fe901;
 }
