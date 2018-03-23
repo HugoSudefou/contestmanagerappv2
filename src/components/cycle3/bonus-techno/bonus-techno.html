@@ -20,11 +20,11 @@
         <ion-range name="moteur" class="range" min="0" [max]="range.moteur.max" [(ngModel)]="range.moteur.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
       </ion-item>
       <ion-item class="ion-item">
-        <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.capteur.value" class="nbPersonage"></span></ion-label>
+        <ion-label class="titleRange">GardBot utilise des capteurs. <span [textContent]="range.capteur.value" class="nbPersonage"></span></ion-label>
         <ion-range name="capteur" class="range" min="0" [max]="range.capteur.max" [(ngModel)]="range.capteur.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
       </ion-item>
       <ion-item class="ion-item">
-        <ion-label class="titleRange"><b>-</b> à l'intérieur du socle. <span [textContent]="range.imprimante.value" class="nbPersonage"></span></ion-label>
+        <ion-label class="titleRange">GardBot utilise un outils fabriqué à l'aide d'une imprimante 3D. <span [textContent]="range.imprimante.value" class="nbPersonage"></span></ion-label>
         <ion-range name="imprimante" class="range" min="0" [max]="range.imprimante.max" [(ngModel)]="range.imprimante.value" color="secondary" pin="true" (ionChange)="calculScore()"></ion-range>
       </ion-item>
     </ion-list>

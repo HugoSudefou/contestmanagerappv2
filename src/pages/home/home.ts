@@ -12,8 +12,7 @@ export class HomePage {
   txtBtnSwitch: String;
   choice: String;
   constructor(public navCtrl: NavController, public navParams: NavParams, public currentData: DataProvider, public alertController: AlertController, public loadingCtrl: LoadingController, private http: HttpProvider) {
-    localStorage.setItem('isArbitre', 'false');
-    this.currentData.setIsArbitre(false);
+
     if(navParams.get('loading')) navParams.get('loading').dismiss();
     this.showCycle = false;
     this.txtBtnSwitch = (this.showCycle) ? 'Feuille de mission' : 'Tournois';
@@ -30,7 +29,9 @@ export class HomePage {
   }
 
   loginArbiter(){
-    this.popupLogin().present();
+    console.log('JSON.parse(localStorage.getItem(\'isArbitre\')) : ', JSON.parse(localStorage.getItem('isArbitre')))
+    if(JSON.parse(localStorage.getItem('isArbitre')) !== undefined && !JSON.parse(localStorage.getItem('isArbitre'))) this.popupLogin().present();
+    else this.popupLogin();
   }
 
   popupLogin(){

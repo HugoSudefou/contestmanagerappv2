@@ -16,8 +16,8 @@ import {DataProvider} from "../data/data";
 export class HttpProvider {
   url = {
     api : 'http://collab-lod.nexen.net:12345/api/',
+    apiVM : 'http://10.0.0.150/api/',
     apiDev : 'http://127.0.0.1:8000/api/',
-    apiDevLouis : 'http://127.0.0.1:8000/api/',
   };
   constructor(public http: HttpClient, public loadingCtrl: LoadingController, private currentData: DataProvider) {
     console.log('Hello HttpProvider Provider');
@@ -27,7 +27,7 @@ export class HttpProvider {
     // $http returns a promise, which has a then function, which also returns a promise
     // url prod : http://collab-lod.nexen.net:12345/api/
     // url dev : http://contestmanager.dev/api/
-    return this.http.get(this.url.apiDev + chemin);
+    return this.http.get(this.url.api + chemin);
   }
 
   asyncPost(chemin, params, token) {
@@ -44,10 +44,10 @@ export class HttpProvider {
     // $http returns a promise, which has a then function, which also returns a promise
     // url prod : http://collab-lod.nexen.net:12345/api/
     // url dev : http://contestmanager.dev/api/
-    console.log('url api : ', this.url.apiDev + chemin);
+    console.log('url api : ', this.url.api + chemin);
     console.log('body : ', body);
     console.log('headers : ', headers);
-    return this.http.post(this.url.apiDev + chemin, body, headers);
+    return this.http.post(this.url.api + chemin, body, headers);
   }
 
   login(params) {
@@ -57,7 +57,7 @@ export class HttpProvider {
       .set('username', 'arbiter')
       .set('password', params);
 
-    return this.http.post(this.url.apiDev + chemin, {username: 'arbiter', password: params}, {observe: 'response'}).map((res, headers)=>{
+    return this.http.post(this.url.api + chemin, {username: 'arbiter', password: params}, {observe: 'response'}).map((res, headers)=>{
       // The return value gets picked up by the then in the controller.
       localStorage.setItem('currentUser', JSON.stringify(res.body));
       return res;

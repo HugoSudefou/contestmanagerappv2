@@ -149,12 +149,14 @@ export class missionCycle3 {
             let url = 'matchs/team/score';
             let body = {
               id_team : team.id,
-              id_match : match.id,
+              id_match : match.versus.id,
               score : total
             };
             this.http.asyncPost(url, body, token).subscribe((res)=>{
               // The return value gets picked up by the then in the controller.
               console.log('API', res);
+              console.log('popupFinishSave');
+              this.popupFinishSave(time, total, team.name).present();
               return res;
             }, (reason)=> {
               console.log('ERREUR API : ', reason);

@@ -16,6 +16,7 @@ export class MyApp {
         "cycle2":[],
         "cycle3":[]
       };
+      localStorage.setItem('isArbitre', 'false');
       //console.log('JSON.parse(localStorage["scores"]) : ', JSON.parse(localStorage["scores"]))
       if(localStorage.length === 0) localStorage.setItem('scores', JSON.stringify(scores));
       else if(localStorage["scores"] === undefined) localStorage.setItem('scores', JSON.stringify(scores));
