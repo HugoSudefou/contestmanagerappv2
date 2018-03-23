@@ -175,7 +175,48 @@ export class Mission4C2Component {
           })
         }
       }
+      if (nCas === 'cas6') {
+        _.forEachRight(this.colorBackground, (key, cas) => {
+          _.forEach(this.colorBackground[cas], (pos, key) => {
+            if (key !== 'first') this.colorBackground[cas][key] = false;
+          })
+        })
+        this.colorBackground.cas5.first = true;
+        this.colorBackground.cas4.first = true;
+        this.colorBackground.cas3.first = true;
+      }
+      else if (nCas === 'cas5') {
+        this.init();
+        this.colorBackground.cas5.first = true;
+        this.colorBackground.cas4.first = true;
+        this.colorBackground.cas3.first = true;
+      }
+      else if (nCas === 'cas4') {
+        let change: boolean = true;
+        _.forEach(this.colorBackground[nCas], (pos, key) => {
+          if (change) this.colorBackground[nCas][key] = true;
+          if (key === position) change = false;
+        })
+        if (position === 'first') {
+          this.colorBackground.cas3.first = true;
+        }
+        else {
+          let change: boolean = true;
+          _.forEachRight(this.colorBackground, (key, cas) => {
+            _.forEachRight(this.colorBackground[cas], (key, pos) => {
+              if (pos === 'third' || pos === 'four' || cas === 'cas6' || cas === 'cas5') this.colorBackground[cas][pos] = false;
+            })
+          })
+          this.colorBackground.cas3.first = true;
+          this.colorBackground.cas3.second = true;
 
+        }
+      }
+      else if (nCas === 'cas3') {
+        if (position === 'third' && this.colorBackground.cas5.first) {
+          this.colorBackground.cas5.first = false;
+        }
+      }
       this.calculScore();
     }
     else if(this.colorBackground[nCas][position]){
