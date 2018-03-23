@@ -15,8 +15,8 @@ export class HomePage {
 
     if(navParams.get('loading')) navParams.get('loading').dismiss();
     this.showCycle = false;
-    this.txtBtnSwitch = (this.showCycle) ? 'Feuille de mission' : 'Tournois';
-    this.choice = (this.showCycle) ? 'votre profil' : 'le cycle';
+    this.txtBtnSwitch = (this.showCycle) ? 'Tournois' : 'Feuille de mission';
+    this.choice = (this.showCycle) ? 'le cycle' : 'votre profil';
   }
 
   goToPage(page){

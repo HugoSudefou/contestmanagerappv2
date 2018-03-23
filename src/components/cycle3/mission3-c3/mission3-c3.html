@@ -24,17 +24,17 @@
           <ion-list-header class="titleLabel">
             Nombre de blocs :
           </ion-list-header>
-          <ion-item class="ion-item first">
-            <ion-label class="titleRange"><b>-</b> en dehors de l’auditorium. <span [textContent]="range.first.value" class="nbPersonage"></span></ion-label>
-            <ion-range name="rangeM2" class="range" min="0" [max]="range.first.max" [disabled]="range.first.max < 1" [(ngModel)]="range.first.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
+          <ion-item class="ion-item">
+            <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.third.value" class="nbPersonage"></span></ion-label>
+            <ion-range name="rangeM2" class="range" min="0" [max]="range.third.max" [disabled]="range.third.max < 1" [(ngModel)]="range.third.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
             <ion-label class="titleRange"><b>-</b> dans l’atelier. <span [textContent]="range.second.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.second.max" [disabled]="range.second.max < 1" [(ngModel)]="range.second.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
-          <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.third.value" class="nbPersonage"></span></ion-label>
-            <ion-range name="rangeM2" class="range" min="0" [max]="range.third.max" [disabled]="range.third.max < 1" [(ngModel)]="range.third.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
+          <ion-item class="ion-item first">
+            <ion-label class="titleRange"><b>-</b> en dehors de l’auditorium. <span [textContent]="range.first.value" class="nbPersonage"></span></ion-label>
+            <ion-range name="rangeM2" class="range" min="0" [max]="range.first.max" [disabled]="range.first.max < 1" [(ngModel)]="range.first.value" color="secondary" pin="true" (ionChange)="upRange1()"></ion-range>
           </ion-item>
         </ion-list>
       </div>
@@ -43,17 +43,17 @@
           <ion-list-header class="titleLabel">
             Nombre de blocs au dessus des blocs noirs :
           </ion-list-header>
-          <ion-item class="ion-item first">
-            <ion-label class="titleRange"><b>-</b> dans l'atelier. <span [textContent]="range.fourth.value" class="nbPersonage"></span></ion-label>
-            <ion-range name="rangeM2" class="range" min="0" [max]="range.fourth.max" [disabled]="range.fourth.max < 1" [(ngModel)]="range.fourth.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
+          <ion-item class="ion-item">
+            <ion-label class="titleRange"><b>-</b> à l'intérieur du socle. <span [textContent]="range.six.value" class="nbPersonage"></span></ion-label>
+            <ion-range name="rangeM2" class="range" min="0" [max]="range.six.max" [disabled]="range.six.max < 1" [(ngModel)]="range.six.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
           <ion-item class="ion-item">
             <ion-label class="titleRange"><b>-</b> dans la salle de la statue. <span [textContent]="range.five.value" class="nbPersonage"></span></ion-label>
             <ion-range name="rangeM2" class="range" min="0" [max]="range.five.max" [disabled]="range.five.max < 1" [(ngModel)]="range.five.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
-          <ion-item class="ion-item">
-            <ion-label class="titleRange"><b>-</b> à l'intérieur du socle. <span [textContent]="range.six.value" class="nbPersonage"></span></ion-label>
-            <ion-range name="rangeM2" class="range" min="0" [max]="range.six.max" [disabled]="range.six.max < 1" [(ngModel)]="range.six.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
+          <ion-item class="ion-item first">
+            <ion-label class="titleRange"><b>-</b> dans l'atelier. <span [textContent]="range.fourth.value" class="nbPersonage"></span></ion-label>
+            <ion-range name="rangeM2" class="range" min="0" [max]="range.fourth.max" [disabled]="range.fourth.max < 1" [(ngModel)]="range.fourth.value" color="secondary" pin="true" (ionChange)="upRange2()"></ion-range>
           </ion-item>
         </ion-list>
       </div>

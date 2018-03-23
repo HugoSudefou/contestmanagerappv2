@@ -7,13 +7,25 @@
 </ion-header>
 
 <ion-content padding>
-  <div class="divBtnChoice" [hidden]="!showCycle">
+  <div class="divBtnChoice" [hidden]="showCycle">
+    <div class="imgCycle">
+      <img style="visibility: hidden" src="assets/imgs/cycle2/logoMission/cycle2.jpg" alt="">
+    </div>
     <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('SearchMatchPage')">Je suis un Arbitre</button>
     <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('SearchTeamPage')">Je suis une Team</button>
+    <div class="imgCycle">
+      <img style="visibility: hidden" src="assets/imgs/cycle3/cycle3.jpg" alt="">
+    </div>
   </div>
-  <div class="divBtnChoice" [hidden]="showCycle">
+  <div class="divBtnChoice" [hidden]="!showCycle">
+    <div class="imgCycle">
+      <img src="assets/imgs/cycle2/logoMission/cycle2.jpg" alt="">
+    </div>
     <button class="btnChoice" ion-button full margin-bottom="10px" (click)="goToPage('missionCycle2')">Cycle 2</button>
     <button class="btnChoice" ion-button full margin-top="10px" (click)="goToPage('missionCycle3')">Cycle 3</button>
+    <div class="imgCycle">
+      <img src="assets/imgs/cycle3/cycle3.jpg" alt="">
+    </div>
   </div>
   <div>
     <button class="btnChangeChoice" ion-button full margin-top="10px" (click)="switchBtn()">{{txtBtnSwitch}}<ion-icon style="position: absolute;top: 16px;right: 25px;" name="arrow-forward"></ion-icon></button>

@@ -20,24 +20,25 @@
   <div class="card">
     <div id="secondGroupeM1" class="relative" >
       <div class="divStatueConstruit">
-        <ion-list radio-group (ionChange)="upRodioM1($event)">
+        <ion-list [(ngModel)]="listRadio" radio-group (ionChange)="upRodioM1($event)">
           <ion-list-header class="titleLabel">
             La momie :
           </ion-list-header>
 
-          <ion-item class="inputRadio">
-            <ion-label><b>-</b>est assise sur son trône et se trouve dans le sarcophage.</ion-label>
-            <ion-radio [(ngModel)]="scores.choice" value='{{20}}' ngDefaultControl></ion-radio>
-          </ion-item>
-
-          <ion-item class="inputRadio">
-            <ion-label><b>-</b> se trouve dans la loge du gardien.</ion-label>
-            <ion-radio [(ngModel)]="scores.choice" value='{{50}}' ngDefaultControl></ion-radio>
-          </ion-item>
 
           <ion-item class="inputRadio">
             <ion-label><b>-</b> est allongée dans le sarcophage.</ion-label>
             <ion-radio [(ngModel)]="scores.choice" value='{{80}}' ngDefaultControl></ion-radio>
+          </ion-item>
+
+          <ion-item class="inputRadio">
+            <ion-label><b>-</b> se trouve dans la loge de GardBot.</ion-label>
+            <ion-radio [(ngModel)]="scores.choice" value='{{50}}' ngDefaultControl></ion-radio>
+          </ion-item>
+
+          <ion-item class="inputRadio">
+            <ion-label><b>-</b>se trouve à l'intérieur des couloirs du temps mais pas dans son sarcophage.</ion-label>
+            <ion-radio [(ngModel)]="scores.choice" value='{{20}}' ngDefaultControl></ion-radio>
           </ion-item>
 
           <ion-item class="inputRadio">

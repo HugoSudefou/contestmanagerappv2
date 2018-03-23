@@ -17,13 +17,14 @@ export class Mission1C3Component {
   colorBoolM1: string;
   scores: {bool: number, choice: number, total: number};
   choice: number;
-  test: true;
+  listRadio;
 
   constructor() {
     this.init();
   }
 
   init() {
+    this.listRadio = -1;
     this.boolM1 = false;
     this.colorBoolM1 = 'red';
     this.scores = {
@@ -46,7 +47,8 @@ export class Mission1C3Component {
   }
 
   pushScors(){
-    this.scores.total = this.scores.bool + this.scores.choice;
+    const choice = (this.scores.choice === -1) ? 0 : this.scores.choice;
+    this.scores.total = this.scores.bool + choice;
     (this.boolM1) ? this.notifyScorM1.emit(this.scores.total) : this.notifyScorM1.emit(this.scores.total);
   }
 

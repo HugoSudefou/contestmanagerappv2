@@ -15,7 +15,16 @@ page-home {
   }
 
   .divBtnChoice {
-    margin-top: calc(20vh);
+    margin-top: 10px;
 
+  }
+
+  .imgCycle{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    img {
+      width: 100%;
+    }
   }
 }

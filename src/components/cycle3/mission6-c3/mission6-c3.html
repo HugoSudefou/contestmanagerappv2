@@ -17,7 +17,7 @@
   <div class="card">
     <div id="secondGroupeM2" class="relative" >
       <div class="divStatueConstruit">
-        <ion-list radio-group  (ionChange)="calculScore($event)">
+        <ion-list [(ngModel)]="listRadio" radio-group  (ionChange)="calculScore($event)">
           <ion-item class="radioCheck">
             <ion-label><b>-</b> dans l'atelier.</ion-label>
             <ion-radio value='{{50}}' ngDefaultControl></ion-radio>

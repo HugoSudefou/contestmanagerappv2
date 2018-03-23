@@ -15,13 +15,14 @@ export class Mission6C3Component {
 
   bool: boolean;
   scores: {total: number};
-
+  listRadio
 
   constructor() {
     this.init();
   }
 
   init() {
+    this.listRadio = -1;
     this.bool = false;
     this.scores = {
       total: 0
@@ -32,7 +33,7 @@ export class Mission6C3Component {
     score = parseInt(score)
     if (score === 80 && this.bool) score = score + 20;
     if (score === 100 && !this.bool) score = score - 20;
-    this.scores.total = score
+    this.scores.total = (this.listRadio === -1) ? 0 : score;
     this.pushScore()
   }
 

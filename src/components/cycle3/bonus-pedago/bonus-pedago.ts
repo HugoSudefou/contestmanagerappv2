@@ -40,13 +40,14 @@ export class BonusPedagoComponent {
     part2: number,
     total: number
   };
-  showPart2: boolean = false;
+  showPart2: boolean;
 
   constructor() {
     this.init();
   }
 
   init() {
+    this.showPart2 = false;
     this.bool= {
       bool1: false,
       bool2: false,

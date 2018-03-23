@@ -8,19 +8,19 @@
       <p class="second">Score : {{scores.total}}</p>
     </div>
   </div>
-  <div class="card speBottomBorder margBottom " (click)="bool = !bool;">
+  <div class="card speBottomBorder margBottom " (click)="bool = !bool;pushScors();">
     <div id="firstGroupeM1" class="relative">
       <label><b>La mélodie</b> a été entendue : </label>
       <label class="boolMission toggle">
         <span class="track oui repBool" [hidden]="!bool">OUI</span>
-        <span class="track non repBool" [hidden]="bool">NON</span>
+        <span class="track non repBool" [hidden]="bool">NON</span>s
       </label>
     </div>
   </div>
   <div class="card">
     <div id="secondGroupeM1" class="relative" >
       <div class="divStatueConstruit">
-        <ion-list radio-group (ionChange)="calculScore(1, $event)">
+        <ion-list [(ngModel)]="listRadio1" radio-group (ionChange)="calculScore(1, $event)">
           <ion-item class="radioCheck">
             <ion-label><b>-</b> quand GardBot était à l'intérieur de l'auditorium.</ion-label>
             <ion-radio value='{{20 | number}}' ngDefaultControl [disabled]="!bool" ></ion-radio>
@@ -43,7 +43,7 @@
   <div class="card">
     <div id="secondGroupeM2" class="relative" >
       <div class="divStatueConstruit">
-        <ion-list radio-group  (ionChange)="calculScore(2, $event)">
+        <ion-list [(ngModel)]="listRadio2" radio-group  (ionChange)="calculScore(2, $event)">
           <ion-item class="radioCheck">
             <ion-label><b>-</b> du répertoire du robot.</ion-label>
             <ion-radio value='{{0 | number}}' ngDefaultControl [disabled]="!bool"></ion-radio>
