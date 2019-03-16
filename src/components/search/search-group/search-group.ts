@@ -31,8 +31,9 @@ export class SearchGroupComponent {
 
   search(){
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Chargement des données...'
     });
+    loading.present();
     console.log('---------------------- SearchGroup -----------------------');
     let url = 'groups';
     this.http.async(url).subscribe((res)=>{
@@ -41,13 +42,14 @@ export class SearchGroupComponent {
       this.groups = res;
       this.hiddenDivGroup = false;
       console.log('this.groups : ', this.groups);
+      loading.dismissAll();
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      loading.dismissAll();
       this.errorPopup(loading).present();
       return reason;
     }, ()=>{
-      loading.dismiss();
     });
   }
 
@@ -65,7 +67,7 @@ export class SearchGroupComponent {
           text: 'Ok',
           role: 'ok',
           handler: data => {
-            this.navCtrl.push(HomePage, {loading: loading});
+            //this.navCtrl.push(HomePage, {loading: loading});
           }
         }
       ]

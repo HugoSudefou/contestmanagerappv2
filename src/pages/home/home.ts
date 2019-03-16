@@ -36,8 +36,9 @@ export class HomePage {
 
   popupLogin(){
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Chargement des données...'
     });
+    loading.present();
 
     if(!this.currentData.getIsArbitre()) {
       return this.alertController.create({
@@ -67,7 +68,9 @@ export class HomePage {
                   username : 'arbiter',
                   password : data.password
                 }
-                this.http.login(data.password).subscribe((res)=>{
+                  loading.dismiss();
+                  this.navCtrl.push('SearchMatchPage');
+                /*this.http.login(data.password).subscribe((res)=>{
                   loading.dismiss();
                   console.log('res.header : ', res.headers);
                   // The return value gets picked up by the then in the controller.
@@ -80,7 +83,7 @@ export class HomePage {
                   this.popupCancel().present();
                   console.log('ERREUR API : ', reason);
                   return reason;
-                });
+                });*/
               } else {
                 this.popupCancel().present();
               }
@@ -104,7 +107,7 @@ export class HomePage {
 
   switchBtn(){
     this.showCycle = !this.showCycle;
-    this.txtBtnSwitch = (this.showCycle) ? 'Feuille de mission' : 'Tournois';
-    this.choice = (this.showCycle) ? 'votre profil' : 'le cycle';
+    this.txtBtnSwitch = (this.showCycle) ? 'Tournois' : 'Feuille de mission';
+    this.choice = (this.showCycle) ? 'le cycle' : 'votre profil';
   }
 }

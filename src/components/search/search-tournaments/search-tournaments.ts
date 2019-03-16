@@ -29,8 +29,9 @@ export class SearchTournamentsComponent {
 
   search(){
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Chargement des données...'
     });
+    loading.present();
     console.log('---------------------- SearchTournament -----------------------');
     let urlGroupId = 'tournaments';
     this.http.async(urlGroupId).subscribe((res)=>{
@@ -38,8 +39,10 @@ export class SearchTournamentsComponent {
       console.log('API', res);
       this.tournaments = res;
       this.hiddenDivTournament = false;
+      loading.dismissAll();
       return res;
     }, (reason)=> {
+      loading.dismissAll();
       this.errorPopup(loading).present();
       console.log('ERREUR API : ', reason);
       return reason;
@@ -59,7 +62,7 @@ export class SearchTournamentsComponent {
           text: 'Ok',
           role: 'ok',
           handler: data => {
-            this.navCtrl.push(HomePage, {loading: loading});
+            //this.navCtrl.push(HomePage, {loading: loading});
           }
         }
       ]

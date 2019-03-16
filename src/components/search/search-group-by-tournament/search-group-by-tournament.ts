@@ -30,6 +30,7 @@ export class SearchGroupByTournamentComponent {
   }
 
   search(idTournament){
+    this.hiddenDivGroup = true;
     if (idTournament !== undefined && idTournament !== null) this.idTournament = idTournament;
     else idTournament = this.idTournament;
     console.log('---------------------- SearchGroupByTournament -----------------------');
@@ -37,16 +38,19 @@ export class SearchGroupByTournamentComponent {
     let url = 'tournaments/groups/' + idTournament;
     console.log('idTournamentClass : ', 'tournaments/groups/' + idTournament);
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Chargement des données...'
     });
+    loading.present();
     this.http.async(url).subscribe((res)=>{
       // The return value gets picked up by the then in the controller.
       console.log('API', res);
       this.groups = res;
       this.hiddenDivGroup = false;
+      loading.dismissAll();
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      loading.dismissAll();
       this.errorPopup(loading).present();
       return reason;
     });
@@ -65,7 +69,7 @@ export class SearchGroupByTournamentComponent {
           text: 'Ok',
           role: 'ok',
           handler: data => {
-            this.navCtrl.push(HomePage, {loading: loading});
+            //this.navCtrl.push(HomePage, {loading: loading});
           }
         }
       ]

@@ -29,6 +29,10 @@ export class SearchTeamComponent {
   }
 
   search(idGroup){
+    let loading = this.loadingCtrl.create({
+      content: 'Chargement des données...'
+    });
+    loading.present();
     if (idGroup !== undefined && idGroup !== null) this.idGroup = idGroup;
     else idGroup = this.idGroup;
     console.log('---------------------- SearchGroup -----------------------');
@@ -45,9 +49,11 @@ export class SearchTeamComponent {
       console.log('API', res);
       this.teams = res[0]["team"];
       this.hiddenDivTeam = false;
+      loading.dismissAll();
       return res;
     }, (reason)=> {
       console.log('ERREUR API : ', reason);
+      loading.dismissAll();
       this.errorPopup();
       return reason;
     });
@@ -73,7 +79,7 @@ export class SearchTeamComponent {
           role: 'ok',
           handler: data => {
             loading.dismissAll();
-            this.navCtrl.push('HomePage');
+            //this.navCtrl.push('HomePage');
           }
         }
       ]

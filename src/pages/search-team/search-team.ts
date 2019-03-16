@@ -36,7 +36,16 @@ export class SearchTeamPage {
   }
 
   selectGroup(group){
-    (group.id % 2 === 0) ? group["cycle"] = 2 : group["cycle"] = 3;
+    //(group.id % 2 === 0) ? group["cycle"] = 2 : group["cycle"] = 3;
+    if (group.name.match('CM1', 'CM2')) {
+      group["cycle"] = 3;
+    } else if (group.name.match('CP', 'CE1', 'CE1-CE2')) {
+      group["cycle"] = 2;
+    } else if (group.name.match('Collège')) {
+      group["cycle"] = 3;
+    } else {
+      group["cycle"] = 2;
+    }
     this.currentData.setGroup(group);
     localStorage.setItem('currentGroupT', JSON.stringify(group));
     this.hiddenGroup = true;

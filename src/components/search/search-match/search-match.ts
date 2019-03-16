@@ -30,8 +30,9 @@ export class SearchMatchComponent {
 
   search(idTeam){
     let loading = this.loadingCtrl.create({
-      content: 'Please wait...'
+      content: 'Chargement des données...'
     });
+    loading.present();
     if (idTeam !== undefined && idTeam !== null) this.idTeam = idTeam;
     else idTeam = this.idTeam;
     console.log('---------------------- SearchMatch -----------------------');
@@ -42,8 +43,10 @@ export class SearchMatchComponent {
       console.log('API', res);
       this.matchs = res;
       this.hiddenDivMatch = false;
+      loading.dismissAll();
       return res;
     }, (reason)=> {
+      loading.dismissAll();
       this.errorPopup(loading).present();
       console.log('ERREUR API : ', reason);
       return reason;
@@ -98,7 +101,7 @@ export class SearchMatchComponent {
           text: 'Ok',
           role: 'ok',
           handler: data => {
-            this.navCtrl.push(HomePage, {loading: loading});
+            //this.navCtrl.push(HomePage, {loading: loading});
           }
         }
       ]

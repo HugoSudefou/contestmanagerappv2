@@ -15,9 +15,9 @@ import {DataProvider} from "../data/data";
 @Injectable()
 export class HttpProvider {
   url = {
-    api : 'http://collab-lod.nexen.net:12345/api/',
-    apiVM : 'http://10.0.0.150/api/',
-    apiDev : 'http://127.0.0.1:8000/api/',
+    apiDev : 'http://collab-lod.nexen.net:12345/api/',
+    api : 'http://10.0.0.150/api/',
+    apiVM : 'http://127.0.0.1:8000/api/',
   };
   constructor(public http: HttpClient, public loadingCtrl: LoadingController, private currentData: DataProvider) {
     console.log('Hello HttpProvider Provider');

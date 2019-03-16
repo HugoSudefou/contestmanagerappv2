@@ -65,7 +65,7 @@ export class HomeTeamPage {
         {
           text: 'OK',
           handler: () => {
-            this.navCtrl.push(HomePage);
+            //this.navCtrl.push(HomePage);
           }
         }
       ]

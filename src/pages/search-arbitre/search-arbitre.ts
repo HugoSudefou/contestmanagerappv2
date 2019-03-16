@@ -43,7 +43,18 @@ export class SearchMatchPage {
   }
 
   selectGroup(group){
-    (group.id % 2 === 0) ? group["cycle"] = 2 : group["cycle"] = 3;
+    console.log(group.cycle)
+    if(group.cycle === undefined || group.cycle === null) {
+      if (group.name.match('CM1', 'CM2')) {
+        group["cycle"] = 3;
+      } else if (group.name.match('CP', 'CE1', 'CE1-CE2')) {
+        group["cycle"] = 2;
+      } else if (group.name.match('Collège')) {
+        group["cycle"] = 3;
+      } else {
+        group["cycle"] = 2;
+      }
+    }
     this.currentData.setGroup(group);
     localStorage.setItem('currentGroupA', JSON.stringify(group));
     this.hiddenGroup = true;
