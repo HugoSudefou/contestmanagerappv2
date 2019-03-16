@@ -41,7 +41,7 @@ export class SearchTeamPage {
       group["cycle"] = 3;
     } else if (group.name.match('CP', 'CE1', 'CE1-CE2')) {
       group["cycle"] = 2;
-    } else if (group.name.match('Collège')) {
+    } else if (group.name.match('Collège', 'College', '6e', '5e', '4e', '3e', '2nd', '1er', 'Ter', 'Terminal')) {
       group["cycle"] = 3;
     } else {
       group["cycle"] = 2;
